@@ -69,8 +69,8 @@ UIView *loadingView;
                              [UIImage imageNamed:@"loading10.gif"],
                              [UIImage imageNamed:@"loading11.gif"],
                              nil]];
-    [img setAnimationDuration:(2 / img.animationImages.count)];
-    [img setAnimationRepeatCount:30];
+    [img setAnimationDuration:(5 / img.animationImages.count)];
+    [img setAnimationRepeatCount:300];
     [img startAnimating];
     //[img setImage:[UIImage imageNamed:@"bender.jpg"]];
     [img setBackgroundColor:[UIColor clearColor]];
