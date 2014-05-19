@@ -17,4 +17,6 @@
 +(void)stopLoadingUI;
 +(void)stopLoadingUI:(id)handle;
 
++(NSString *)__debug_nsdata_as_string:(NSData *)data returnHex:(BOOL)returnhex;
+
 @end

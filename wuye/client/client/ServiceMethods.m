@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ServiceMethods.h"
 #import "dispatch/queue.h"
+#import "Utilities.h"
 #define  HTTP_TIMEOUT 30
 #define SERVICE_URL "http://76.74.178.94:81/api"
 
@@ -65,6 +66,9 @@ dispatch_queue_t dq;
     [req setHTTPMethod:method];
     [req setAllHTTPHeaderFields:dict];
     [self prepareHeader:req];
+    if ([[method uppercaseString] isEqualToString:@"POST"] && (body !=nil)) {
+        [req setHTTPBody:body];
+    }
     dispatch_async(dq, ^{
         NSError *error = nil;
         NSURLResponse *rsp = nil;
@@ -99,11 +103,15 @@ dispatch_queue_t dq;
     NSDictionary *reqobj = [NSDictionary dictionaryWithObjectsAndKeys:
                             cellno, @"mobile",
                             [[UIDevice currentDevice].identifierForVendor UUIDString], @"deviceinfo",
-                            0, @"type",
+                            @"0", @"type",
                             nil];
     NSError * err = nil;
     NSData *body = [NSJSONSerialization dataWithJSONObject:reqobj options:0 error:&err];
-    NSString *str = [NSString stringWithCString:body.bytes encoding:NSUTF8StringEncoding];
+    if (err!=nil) {
+        regFail(err);
+        return;
+    }
+    NSString *str = [Utilities __debug_nsdata_as_string:body returnHex:NO];
     NSLog(@"clientRegister body %@ %d %d", str, [str length], [body length]);
     [self httpPost:url httpCookies:nil requestHeaders:nil httpBody:body timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
         NSError * err = nil;

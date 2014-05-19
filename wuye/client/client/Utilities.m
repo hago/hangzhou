@@ -92,4 +92,21 @@ UIView *loadingView;
     NSLog(@"loading view stopped");
 }
 
++(NSString *)__debug_nsdata_as_string:(NSData *)data returnHex:(BOOL)returnhex
+{
+    if (data==nil) {
+        return @"";
+    }
+    NSString *prt;
+    if (!returnhex) {
+        char *cstr = (char *)malloc(sizeof(char)*[data length]);
+        [data getBytes:(void *)cstr length:[data length]];
+        prt = [NSString stringWithCString:cstr encoding:NSUTF8StringEncoding];
+        free(cstr);
+    } else {
+        prt = [data description];
+    }
+    return prt;
+}
+
 @end
