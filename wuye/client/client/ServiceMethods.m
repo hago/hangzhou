@@ -67,16 +67,17 @@ dispatch_queue_t dq;
     [req setAllHTTPHeaderFields:dict];
     [self prepareHeader:req];
     if ([[method uppercaseString] isEqualToString:@"POST"] && (body !=nil)) {
-        NSLog(@"set body: %@", [Utilities __debug_nsdata_as_string:body returnHex:NO]);
+        NSLog(@"set body: %@ %d", [Utilities __debug_nsdata_as_string:body returnHex:NO], [body length]);
         [req setHTTPBody:body];
     }
     dispatch_async(dq, ^{
         NSError *error = nil;
         NSURLResponse *rsp = nil;
-        NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&rsp error:&error];
+        NSData *data = nil;
+        data = [NSURLConnection sendSynchronousRequest:req returningResponse:&rsp error:&error];
         //error = [NSError errorWithDomain:@"" code:1 userInfo:NULL];
         if (error==nil) {
-            NSLog(@"http success %@", [NSString stringWithUTF8String:data.bytes]);
+            NSLog(@"http success %@ %d", [Utilities __debug_nsdata_as_string:data returnHex:NO], [data length]);
             dispatch_async(dispatch_get_main_queue(), ^{
                 httpSuccess(data);
             });
@@ -96,6 +97,7 @@ dispatch_queue_t dq;
     NSData *data = [NSData dataWithBytes:(const void *)buf length:strlen(buf)];
     NSString *authstring = [NSString stringWithFormat:@"Basic %@", [data base64EncodedStringWithOptions:0]];
     [req setValue:authstring forHTTPHeaderField:@"Authorization"];
+    [req setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
 }
 
 -(void)clientRegister:(NSString *)cellno onSuceess:(void (^)(NSInteger))regSuccess onFail:(void (^)(NSError *))regFail
@@ -115,11 +117,13 @@ dispatch_queue_t dq;
                             @"", @"city",
                             @"", @"district",
                             @"", @"campname",
+                            @"", @"campCode",
                             @"", @"bldNumber",
                             @"", @"unitNumber",
                             @"", @"roomNumber",
                             @"", @"communityId",
-                            [fmtr stringFromDate:[NSDate date]], @"validateCodeTime",
+                            @"", @"validationCode",
+                            [fmtr stringFromDate:[NSDate date]], @"validationCodeTime",
                             nil];
     NSError * err = nil;
     NSData *body = [NSJSONSerialization dataWithJSONObject:reqobj options:0 error:&err];
