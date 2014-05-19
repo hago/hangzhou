@@ -56,7 +56,7 @@ UIView *loadingView;
     NSLog(@"loading view %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
     UIImageView *img = [[UIImageView alloc] initWithFrame:rect];
     [img setAnimationImages:[NSArray arrayWithObjects:
-                            [UIImage imageNamed:@"loading0.gif"],
+                             [UIImage imageNamed:@"loading0.gif"],
                              [UIImage imageNamed:@"loading1.gif"],
                              [UIImage imageNamed:@"loading2.gif"],
                              [UIImage imageNamed:@"loading3.gif"],
