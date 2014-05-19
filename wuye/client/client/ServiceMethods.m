@@ -67,6 +67,7 @@ dispatch_queue_t dq;
     [req setAllHTTPHeaderFields:dict];
     [self prepareHeader:req];
     if ([[method uppercaseString] isEqualToString:@"POST"] && (body !=nil)) {
+        NSLog(@"set body: %@", [Utilities __debug_nsdata_as_string:body returnHex:NO]);
         [req setHTTPBody:body];
     }
     dispatch_async(dq, ^{
@@ -100,10 +101,25 @@ dispatch_queue_t dq;
 -(void)clientRegister:(NSString *)cellno onSuceess:(void (^)(NSInteger))regSuccess onFail:(void (^)(NSError *))regFail
 {
     NSString *url = [[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/Customer/CreateCustomer"];
+    NSString *fmt = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd" options:0 locale:[NSLocale systemLocale]];
+    NSDateFormatter *fmtr = [[NSDateFormatter alloc] init];
+    [fmtr setDateFormat:fmt];
     NSDictionary *reqobj = [NSDictionary dictionaryWithObjectsAndKeys:
                             cellno, @"mobile",
                             [[UIDevice currentDevice].identifierForVendor UUIDString], @"deviceinfo",
                             @"0", @"type",
+                            [NSNumber numberWithInt:0], @"customerId",
+                            @"x", @"username",
+                            @"1", @"gender",
+                            @"", @"province",
+                            @"", @"city",
+                            @"", @"district",
+                            @"", @"campname",
+                            @"", @"bldNumber",
+                            @"", @"unitNumber",
+                            @"", @"roomNumber",
+                            @"", @"communityId",
+                            [fmtr stringFromDate:[NSDate date]], @"validateCodeTime",
                             nil];
     NSError * err = nil;
     NSData *body = [NSJSONSerialization dataWithJSONObject:reqobj options:0 error:&err];
@@ -111,8 +127,8 @@ dispatch_queue_t dq;
         regFail(err);
         return;
     }
-    NSString *str = [Utilities __debug_nsdata_as_string:body returnHex:NO];
-    NSLog(@"clientRegister body %@ %d %d", str, [str length], [body length]);
+    //NSString *str = [Utilities __debug_nsdata_as_string:body returnHex:NO];
+    //NSLog(@"clientRegister body %@ %d %d", str, [str length], [body length]);
     [self httpPost:url httpCookies:nil requestHeaders:nil httpBody:body timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
         NSError * err = nil;
         NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
