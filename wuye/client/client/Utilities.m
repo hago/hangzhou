@@ -55,15 +55,24 @@ UIView *loadingView;
     CGRect rect = CGRectMake((canvas.size.width - LOADING_GIF_WIDTh) / 2, (canvas.size.height - LOADING_GIF_HEIGHT) / 2, LOADING_GIF_WIDTh, LOADING_GIF_HEIGHT);
     NSLog(@"loading view %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
     UIImageView *img = [[UIImageView alloc] initWithFrame:rect];
-    //[img setAnimationImages:[NSArray arrayWithObjects:
-     //                       [UIImage imageNamed:@"bender"]
-//                            , [UIImage imageNamed:@""]
-  //                          , [UIImage imageNamed:@""]
-    //                         , nil]];
-    //[img setAnimationDuration:(1 / img.animationImages.count)];
-    //[img setAnimationRepeatCount:30];
-    //[img startAnimating];
-    [img setImage:[UIImage imageNamed:@"bender.jpg"]];
+    [img setAnimationImages:[NSArray arrayWithObjects:
+                            [UIImage imageNamed:@"loading0.gif"],
+                             [UIImage imageNamed:@"loading1.gif"],
+                             [UIImage imageNamed:@"loading2.gif"],
+                             [UIImage imageNamed:@"loading3.gif"],
+                             [UIImage imageNamed:@"loading4.gif"],
+                             [UIImage imageNamed:@"loading5.gif"],
+                             [UIImage imageNamed:@"loading6.gif"],
+                             [UIImage imageNamed:@"loading7.gif"],
+                             [UIImage imageNamed:@"loading8.gif"],
+                             [UIImage imageNamed:@"loading9.gif"],
+                             [UIImage imageNamed:@"loading10.gif"],
+                             [UIImage imageNamed:@"loading11.gif"],
+                             nil]];
+    [img setAnimationDuration:(2 / img.animationImages.count)];
+    [img setAnimationRepeatCount:30];
+    [img startAnimating];
+    //[img setImage:[UIImage imageNamed:@"bender.jpg"]];
     [img setBackgroundColor:[UIColor clearColor]];
     //[controller.view setAlpha:0.50f];
     [cover addSubview:img];
