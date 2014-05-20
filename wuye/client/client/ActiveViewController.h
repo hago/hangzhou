@@ -10,6 +10,14 @@
 
 @interface ActiveViewController : UIViewController
 
+@property (retain, atomic) IBOutlet UIButton *btnnext;
+@property (retain, atomic) IBOutlet UIButton *btnresend;
+@property (retain, atomic) IBOutlet UITextField *txtcode;
+@property (retain, atomic) IBOutlet UILabel *lblcountdown;
+
+-(IBAction)next:(id)sender;
+-(IBAction)cellinputDone:(id)sender;
+-(IBAction)resend:(id)sender;
 -(void)setInfo:(NSString *)cell CustomerId:(NSUInteger)cid;
 
 @end
