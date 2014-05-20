@@ -100,7 +100,7 @@ dispatch_queue_t dq;
     [req setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
 }
 
--(void)clientRegister:(NSString *)cellno onSuceess:(void (^)(NSInteger))regSuccess onFail:(void (^)(NSError *))regFail
+-(void)clientRegister:(NSString *)cellno onSuceess:(void (^)(NSDictionary *))regSuccess onFail:(void (^)(NSError *))regFail
 {
     NSString *url = [[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/Customer/CreateCustomer"];
     NSString *fmt = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd" options:0 locale:[NSLocale systemLocale]];
@@ -150,7 +150,7 @@ dispatch_queue_t dq;
         NSLog(@"clientRegister returned %d", code);
         switch (code) {
             case 0:
-                regSuccess(0);
+                regSuccess(obj);
                 break;
             case -1:
                 //regSuccess(-1);

@@ -11,6 +11,6 @@
 @interface ServiceMethods : NSObject<NSURLConnectionDataDelegate>
 
 +(ServiceMethods *)getInstance;
--(void)clientRegister:(NSString *)cellno onSuceess:(void (^)(NSInteger code))regSuccess onFail:(void (^)(NSError *))regFail;
+-(void)clientRegister:(NSString *)cellno onSuceess:(void (^)(NSDictionary *))regSuccess onFail:(void (^)(NSError *))regFail;
 
 @end

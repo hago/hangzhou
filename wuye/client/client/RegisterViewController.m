@@ -68,11 +68,16 @@ id loadingView;
     }
     ServiceMethods *sm = [ServiceMethods getInstance];
     loadingView = [Utilities startLoadingUI];
-    [sm clientRegister:cellno onSuceess:^(NSInteger code) {
+    [sm clientRegister:cellno onSuceess:^(NSDictionary *info) {
         [Utilities stopLoadingUI:loadingView];
         NSLog(@"reg succ");
+        NSNumber *nu = [info objectForKey:@"customerId"];
+        NSUInteger cid = [nu integerValue];
         ActiveViewController *ac = [[UIStoryboard storyboardWithName:@"client" bundle:NULL] instantiateViewControllerWithIdentifier:@"activewindow"];
-        [[[UIApplication sharedApplication] keyWindow] setRootViewController:ac];
+        [ac setInfo:cellno CustomerId:cid];
+        [UIView transitionFromView:self.view toView:ac.view duration:1 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
+            [[[UIApplication sharedApplication] keyWindow] setRootViewController:ac];
+        }];
     } onFail:^(NSError *error) {
         [Utilities stopLoadingUI:loadingView];
         NSLog(@"reg fail %@", [error description]);

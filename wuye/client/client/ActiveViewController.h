@@ -10,4 +10,6 @@
 
 @interface ActiveViewController : UIViewController
 
+-(void)setInfo:(NSString *)cell CustomerId:(NSUInteger)cid;
+
 @end

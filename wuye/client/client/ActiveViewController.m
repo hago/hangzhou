@@ -14,6 +14,9 @@
 
 @implementation ActiveViewController
 
+NSString *cellno;
+NSUInteger customerid;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -45,5 +48,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)setInfo:(NSString *)cell CustomerId:(NSUInteger)cid
+{
+    cellno = cell;
+    customerid = cid;
+}
 
 @end
