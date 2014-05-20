@@ -12,5 +12,6 @@
 
 +(ServiceMethods *)getInstance;
 -(void)clientRegister:(NSString *)cellno onSuceess:(void (^)(NSDictionary *))regSuccess onFail:(void (^)(NSError *))regFail;
+-(void)checkCode:(NSString *)code CellNumber:(NSString *)cellno CustomerId:(NSUInteger)cid onSuceess:(void (^)(NSDictionary *))regSuccess onFail:(void (^)(NSError *))regFail;
 
 @end

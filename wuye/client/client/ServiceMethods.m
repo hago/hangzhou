@@ -164,4 +164,68 @@ dispatch_queue_t dq;
         regFail(error);
     }];
 }
+
+-(void)checkCode:(NSString *)code CellNumber:(NSString *)cellno CustomerId:(NSUInteger)cid onSuceess:(void (^)(NSDictionary *))regSuccess onFail:(void (^)(NSError *))regFail;
+{
+    NSString *url = [[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/Customer/CheckCode"];
+    NSString *fmt = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd" options:0 locale:[NSLocale systemLocale]];
+    NSDateFormatter *fmtr = [[NSDateFormatter alloc] init];
+    [fmtr setDateFormat:fmt];
+    NSDictionary *reqobj = [NSDictionary dictionaryWithObjectsAndKeys:
+                            cellno, @"mobile",
+                            [[UIDevice currentDevice].identifierForVendor UUIDString], @"deviceinfo",
+                            @"0", @"type",
+                            [NSNumber numberWithInt:cid], @"customerId",
+                            @"x", @"username",
+                            @"1", @"gender",
+                            @"", @"province",
+                            @"", @"city",
+                            @"", @"district",
+                            @"", @"campname",
+                            @"", @"campCode",
+                            @"", @"bldNumber",
+                            @"", @"unitNumber",
+                            @"", @"roomNumber",
+                            @"", @"communityId",
+                            code, @"validationCode",
+                            [fmtr stringFromDate:[NSDate date]], @"validationCodeTime",
+                            nil];
+    NSError * err = nil;
+    NSData *body = [NSJSONSerialization dataWithJSONObject:reqobj options:0 error:&err];
+    if (err!=nil) {
+        regFail(err);
+        return;
+    }
+    [self httpPost:url httpCookies:nil requestHeaders:nil httpBody:body timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
+        NSError * err = nil;
+        NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
+        if (err!=nil) {
+            regFail(err);
+            return;
+        }
+        NSNumber *jcode = [obj objectForKey:@"code"];
+        if (jcode==nil) {
+            err = [NSError errorWithDomain:@"clientRegister" code:-2000 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"code not found", @"description", nil]];
+            regFail(err);
+            return;
+        }
+        NSInteger code = [jcode integerValue];
+        NSLog(@"clientRegister returned %d", code);
+        switch (code) {
+            case 0:
+                regSuccess(obj);
+                break;
+            case -1:
+                //regSuccess(-1);
+                //break;
+            default:
+                err = [NSError errorWithDomain:@"clientRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %d", code], @"description", nil]];
+                regFail(err);
+                break;
+        }
+    } onFail:^(NSError *error) {
+        regFail(error);
+    }];
+}
+
 @end

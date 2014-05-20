@@ -72,7 +72,17 @@ id handle;
 
 -(IBAction)next:(id)sender
 {
-    
+    NSString *code = [self.txtcode text];
+    id loadingView = [Utilities startLoadingUI];
+    [[ServiceMethods getInstance] checkCode:code CellNumber:cellno CustomerId:customerid onSuceess:^(NSDictionary *info) {
+        [Utilities stopLoadingUI:loadingView];
+        NSLog(@"check succ");
+    } onFail:^(NSError *error) {
+        [Utilities stopLoadingUI:loadingView];
+        NSLog(@"check fail %@", [error description]);
+        UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"" message:@"激活失败" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [al show];
+    }];
 }
 
 -(IBAction)cellinputDone:(id)sender
@@ -107,7 +117,7 @@ id handle;
 
 -(void)timerfunc
 {
-    NSLog(@"timer running");
+    //NSLog(@"timer running");
     if (secs > 0) {
         NSString *txt = [NSString stringWithFormat:@"验证短信已发出，请在%u秒内输入", secs];
         [lblcountdown setText:txt];
