@@ -7,6 +7,7 @@
 //
 
 #import "Utilities.h"
+#import <CommonCrypto/CommonCrypto.h>
 #define LOADING_GIF_HEIGHT 66
 #define LOADING_GIF_WIDTh 66
 
@@ -116,6 +117,24 @@ UIView *loadingView;
         prt = [data description];
     }
     return prt;
+}
+
++(NSString *)md5:(NSString *)str UsingEncoding:(NSStringEncoding)encoding
+{
+    const char *cstr = [str cStringUsingEncoding:encoding];
+    return [Utilities md5Data:(const void *)cstr DataLength:strlen(cstr)];
+}
+
++(NSString *)md5Data:(const void *)buffer DataLength:(NSUInteger)length
+{
+    CC_MD5_CTX ctx;
+    CC_MD5_Init(&ctx);
+    CC_MD5_Update(&ctx, buffer, length);
+    char *md;
+    CC_MD5_Final((unsigned char *)md, &ctx);
+    NSString *ret;
+    ret = [NSString stringWithCString:md encoding:NSUTF8StringEncoding];
+    return ret;
 }
 
 @end

@@ -17,6 +17,9 @@
 +(void)stopLoadingUI;
 +(void)stopLoadingUI:(id)handle;
 
++(NSString *)md5:(NSString *)str UsingEncoding:(NSStringEncoding)encoding;
++(NSString *)md5Data:(const void *)buffer DataLength:(NSUInteger)length;
+
 +(NSString *)__debug_nsdata_as_string:(NSData *)data returnHex:(BOOL)returnhex;
 
 @end
