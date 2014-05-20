@@ -94,7 +94,7 @@ dispatch_queue_t dq;
 -(void)prepareHeader:(NSMutableURLRequest *)req
 {
     NSString *basestr = @"zhijian:zhijian";
-    NSString *b64str = [NSString stringWithBase64EncodedString:basestr];
+    NSString *b64str = [basestr base64EncodedString];
     NSString *authstring = [NSString stringWithFormat:@"Basic %@", b64str];
     [req setValue:authstring forHTTPHeaderField:@"Authorization"];
     [req setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
