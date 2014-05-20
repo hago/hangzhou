@@ -10,6 +10,7 @@
 #import <CommonCrypto/CommonCrypto.h>
 #define LOADING_GIF_HEIGHT 66
 #define LOADING_GIF_WIDTh 66
+#define REGISTERED_USERINFO_KEY @"REGISTERED_USERINFO_KEY"
 
 @implementation Utilities
 
@@ -18,7 +19,18 @@ UIView *loadingView;
 
 +(BOOL)isRegistered
 {
-    return NO;
+    return [Utilities getUserInfo] != nil;
+}
+
++(NSDictionary *)getUserInfo
+{
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:REGISTERED_USERINFO_KEY];
+    return dict;
+}
+
++(void)saveUserInfo:(NSDictionary *)userinfo
+{
+    [[NSUserDefaults standardUserDefaults] setObject:userinfo forKey:REGISTERED_USERINFO_KEY];
 }
 
 +(BOOL)isValidCellnumber:(NSString *)input

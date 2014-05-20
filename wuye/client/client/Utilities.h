@@ -11,6 +11,8 @@
 @interface Utilities : NSObject
 
 +(BOOL)isRegistered;
++(NSDictionary *)getUserInfo;
++(void)saveUserInfo:(NSDictionary *)userinfo;
 +(BOOL)isValidCellnumber:(NSString *)input;
 +(id)startLoadingUI;
 +(id)startLoadingUI:(UIViewController *)controller;
