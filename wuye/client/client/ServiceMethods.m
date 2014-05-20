@@ -10,6 +10,7 @@
 #import "ServiceMethods.h"
 #import "dispatch/queue.h"
 #import "Utilities.h"
+#import "Base64.h"
 #define  HTTP_TIMEOUT 30
 #define SERVICE_URL "http://76.74.178.94:81/api"
 
@@ -93,9 +94,8 @@ dispatch_queue_t dq;
 -(void)prepareHeader:(NSMutableURLRequest *)req
 {
     NSString *basestr = @"zhijian:zhijian";
-    const char *buf = [basestr cStringUsingEncoding:NSUTF8StringEncoding];
-    NSData *data = [NSData dataWithBytes:(const void *)buf length:strlen(buf)];
-    NSString *authstring = [NSString stringWithFormat:@"Basic %@", [data base64EncodedStringWithOptions:0]];
+    NSString *b64str = [NSString stringWithBase64EncodedString:basestr];
+    NSString *authstring = [NSString stringWithFormat:@"Basic %@", b64str];
     [req setValue:authstring forHTTPHeaderField:@"Authorization"];
     [req setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
 }
