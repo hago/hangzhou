@@ -22,10 +22,25 @@
     if (![Utilities isRegistered]) {
         vc = [[UIStoryboard storyboardWithName:@"client" bundle:NULL] instantiateViewControllerWithIdentifier:@"regwindow"];
     } else {
-        
+        vc = [self createMainController];
     }
     self.window.rootViewController = vc;
     return YES;
+}
+
+-(UITabBarController *)createMainController
+{
+    UITabBarController *tb = (UITabBarController *)[[UIStoryboard storyboardWithName:@"client" bundle:NULL] instantiateViewControllerWithIdentifier:@"mainwindow"];
+    UIViewController *vc;
+    NSMutableArray *vclist = [NSMutableArray array];
+    vc =[[UIStoryboard storyboardWithName:@"client" bundle:NULL] instantiateViewControllerWithIdentifier:@"myparcels"];
+    [vclist addObject:vc];
+    vc =[[UIStoryboard storyboardWithName:@"client" bundle:NULL] instantiateViewControllerWithIdentifier:@"receivedparcels"];
+    [vclist addObject:vc];
+    //vc =[[UIStoryboard storyboardWithName:@"client" bundle:NULL] instantiateViewControllerWithIdentifier:@"myparcels"];
+    //[vclist addObject:vc];
+    [tb setViewControllers:vclist];
+    return tb;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
