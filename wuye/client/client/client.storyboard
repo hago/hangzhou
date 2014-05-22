@@ -138,7 +138,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的包裹" id="Orp-Pb-bpa"/>
+                    <tabBarItem key="tabBarItem" title="我的包裹" image="packages_default.png" id="Orp-Pb-bpa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SI1-2g-SZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,7 +148,7 @@
         <scene sceneID="dPK-Hd-8zu">
             <objects>
                 <tabBarController storyboardIdentifier="mainwindow" definesPresentationContext="YES" id="Xpi-yW-Avf" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="bye-fo-YVQ">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -176,13 +176,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="已收包裹" id="a2o-SK-dCg"/>
+                    <tabBarItem key="tabBarItem" title="已收包裹" image="packages_selected.png" id="a2o-SK-dCg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeL-ee-6EE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="591" y="1065"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="packages_default.png" width="48" height="48"/>
+        <image name="packages_selected.png" width="48" height="48"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
