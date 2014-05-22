@@ -12,7 +12,7 @@
 #import "Utilities.h"
 #import "Base64.h"
 #define  HTTP_TIMEOUT 30
-#define SERVICE_URL "http://76.74.178.94:81/api"
+#define SERVICE_URL @"http://76.74.178.94:81/api"
 
 @interface ServiceMethods ()
 
@@ -100,9 +100,9 @@ dispatch_queue_t dq;
     [req setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
 }
 
--(void)clientRegister:(NSString *)cellno onSuceess:(void (^)(NSDictionary *))regSuccess onFail:(void (^)(NSError *))regFail
+-(void)clientRegister:(NSString *)cellno onSuceess:(void (^)(NSDictionary *))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/Customer/CreateCustomer"];
+    NSString *url = [SERVICE_URL stringByAppendingString:@"/Customer/CreateCustomer"];
     NSString *fmt = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd" options:0 locale:[NSLocale systemLocale]];
     NSDateFormatter *fmtr = [[NSDateFormatter alloc] init];
     [fmtr setDateFormat:fmt];
@@ -128,7 +128,7 @@ dispatch_queue_t dq;
     NSError * err = nil;
     NSData *body = [NSJSONSerialization dataWithJSONObject:reqobj options:0 error:&err];
     if (err!=nil) {
-        regFail(err);
+        apiFail(err);
         return;
     }
     //NSString *str = [Utilities __debug_nsdata_as_string:body returnHex:NO];
@@ -137,37 +137,37 @@ dispatch_queue_t dq;
         NSError * err = nil;
         NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
         if (err!=nil) {
-            regFail(err);
+            apiFail(err);
             return;
         }
         NSNumber *jcode = [obj objectForKey:@"code"];
         if (jcode==nil) {
             err = [NSError errorWithDomain:@"clientRegister" code:-2000 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"code not found", @"description", nil]];
-            regFail(err);
+            apiFail(err);
             return;
         }
         NSInteger code = [jcode integerValue];
         NSLog(@"clientRegister returned %d", code);
         switch (code) {
             case 0:
-                regSuccess(obj);
+                apiSuccess(obj);
                 break;
             case -1:
                 //regSuccess(-1);
                 //break;
             default:
                 err = [NSError errorWithDomain:@"clientRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %d", code], @"description", nil]];
-                regFail(err);
+                apiFail(err);
                 break;
         }
     } onFail:^(NSError *error) {
-        regFail(error);
+        apiFail(error);
     }];
 }
 
--(void)checkCode:(NSString *)code CellNumber:(NSString *)cellno CustomerId:(NSUInteger)cid onSuceess:(void (^)(NSDictionary *))regSuccess onFail:(void (^)(NSError *))regFail;
+-(void)checkCode:(NSString *)code CellNumber:(NSString *)cellno CustomerId:(NSUInteger)cid onSuceess:(void (^)(NSDictionary *))apiSuccess onFail:(void (^)(NSError *))apiFail;
 {
-    NSString *url = [[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/Customer/CheckCode"];
+    NSString *url = [SERVICE_URL stringByAppendingString:@"/Customer/CheckCode"];
     NSString *fmt = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd" options:0 locale:[NSLocale systemLocale]];
     NSDateFormatter *fmtr = [[NSDateFormatter alloc] init];
     [fmtr setDateFormat:fmt];
@@ -193,38 +193,90 @@ dispatch_queue_t dq;
     NSError * err = nil;
     NSData *body = [NSJSONSerialization dataWithJSONObject:reqobj options:0 error:&err];
     if (err!=nil) {
-        regFail(err);
+        apiFail(err);
         return;
     }
     [self httpPost:url httpCookies:nil requestHeaders:nil httpBody:body timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
         NSError * err = nil;
         NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
         if (err!=nil) {
-            regFail(err);
+            apiFail(err);
             return;
         }
         NSNumber *jcode = [obj objectForKey:@"code"];
         if (jcode==nil) {
             err = [NSError errorWithDomain:@"clientRegister" code:-2000 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"code not found", @"description", nil]];
-            regFail(err);
+            apiFail(err);
             return;
         }
         NSInteger code = [jcode integerValue];
         NSLog(@"clientRegister returned %d", code);
         switch (code) {
             case 0:
-                regSuccess(obj);
+                apiSuccess(obj);
                 break;
             case -1:
                 //regSuccess(-1);
                 //break;
             default:
                 err = [NSError errorWithDomain:@"clientRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %d", code], @"description", nil]];
-                regFail(err);
+                apiFail(err);
                 break;
         }
     } onFail:^(NSError *error) {
-        regFail(error);
+        apiFail(error);
+    }];
+}
+
+-(void)unsignedPacels:(NSString *)customerId PageNumber:(NSUInteger)pageno onSuceess:(void (^)(NSArray *))apiSuccess onFail:(void (^)(NSError *))apiFail
+{
+    NSString *url = [NSString stringWithFormat:@"%@/parcel/Unsigned/%@/%d", SERVICE_URL, customerId, pageno];
+    [self httpGet:url httpCookies:nil requestHeaders:nil timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
+        NSLog(@"unsignedPacels success");
+        NSError *err = nil;
+        NSArray *list = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
+        if (err!=nil) {
+            NSLog(@"unsignedPacels parse fail %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
+            apiFail(err);
+        }
+        apiSuccess(list);
+    } onFail:^(NSError *error) {
+        NSLog(@"unsignedPacels fail %@", [error description]);
+        apiFail(error);
+    }];
+}
+
+-(void)signedPacels:(NSString *)customerId PageNumber:(NSUInteger)pageno onSuceess:(void (^)(NSArray *))apiSuccess onFail:(void (^)(NSError *))apiFail
+{
+    NSString *url = [NSString stringWithFormat:@"%@/parcel/Signed/%@/%d", SERVICE_URL, customerId, pageno];
+    [self httpGet:url httpCookies:nil requestHeaders:nil timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
+        NSLog(@"signedPacels success");
+        NSError *err = nil;
+        NSArray *list = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
+        if (err!=nil) {
+            NSLog(@"signedPacels parse fail %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
+            apiFail(err);
+        }
+        apiSuccess(list);
+    } onFail:^(NSError *error) {
+        NSLog(@"signedPacels fail %@", [error description]);
+    }];
+}
+
+-(void)getPacel:(NSString *)parcelId onSuceess:(void (^)(NSDictionary *))apiSuccess onFail:(void (^)(NSError *))apiFail
+{
+    NSString *url = [NSString stringWithFormat:@"%@/parcel/SpecifiedParcel/%@", SERVICE_URL, parcelId];
+    [self httpGet:url httpCookies:nil requestHeaders:nil timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
+        NSLog(@"unsignedPacels success");
+        NSError *err = nil;
+        NSDictionary *parcel = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
+        if (err!=nil) {
+            NSLog(@"getPacel parse fail %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
+            apiFail(err);
+        }
+        apiSuccess(parcel);
+    } onFail:^(NSError *error) {
+        NSLog(@"unsignedPacels fail %@", [error description]);
     }];
 }
 
