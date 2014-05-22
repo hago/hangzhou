@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		110BC60B192B063C004D35C5 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 110BC60A192B063C004D35C5 /* Base64.m */; };
 		11174846192C3EF800E99951 /* MyParcelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11174845192C3EF800E99951 /* MyParcelsViewController.m */; };
+		11174849192C4C8400E99951 /* ReceivedParcelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11174848192C4C8400E99951 /* ReceivedParcelsViewController.m */; };
 		11211CE51929D3DE0093575F /* loading0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 11211CD91929D3DE0093575F /* loading0.gif */; };
 		11211CE61929D3DE0093575F /* loading1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 11211CDA1929D3DE0093575F /* loading1.gif */; };
 		11211CE71929D3DE0093575F /* loading10.gif in Resources */ = {isa = PBXBuildFile; fileRef = 11211CDB1929D3DE0093575F /* loading10.gif */; };
@@ -64,6 +65,8 @@
 		110BC60A192B063C004D35C5 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		11174844192C3EF800E99951 /* MyParcelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyParcelsViewController.h; sourceTree = "<group>"; };
 		11174845192C3EF800E99951 /* MyParcelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyParcelsViewController.m; sourceTree = "<group>"; };
+		11174847192C4C8400E99951 /* ReceivedParcelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivedParcelsViewController.h; sourceTree = "<group>"; };
+		11174848192C4C8400E99951 /* ReceivedParcelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivedParcelsViewController.m; sourceTree = "<group>"; };
 		11211CD91929D3DE0093575F /* loading0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading0.gif; sourceTree = "<group>"; };
 		11211CDA1929D3DE0093575F /* loading1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading1.gif; sourceTree = "<group>"; };
 		11211CDB1929D3DE0093575F /* loading10.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading10.gif; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 				11B0017A19290E7300073386 /* ActiveViewController.m */,
 				11174844192C3EF800E99951 /* MyParcelsViewController.h */,
 				11174845192C3EF800E99951 /* MyParcelsViewController.m */,
+				11174847192C4C8400E99951 /* ReceivedParcelsViewController.h */,
+				11174848192C4C8400E99951 /* ReceivedParcelsViewController.m */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -372,6 +377,7 @@
 				110BC60B192B063C004D35C5 /* Base64.m in Sources */,
 				11B0017B19290E7300073386 /* ActiveViewController.m in Sources */,
 				11B001711928C91E00073386 /* RegisterViewController.m in Sources */,
+				11174849192C4C8400E99951 /* ReceivedParcelsViewController.m in Sources */,
 				11B0016B1928C8A500073386 /* ServiceMethods.m in Sources */,
 				11B001491928C83700073386 /* AppDelegate.m in Sources */,
 				11B0016C1928C8A500073386 /* Utilities.m in Sources */,

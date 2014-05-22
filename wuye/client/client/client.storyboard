@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="103" y="505"/>
         </scene>
-        <!--View Controller - 已收包裹-->
+        <!--Received Parcels View Controller - 已收包裹-->
         <scene sceneID="qNX-N0-as6">
             <objects>
-                <viewController storyboardIdentifier="receivedparcels" id="DLd-3Q-nLx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="receivedparcels" id="DLd-3Q-nLx" customClass="ReceivedParcelsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C0r-aD-ixx"/>
                         <viewControllerLayoutGuide type="bottom" id="7oB-4b-CYl"/>
