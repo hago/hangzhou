@@ -9,6 +9,7 @@
 #import "ActiveViewController.h"
 #import "ServiceMethods.h"
 #import "Utilities.h"
+#import "AppDelegate.h"
 #define COUNTDOWN_SECONDS 60
 
 @interface ActiveViewController ()
@@ -77,6 +78,12 @@ id handle;
     [[ServiceMethods getInstance] checkCode:code CellNumber:cellno CustomerId:customerid onSuceess:^(NSDictionary *info) {
         [Utilities stopLoadingUI:loadingView];
         NSLog(@"check succ");
+        [Utilities saveUserInfo:info];
+        AppDelegate *dele = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        UIViewController *vc = [dele createMainController];
+        [UIView transitionFromView:self.view toView:vc.view duration:1 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
+            [[[UIApplication sharedApplication] keyWindow] setRootViewController:vc];
+        }];
     } onFail:^(NSError *error) {
         [Utilities stopLoadingUI:loadingView];
         NSLog(@"check fail %@", [error description]);
