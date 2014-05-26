@@ -19,7 +19,6 @@ UIView *loadingView;
 
 +(BOOL)isRegistered
 {
-    return YES;
     return [Utilities getUserInfo] != nil;
 }
 
