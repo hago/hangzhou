@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyParcelsViewController : UIViewController
+@interface MyParcelsViewController : UIViewController<UITableViewDataSource>
+
+@property (strong, atomic) IBOutlet UIActivityIndicatorView *indicator;
+@property (strong, atomic) IBOutlet UITableView *list;
 
 @end

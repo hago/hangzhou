@@ -16,6 +16,11 @@
 
 @implementation MyParcelsViewController
 
+@synthesize indicator;
+@synthesize list;
+
+NSArray *myparcels;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,6 +34,24 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.indicator setHidesWhenStopped:YES];
+    [self.indicator setHidden:NO];
+    [self.indicator startAnimating];
+    NSDictionary *user = [Utilities getUserInfo];
+    NSString *cell = [user objectForKey:@"mobile"];
+    if (cell == nil) {
+        //
+    }
+    [[ServiceMethods getInstance] unsignedPacels:cell PageNumber:1 onSuceess:^(NSArray *parcels) {
+        NSLog(@"my pacels succeed");
+        [self.indicator stopAnimating];
+        NSLog(@"my parcels %d, %@", [parcels count], [parcels description]);
+        myparcels = parcels;
+        [self.list reloadData];
+    } onFail:^(NSError *error) {
+        NSLog(@"my pacels failed");
+        [self.indicator stopAnimating];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,5 +70,18 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+// table data source protocol
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return (myparcels==nil) ? 0 : [myparcels count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //NSLog(@"%@", [[myparcels objectAtIndex:indexPath.row] description]);
+    return nil;
+}
+// end of table data source protocol
 
 @end
