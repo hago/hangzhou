@@ -213,7 +213,7 @@ dispatch_queue_t dq;
         NSLog(@"clientRegister returned %d", code);
         switch (code) {
             case 0:
-                apiSuccess(obj);
+                apiSuccess(reqobj);
                 break;
             case -1:
                 //regSuccess(-1);
@@ -230,7 +230,7 @@ dispatch_queue_t dq;
 
 -(void)unsignedPacels:(NSString *)customerId PageNumber:(NSUInteger)pageno onSuceess:(void (^)(NSArray *))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [NSString stringWithFormat:@"%@/parcel/Unsigned/%@/%d", SERVICE_URL, customerId, pageno];
+    NSString *url = [NSString stringWithFormat:@"%@/pacel/Unsigned/%@/%d", SERVICE_URL, customerId, pageno];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
         NSLog(@"unsignedPacels success");
         NSError *err = nil;
@@ -248,7 +248,7 @@ dispatch_queue_t dq;
 
 -(void)signedPacels:(NSString *)customerId PageNumber:(NSUInteger)pageno onSuceess:(void (^)(NSArray *))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [NSString stringWithFormat:@"%@/parcel/Signed/%@/%d", SERVICE_URL, customerId, pageno];
+    NSString *url = [NSString stringWithFormat:@"%@/pacel/Signed/%@/%d", SERVICE_URL, customerId, pageno];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
         NSLog(@"signedPacels success");
         NSError *err = nil;
@@ -265,7 +265,7 @@ dispatch_queue_t dq;
 
 -(void)getPacel:(NSString *)parcelId onSuceess:(void (^)(NSDictionary *))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [NSString stringWithFormat:@"%@/parcel/SpecifiedParcel/%@", SERVICE_URL, parcelId];
+    NSString *url = [NSString stringWithFormat:@"%@/pacel/SpecifiedParcel/%@", SERVICE_URL, parcelId];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
         NSLog(@"unsignedPacels success");
         NSError *err = nil;
