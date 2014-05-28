@@ -33,6 +33,10 @@ NSArray *myparcels;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"刷新"];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.list addSubview:refreshControl];
     // Do any additional setup after loading the view.
     [self.indicator setHidesWhenStopped:YES];
     [self.indicator setHidden:NO];
@@ -52,6 +56,10 @@ NSArray *myparcels;
         NSLog(@"my pacels failed");
         [self.indicator stopAnimating];
     }];
+}
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,7 +88,13 @@ NSArray *myparcels;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //NSLog(@"%@", [[myparcels objectAtIndex:indexPath.row] description]);
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyParcelsViewController" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyParcelsViewController"];
+    }
+    NSDictionary *dict = [myparcels objectAtIndex:indexPath.row];
+    cell.textLabel.text = [dict objectForKey:@""];
+    return cell;
 }
 // end of table data source protocol
 
