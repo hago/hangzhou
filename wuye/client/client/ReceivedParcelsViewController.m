@@ -20,7 +20,7 @@
 
 @implementation ReceivedParcelsViewController
 
-NSArray *myparcels;
+NSArray *signedparcels;
 UIRefreshControl *refreshControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -70,7 +70,7 @@ UIRefreshControl *refreshControl;
         NSLog(@"my pacels succeed");
         [refreshControl endRefreshing];
         NSLog(@"my parcels %d, %@", [parcels count], [parcels description]);
-        myparcels = parcels;
+        signedparcels = parcels;
         [self.list reloadData];
     } onFail:^(NSError *error) {
         NSLog(@"my pacels failed");
@@ -98,7 +98,7 @@ UIRefreshControl *refreshControl;
 // table data source protocol
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (myparcels==nil) ? 0 : [myparcels count];
+    return (signedparcels==nil) ? 0 : [signedparcels count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,7 +109,7 @@ UIRefreshControl *refreshControl;
      cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER];
      cell.accessoryType = UITableViewCellAccessoryCheckmark;
      }*/
-    NSDictionary *dict = [myparcels objectAtIndex:indexPath.row];
+    NSDictionary *dict = [signedparcels objectAtIndex:indexPath.row];
     //NSNumber *pid = [dict objectForKey:@"parcelId"];
     NSString *datestr = [dict objectForKey:@"arrivedDate"];
     NSString *fetchdatestr = [dict objectForKey:@"signDate"];
