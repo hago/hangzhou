@@ -44,11 +44,20 @@ UIRefreshControl *refreshControl;
     UINib *nib = [UINib nibWithNibName:@"MyParcelsCell" bundle:nil];
     [self.list registerNib:nib forCellReuseIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER];
     
-    //[refreshControl beginRefreshing];
+    [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(startRefresh) userInfo:nil repeats:NO];
+    //[self loadingParcels];
+}
+
+- (void)startRefresh
+{
+    NSLog(@"timer");
+    [self.list setContentOffset:CGPointMake(0, -refreshControl.frame.size.height*2) animated:YES];
+    [refreshControl beginRefreshing];
     [self loadingParcels];
 }
 
 - (void)refresh:(UIRefreshControl *)refreshControl {
+    NSLog(@"refreshing");
     [self loadingParcels];
 }
 
