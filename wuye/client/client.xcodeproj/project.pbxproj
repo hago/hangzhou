@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		110BBCF31936D61800BA8924 /* MyParcelsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110BBCF21936D61800BA8924 /* MyParcelsCell.xib */; };
+		110BBCF71937002100BA8924 /* SignedParcelsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110BBCF61937002100BA8924 /* SignedParcelsCell.xib */; };
 		110BC60B192B063C004D35C5 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 110BC60A192B063C004D35C5 /* Base64.m */; };
 		11174846192C3EF800E99951 /* MyParcelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11174845192C3EF800E99951 /* MyParcelsViewController.m */; };
 		11174849192C4C8400E99951 /* ReceivedParcelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11174848192C4C8400E99951 /* ReceivedParcelsViewController.m */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		110BBCF21936D61800BA8924 /* MyParcelsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyParcelsCell.xib; sourceTree = "<group>"; };
+		110BBCF61937002100BA8924 /* SignedParcelsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignedParcelsCell.xib; sourceTree = "<group>"; };
 		110BC5FF192AEDF8004D35C5 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		110BC601192AF123004D35C5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		110BC609192B063C004D35C5 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				11B001471928C83700073386 /* AppDelegate.h */,
 				11B001481928C83700073386 /* AppDelegate.m */,
 				110BBCF21936D61800BA8924 /* MyParcelsCell.xib */,
+				110BBCF61937002100BA8924 /* SignedParcelsCell.xib */,
 				11B0014A1928C83700073386 /* Images.xcassets */,
 				11B0013F1928C83700073386 /* Supporting Files */,
 				11B0017919290E7300073386 /* ActiveViewController.h */,
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11F56701192E212600EF6EF1 /* loading8.gif in Resources */,
+				110BBCF71937002100BA8924 /* SignedParcelsCell.xib in Resources */,
 				11F566F5192E212600EF6EF1 /* icon@2x.png in Resources */,
 				11F56700192E212600EF6EF1 /* loading7.gif in Resources */,
 				11F56702192E212600EF6EF1 /* loading9.gif in Resources */,

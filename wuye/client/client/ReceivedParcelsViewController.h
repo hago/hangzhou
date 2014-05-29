@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReceivedParcelsViewController : UIViewController
+@interface ReceivedParcelsViewController : UIViewController<UITableViewDataSource>
+
+@property (strong, atomic) IBOutlet UITableView *list;
 
 @end
