@@ -10,16 +10,20 @@
 #import "ServiceMethods.h"
 #import "Utilities.h"
 
+#define MY_PARCEL_CELL_REUSE_IDENTIFIER @"MyParcelsCell"
+
 @interface MyParcelsViewController ()
+
+-(void)loadingParcels;
 
 @end
 
 @implementation MyParcelsViewController
 
-@synthesize indicator;
 @synthesize list;
 
 NSArray *myparcels;
+UIRefreshControl *refreshControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,33 +37,38 @@ NSArray *myparcels;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl = [[UIRefreshControl alloc] init];
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"刷新"];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.list addSubview:refreshControl];
-    // Do any additional setup after loading the view.
-    [self.indicator setHidesWhenStopped:YES];
-    [self.indicator setHidden:NO];
-    [self.indicator startAnimating];
+    UINib *nib = [UINib nibWithNibName:@"MyParcelsCell" bundle:nil];
+    [self.list registerNib:nib forCellReuseIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER];
+    
+    //[refreshControl beginRefreshing];
+    [self loadingParcels];
+}
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [self loadingParcels];
+}
+
+-(void)loadingParcels
+{
     NSDictionary *user = [Utilities getUserInfo];
-    NSString *cell = [user objectForKey:@"mobile"];
+    NSString *cell = [user objectForKey:@"customerId"];
     if (cell == nil) {
         //
     }
     [[ServiceMethods getInstance] unsignedPacels:cell PageNumber:1 onSuceess:^(NSArray *parcels) {
         NSLog(@"my pacels succeed");
-        [self.indicator stopAnimating];
+        [refreshControl endRefreshing];
         NSLog(@"my parcels %d, %@", [parcels count], [parcels description]);
         myparcels = parcels;
         [self.list reloadData];
     } onFail:^(NSError *error) {
         NSLog(@"my pacels failed");
-        [self.indicator stopAnimating];
+        [refreshControl endRefreshing];
     }];
-}
-
-- (void)refresh:(UIRefreshControl *)refreshControl {
-    [refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,14 +97,37 @@ NSArray *myparcels;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //NSLog(@"%@", [[myparcels objectAtIndex:indexPath.row] description]);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyParcelsViewController" forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyParcelsViewController"];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
+    /*if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }*/
     NSDictionary *dict = [myparcels objectAtIndex:indexPath.row];
-    cell.textLabel.text = [dict objectForKey:@""];
+    //NSNumber *pid = [dict objectForKey:@"parcelId"];
+    NSString *datestr = [dict objectForKey:@"arrivedDate"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@送达的快递", [datestr substringToIndex:10]];
+    [cell sizeToFit];
     return cell;
 }
 // end of table data source protocol
+
+// table delegate
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *dict = [myparcels objectAtIndex:indexPath.row];
+    NSString *qrcodeurl = [dict objectForKey:@"twoDCode"];
+    [Utilities startLoadingUI];
+    [[ServiceMethods getInstance] httpGet:qrcodeurl httpCookies:nil requestHeaders:nil timeout:45 onSuceess:^(NSData *response) {
+        NSLog(@"qrcode image success");
+        [Utilities stopLoadingUI];
+        //UIImage *img = [UIImage imageWithData:response];
+        //UIImageView *imgview = [[UIImageView alloc] initWithImage:img];
+    } onFail:^(NSError *error) {
+        NSLog(@"qrcode image failed");
+        [Utilities stopLoadingUI];
+    }];
+}
+// end of table delegate
 
 @end
