@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UITouchableImageViewProtocol.h"
 
-@interface MyParcelsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface MyParcelsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITouchableImageViewProtocol>
 
 @property (strong, atomic) IBOutlet UITableView *list;
 

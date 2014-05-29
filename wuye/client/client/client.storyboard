@@ -144,6 +144,7 @@
                                 <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="8an-oU-jUV" id="23h-8f-Id4"/>
+                                    <outlet property="delegate" destination="8an-oU-jUV" id="zlT-Xx-vcN"/>
                                 </connections>
                             </tableView>
                         </subviews>

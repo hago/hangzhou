@@ -9,6 +9,7 @@
 #import "MyParcelsViewController.h"
 #import "ServiceMethods.h"
 #import "Utilities.h"
+#import "UITouchableImageView.h"
 
 #define MY_PARCEL_CELL_REUSE_IDENTIFIER @"MyParcelsCell"
 
@@ -124,19 +125,31 @@ UIRefreshControl *refreshControl;
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"tap");
     NSDictionary *dict = [myparcels objectAtIndex:indexPath.row];
     NSString *qrcodeurl = [dict objectForKey:@"twoDCode"];
     [Utilities startLoadingUI];
     [[ServiceMethods getInstance] httpGet:qrcodeurl httpCookies:nil requestHeaders:nil timeout:45 onSuceess:^(NSData *response) {
         NSLog(@"qrcode image success");
         [Utilities stopLoadingUI];
-        //UIImage *img = [UIImage imageWithData:response];
-        //UIImageView *imgview = [[UIImageView alloc] initWithImage:img];
+        UIImage *img = [UIImage imageWithData:response];
+        UITouchableImageView *imgview = [[UITouchableImageView alloc] initWithImage:img];
+        [imgview setClickDelegate:self];
+        [imgview setUserInteractionEnabled:YES];
+        float top = (self.view.frame.size.height - 280) / 2;
+        [imgview setFrame:CGRectMake(20, top, 280, 280)];
+        [self.view addSubview:imgview];
     } onFail:^(NSError *error) {
         NSLog(@"qrcode image failed");
         [Utilities stopLoadingUI];
     }];
 }
+
 // end of table delegate
+
+-(void)touchDown:(UIImageView *)sender byTouches:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [sender removeFromSuperview];
+}
 
 @end
