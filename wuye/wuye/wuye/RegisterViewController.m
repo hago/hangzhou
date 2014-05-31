@@ -61,11 +61,15 @@
         return;
     }
     ServiceMethods *sm = [ServiceMethods getInstance];
+    [Utilities startLoadingUI:self];
     [sm wuyeRegister:cellno onSuceess:^(NSInteger code) {
         NSLog(@"wuye reg succ");
+        [Utilities stopLoadingUI];
         [Utilities saveUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithInteger:code], @"code",
                                  nil]];
     } onFail:^(NSError *error) {
+        [Utilities stopLoadingUI];
         NSLog(@"wuye reg fail");
     }];
 }

@@ -15,10 +15,11 @@
 @implementation Utilities
 
 NSMutableDictionary *handleDict = nil;
-UIView *loadingView;
+UIActivityIndicatorView *indicator = nil;
 
 +(BOOL)isRegistered
 {
+    return NO;
     return [Utilities getUserInfo] != nil;
 }
 
@@ -49,68 +50,26 @@ UIView *loadingView;
     return i==1;
 }
 
-+(id)startLoadingUI
++(void)startLoadingUI:(UIViewController *)controller
 {
-    UIViewController *controller = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-    return [self startLoadingUI:controller];
-}
-
-+(id)startLoadingUI:(UIViewController *)controller
-{
-    if (handleDict == nil) {
-        handleDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:nil];
+    if (indicator==nil) {
+        indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     }
-    id key = [controller class];
     CGRect canvas = controller.view.frame;
-    NSLog(@"parent view %f %f %f %f", canvas.origin.x, canvas.origin.y, canvas.size.width, canvas.size.height);
-    UIView *cover = [[UIView alloc] initWithFrame:canvas];
-    [cover setBackgroundColor:[UIColor clearColor]];
-    CGRect rect = CGRectMake((canvas.size.width - LOADING_GIF_WIDTh) / 2, (canvas.size.height - LOADING_GIF_HEIGHT) / 2, LOADING_GIF_WIDTh, LOADING_GIF_HEIGHT);
-    NSLog(@"loading view %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
-    UIImageView *img = [[UIImageView alloc] initWithFrame:rect];
-    [img setAnimationImages:[NSArray arrayWithObjects:
-                             [UIImage imageNamed:@"loading0.gif"],
-                             [UIImage imageNamed:@"loading1.gif"],
-                             [UIImage imageNamed:@"loading2.gif"],
-                             [UIImage imageNamed:@"loading3.gif"],
-                             [UIImage imageNamed:@"loading4.gif"],
-                             [UIImage imageNamed:@"loading5.gif"],
-                             [UIImage imageNamed:@"loading6.gif"],
-                             [UIImage imageNamed:@"loading7.gif"],
-                             [UIImage imageNamed:@"loading8.gif"],
-                             [UIImage imageNamed:@"loading9.gif"],
-                             [UIImage imageNamed:@"loading10.gif"],
-                             [UIImage imageNamed:@"loading11.gif"],
-                             nil]];
-    [img setAnimationDuration:(5 / img.animationImages.count)];
-    [img setAnimationRepeatCount:300];
-    [img startAnimating];
-    //[img setImage:[UIImage imageNamed:@"bender.jpg"]];
-    [img setBackgroundColor:[UIColor clearColor]];
-    //[controller.view setAlpha:0.50f];
-    [cover addSubview:img];
-    [controller.view addSubview:cover];
-    [handleDict setObject:cover forKey:key];
-    loadingView = cover;
+    [indicator setCenter:CGPointMake(canvas.size.width/2, canvas.size.height/2)];
+    [indicator setContentMode:UIViewContentModeCenter];
+    [controller.view setUserInteractionEnabled:NO];
+    [indicator startAnimating];
+    [controller.view addSubview:indicator];
+    [controller.view bringSubviewToFront:indicator];
     NSLog(@"loading view started");
-    return key;
 }
 
 +(void)stopLoadingUI
 {
-    [loadingView performSelectorOnMainThread:@selector(removeFromSuperview) withObject:nil waitUntilDone:NO];
-}
-
-+(void)stopLoadingUI:(id)handle
-{
-    UIView *view = [handleDict objectForKey:handle];
-    if (view==nil) {
-        NSLog(@"loading view not found");
-        return;
-    }
-    [handleDict removeObjectForKey:handle];
-    //[view performSelectorOnMainThread:@selector(removeFromSuperview) withObject:nil waitUntilDone:NO];
-    [view removeFromSuperview];
+    [indicator.superview performSelectorOnMainThread:@selector(setUserInteractionEnabled:) withObject:[NSNumber numberWithBool:YES] waitUntilDone:NO];
+    [indicator performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:NO];
+    [indicator performSelectorOnMainThread:@selector(removeFromSuperview) withObject:nil waitUntilDone:NO];
     NSLog(@"loading view stopped");
 }
 
@@ -119,10 +78,13 @@ UIView *loadingView;
     if (data==nil) {
         return @"";
     }
+    //NSLog(@"data length %d", [data length]);
     NSString *prt;
     if (!returnhex) {
-        char *cstr = (char *)malloc(sizeof(char)*[data length]);
+        NSUInteger l = [data length];
+        char *cstr = (char *)malloc(sizeof(char)*(l+1));
         [data getBytes:(void *)cstr length:[data length]];
+        cstr[l] = '\x0';
         prt = [NSString stringWithCString:cstr encoding:NSUTF8StringEncoding];
         free(cstr);
     } else {

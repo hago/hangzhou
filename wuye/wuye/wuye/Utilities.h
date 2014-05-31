@@ -15,10 +15,8 @@
 +(NSDictionary *)getUserInfo;
 +(void)saveUserInfo:(NSDictionary *)userinfo;
 +(BOOL)isValidCellnumber:(NSString *)input;
-+(id)startLoadingUI;
-+(id)startLoadingUI:(UIViewController *)controller;
++(void)startLoadingUI:(UIViewController *)controller;
 +(void)stopLoadingUI;
-+(void)stopLoadingUI:(id)handle;
 
 +(NSString *)md5:(NSString *)str UsingEncoding:(NSStringEncoding)encoding;
 +(NSString *)md5Data:(const void *)buffer DataLength:(NSUInteger)length;

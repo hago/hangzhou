@@ -11,7 +11,7 @@
 @interface ServiceMethods : NSObject<NSURLConnectionDataDelegate>
 
 +(ServiceMethods *)getInstance;
--(void)wuyeRegister:(NSString *)cellno onSuceess:(void (^)(NSInteger code))regSuccess onFail:(void (^)(NSError *))regFail;
+-(void)wuyeRegister:(NSString *)cellno onSuceess:(void (^)(NSInteger code))apiSuccess onFail:(void (^)(NSError *))apiFail;
 
 -(void)httpGet:(NSString *)url httpCookies:(NSDictionary *)cookies requestHeaders:(NSDictionary *)headers timeout:(NSTimeInterval)timeout onSuceess:(void (^)(NSData *response))httpSuccess onFail:(void (^)(NSError *))httpFail;
 -(void)httpPost:(NSString *)url httpCookies:(NSDictionary *)cookies requestHeaders:(NSDictionary *)headers httpBody:(NSData *)body timeout:(NSTimeInterval)timeout onSuceess:(void (^)(NSData *response))httpSuccess onFail:(void (^)(NSError *))httpFail;

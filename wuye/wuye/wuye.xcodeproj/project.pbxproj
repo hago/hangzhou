@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		116EC056193A18C0006C0D75 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 116EC055193A18C0006C0D75 /* Base64.m */; };
 		11B000F31927364500073386 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F21927364500073386 /* Foundation.framework */; };
 		11B000F51927364500073386 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F41927364500073386 /* CoreGraphics.framework */; };
 		11B000F71927364500073386 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F61927364500073386 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		116EC054193A18C0006C0D75 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		116EC055193A18C0006C0D75 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		11B000EF1927364500073386 /* wuye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wuye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B000F21927364500073386 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		11B000F41927364500073386 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -118,6 +121,8 @@
 		11B000F81927364500073386 /* wuye */ = {
 			isa = PBXGroup;
 			children = (
+				116EC054193A18C0006C0D75 /* Base64.h */,
+				116EC055193A18C0006C0D75 /* Base64.m */,
 				11B001011927364500073386 /* AppDelegate.h */,
 				11B001021927364500073386 /* AppDelegate.m */,
 				11B001041927364500073386 /* Images.xcassets */,
@@ -262,6 +267,7 @@
 				11B0012519273A0600073386 /* RegisterViewController.m in Sources */,
 				11B0012819273AE900073386 /* Utilities.m in Sources */,
 				11B0012B1927508400073386 /* ServiceMethods.m in Sources */,
+				116EC056193A18C0006C0D75 /* Base64.m in Sources */,
 				11B000FF1927364500073386 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +467,7 @@
 				11B0011D1927364500073386 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11B0011E1927364500073386 /* Build configuration list for PBXNativeTarget "wuyeTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +476,7 @@
 				11B001201927364500073386 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
