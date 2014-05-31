@@ -121,8 +121,10 @@ UIView *loadingView;
     }
     NSString *prt;
     if (!returnhex) {
-        char *cstr = (char *)malloc(sizeof(char)*[data length]);
+        NSUInteger l = [data length];
+        char *cstr = (char *)malloc(sizeof(char)*(l+1));
         [data getBytes:(void *)cstr length:[data length]];
+        cstr[l] = '\x0';
         prt = [NSString stringWithCString:cstr encoding:NSUTF8StringEncoding];
         free(cstr);
     } else {
