@@ -123,6 +123,49 @@ dispatch_queue_t dq;
     }];
 }
 
+-(void)registerDeliveryNo:(NSDictionary *)req onSuceess:(void (^)(NSInteger code))apiSuccess onFail:(void (^)(NSError *))apiFail
+{
+    NSString *url = [[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/CustomerType2/CreatePacelCustomer"];
+    NSError *error = nil;
+    NSData *body = [NSJSONSerialization dataWithJSONObject:req options:0 error:&error];
+    if (error!=nil) {
+        error = [NSError errorWithDomain:@"invalid request" code:-1 userInfo:nil];
+        apiFail(error);
+        return;
+    }
+    [self httpPost:url httpCookies:nil requestHeaders:nil httpBody:body timeout:30 onSuceess:^(NSData *response) {
+        NSLog(@"register delivery ok");
+        NSLog(@"%@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
+        NSError *err = nil;
+        NSDictionary *obj = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
+        if (err!=nil) {
+            apiFail(err);
+            return;
+        }
+        NSNumber *jcode = [obj objectForKey:@"code"];
+        if (jcode==nil) {
+            err = [NSError errorWithDomain:@"wuyeRegister" code:-2000 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"code not found", @"description", nil]];
+            apiFail(err);
+            return;
+        }
+        NSInteger code = [jcode integerValue];
+        NSLog(@"registerDeliveryNo returned %d", code);
+        switch (code) {
+            case 0:
+                apiSuccess(0);
+                break;
+            case -1:
+            default:
+                err = [NSError errorWithDomain:@"wuyeRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %d", code], @"description", nil]];
+                apiFail(err);
+                break;
+        }
+    } onFail:^(NSError *error) {
+        NSLog(@"register delivery fail");
+        apiFail(error);
+    }];
+}
+
 -(void)prepareHeader:(NSMutableURLRequest *)req
 {
     NSString *basestr = @"zhijian:zhijian";
