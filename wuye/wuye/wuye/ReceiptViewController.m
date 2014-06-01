@@ -106,10 +106,13 @@
                           [userinfo objectForKey:@"wuyemobile"], @"wuyemobile",
                           pacel, @"pacel",
                           nil];
+    [Utilities startLoadingUI:self];
     [[ServiceMethods getInstance] registerDeliveryNo:dict onSuceess:^(NSInteger code) {
+        [Utilities stopLoadingUI];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"记录快件成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } onFail:^(NSError *error) {
+        [Utilities stopLoadingUI];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"出错了" message:[error description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }];
