@@ -19,7 +19,6 @@ UIActivityIndicatorView *indicator = nil;
 
 +(BOOL)isRegistered
 {
-    return NO;
     return [Utilities getUserInfo] != nil;
 }
 
