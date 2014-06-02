@@ -7,6 +7,10 @@
 //
 
 #import "RedeemViewController.h"
+#import "ServiceMethods.h"
+#import "Utilities.h"
+
+#define SCANNER_MARGIN 20
 
 @interface RedeemViewController ()
 
@@ -26,12 +30,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    float th = self.tabBarController.tabBar.frame.size.height;
     // Do any additional setup after loading the view.
     //ZBarImageScanner *scanner = [[ZBarImageScanner alloc] init];
     readerView = [[ZBarReaderView alloc] init];
     [readerView setReaderDelegate:self];
     [self.view addSubview:readerView];
-    CGRect rect = CGRectMake(0, 20, 320, 300);
+    CGRect vcr = self.view.frame;
+    CGRect rect = CGRectMake(vcr.origin.x + SCANNER_MARGIN, vcr.origin.y + SCANNER_MARGIN, vcr.size.width - 2*SCANNER_MARGIN, vcr.size.height - th - 2*SCANNER_MARGIN);
     [readerView setFrame:rect];
 }
 
@@ -65,11 +72,29 @@
 
 - (void)readerView:(ZBarReaderView*)view didReadSymbols:(ZBarSymbolSet*)syms fromImage:(UIImage*)img
 {
-    // do something useful with results
     [readerView stop];
+    NSString *url = nil;
     for(ZBarSymbol *sym in syms) {
         NSLog(@"detect %@", sym.data);
+        url = sym.data;
         break;
+    }
+    if (url == nil) {
+        [readerView start];
+    } else {
+        [Utilities startLoadingUI:self];
+        NSLog(@"qr url %@", url);
+        [[ServiceMethods getInstance] httpGet:url httpCookies:nil requestHeaders:nil timeout:30 onSuceess:^(NSData *response) {
+            NSLog(@"qr url ok %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
+            [Utilities stopLoadingUI];
+            NSError *error = nil;
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
+            [readerView start];
+        } onFail:^(NSError *error) {
+            NSLog(@"qr url fail");
+            [Utilities stopLoadingUI];
+            [readerView start];
+        }];
     }
 }
 
