@@ -455,7 +455,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/suncjs/projects/hangzhou/wuye/libs/ZBarSDK,
+					"$(SRCROOT)/../libs/ZBarSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "923E06F9-B9BA-4853-86F1-1BD244F40E32";
@@ -477,7 +477,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/suncjs/projects/hangzhou/wuye/libs/ZBarSDK,
+					"$(SRCROOT)/../libs/ZBarSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "923E06F9-B9BA-4853-86F1-1BD244F40E32";
