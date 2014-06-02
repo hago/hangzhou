@@ -27,6 +27,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //ZBarImageScanner *scanner = [[ZBarImageScanner alloc] init];
+    readerView = [[ZBarReaderView alloc] init];
+    [readerView setReaderDelegate:self];
+    [self.view addSubview:readerView];
+    CGRect rect = CGRectMake(0, 20, 320, 300);
+    [readerView setFrame:rect];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,5 +51,26 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void) viewDidAppear: (BOOL) animated
+{
+    // run the reader when the view is visible
+    [readerView start];
+}
+
+- (void) viewWillDisappear: (BOOL) animated
+{
+    [readerView stop];
+}
+
+- (void)readerView:(ZBarReaderView*)view didReadSymbols:(ZBarSymbolSet*)syms fromImage:(UIImage*)img
+{
+    // do something useful with results
+    [readerView stop];
+    for(ZBarSymbol *sym in syms) {
+        NSLog(@"detect %@", sym.data);
+        break;
+    }
+}
 
 @end

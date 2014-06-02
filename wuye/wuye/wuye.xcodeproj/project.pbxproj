@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		116EC056193A18C0006C0D75 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 116EC055193A18C0006C0D75 /* Base64.m */; };
+		118E1BD4193C851000223D10 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 118E1BD3193C851000223D10 /* libiconv.dylib */; };
 		11B000F31927364500073386 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F21927364500073386 /* Foundation.framework */; };
 		11B000F51927364500073386 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F41927364500073386 /* CoreGraphics.framework */; };
 		11B000F71927364500073386 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F61927364500073386 /* UIKit.framework */; };
@@ -26,6 +27,9 @@
 		11B0012B1927508400073386 /* ServiceMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B0012A1927508400073386 /* ServiceMethods.m */; };
 		11CFEAA9193B690A004C188D /* ReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CFEAA8193B690A004C188D /* ReceiptViewController.m */; };
 		11CFEAAC193B6929004C188D /* RedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CFEAAB193B6929004C188D /* RedeemViewController.m */; };
+		11DCD5EC193CA29A006A139A /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118E1BD1193C830700223D10 /* libzbar.a */; };
+		11DCD5FB193CA6AC006A139A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DCD5FA193CA6AC006A139A /* CoreMedia.framework */; };
+		11DCD5FD193CA6D6006A139A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DCD5FC193CA6D6006A139A /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,8 @@
 /* Begin PBXFileReference section */
 		116EC054193A18C0006C0D75 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		116EC055193A18C0006C0D75 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		118E1BD1193C830700223D10 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = ../libs/ZBarSDK/libzbar.a; sourceTree = "<group>"; };
+		118E1BD3193C851000223D10 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		11B000EF1927364500073386 /* wuye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wuye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B000F21927364500073386 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		11B000F41927364500073386 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,6 +75,20 @@
 		11CFEAA8193B690A004C188D /* ReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptViewController.m; sourceTree = "<group>"; };
 		11CFEAAA193B6929004C188D /* RedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedeemViewController.h; sourceTree = "<group>"; };
 		11CFEAAB193B6929004C188D /* RedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedeemViewController.m; sourceTree = "<group>"; };
+		11DCD5EE193CA590006A139A /* zbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zbar.h; sourceTree = "<group>"; };
+		11DCD5EF193CA590006A139A /* ZBarCameraSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCameraSimulator.h; sourceTree = "<group>"; };
+		11DCD5F0193CA590006A139A /* ZBarCaptureReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCaptureReader.h; sourceTree = "<group>"; };
+		11DCD5F1193CA590006A139A /* ZBarHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarHelpController.h; sourceTree = "<group>"; };
+		11DCD5F2193CA590006A139A /* ZBarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImage.h; sourceTree = "<group>"; };
+		11DCD5F3193CA590006A139A /* ZBarImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImageScanner.h; sourceTree = "<group>"; };
+		11DCD5F4193CA590006A139A /* ZBarReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderController.h; sourceTree = "<group>"; };
+		11DCD5F5193CA590006A139A /* ZBarReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderView.h; sourceTree = "<group>"; };
+		11DCD5F6193CA590006A139A /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
+		11DCD5F7193CA590006A139A /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
+		11DCD5F8193CA590006A139A /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
+		11DCD5F9193CA61D006A139A /* ZBarCVImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCVImage.h; sourceTree = "<group>"; };
+		11DCD5FA193CA6AC006A139A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		11DCD5FC193CA6D6006A139A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +96,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11DCD5FD193CA6D6006A139A /* AVFoundation.framework in Frameworks */,
+				11DCD5FB193CA6AC006A139A /* CoreMedia.framework in Frameworks */,
+				11DCD5EC193CA29A006A139A /* libzbar.a in Frameworks */,
+				118E1BD4193C851000223D10 /* libiconv.dylib in Frameworks */,
 				11B000F51927364500073386 /* CoreGraphics.framework in Frameworks */,
 				11B000F71927364500073386 /* UIKit.framework in Frameworks */,
 				11B000F31927364500073386 /* Foundation.framework in Frameworks */,
@@ -117,6 +141,10 @@
 		11B000F11927364500073386 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				11DCD5FC193CA6D6006A139A /* AVFoundation.framework */,
+				11DCD5FA193CA6AC006A139A /* CoreMedia.framework */,
+				118E1BD3193C851000223D10 /* libiconv.dylib */,
+				118E1BD1193C830700223D10 /* libzbar.a */,
 				11CFEAA5193B66AF004C188D /* libzbar.a */,
 				11B000F21927364500073386 /* Foundation.framework */,
 				11B000F41927364500073386 /* CoreGraphics.framework */,
@@ -129,6 +157,7 @@
 		11B000F81927364500073386 /* wuye */ = {
 			isa = PBXGroup;
 			children = (
+				11DCD5ED193CA57B006A139A /* ZBarSDK */,
 				116EC054193A18C0006C0D75 /* Base64.h */,
 				116EC055193A18C0006C0D75 /* Base64.m */,
 				11B001011927364500073386 /* AppDelegate.h */,
@@ -177,6 +206,25 @@
 				11B001141927364500073386 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		11DCD5ED193CA57B006A139A /* ZBarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				11DCD5F9193CA61D006A139A /* ZBarCVImage.h */,
+				11DCD5EE193CA590006A139A /* zbar.h */,
+				11DCD5EF193CA590006A139A /* ZBarCameraSimulator.h */,
+				11DCD5F0193CA590006A139A /* ZBarCaptureReader.h */,
+				11DCD5F1193CA590006A139A /* ZBarHelpController.h */,
+				11DCD5F2193CA590006A139A /* ZBarImage.h */,
+				11DCD5F3193CA590006A139A /* ZBarImageScanner.h */,
+				11DCD5F4193CA590006A139A /* ZBarReaderController.h */,
+				11DCD5F5193CA590006A139A /* ZBarReaderView.h */,
+				11DCD5F6193CA590006A139A /* ZBarReaderViewController.h */,
+				11DCD5F7193CA590006A139A /* ZBarSDK.h */,
+				11DCD5F8193CA590006A139A /* ZBarSymbol.h */,
+			);
+			path = ZBarSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,18 +445,21 @@
 		11B0011C1927364500073386 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiguo Ma (9QG3K6B9YZ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wuye/wuye-Prefix.pch";
 				INFOPLIST_FILE = "wuye/wuye-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/wuye/ZBarSDK",
-					/Users/suncjs/libs/ZBarSDK,
+					/Users/suncjs/projects/hangzhou/wuye/libs/ZBarSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "923E06F9-B9BA-4853-86F1-1BD244F40E32";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -416,18 +467,21 @@
 		11B0011D1927364500073386 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiguo Ma (9QG3K6B9YZ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wuye/wuye-Prefix.pch";
 				INFOPLIST_FILE = "wuye/wuye-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/wuye/ZBarSDK",
-					/Users/suncjs/libs/ZBarSDK,
+					/Users/suncjs/projects/hangzhou/wuye/libs/ZBarSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "923E06F9-B9BA-4853-86F1-1BD244F40E32";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

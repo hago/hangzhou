@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBarSDK.h"
 
-@interface RedeemViewController : UIViewController
+@interface RedeemViewController : UIViewController<ZBarReaderViewDelegate> {
+    ZBarReaderView *readerView;
+}
 
 @end
