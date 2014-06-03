@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define IS_IOS_7_OR_LATER ([Utilities getMajorVersion]>=7)
 
 @interface Utilities : NSObject
 
@@ -17,6 +18,9 @@
 +(BOOL)isValidCellnumber:(NSString *)input;
 +(void)startLoadingUI:(UIViewController *)controller;
 +(void)stopLoadingUI;
+
++(NSUInteger)getMajorVersion;
++(NSUInteger)getMinorVersion;
 
 +(NSString *)md5:(NSString *)str UsingEncoding:(NSStringEncoding)encoding;
 +(NSString *)md5Data:(const void *)buffer DataLength:(NSUInteger)length;

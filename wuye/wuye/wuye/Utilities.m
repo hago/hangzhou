@@ -16,6 +16,8 @@
 
 NSMutableDictionary *handleDict = nil;
 UIActivityIndicatorView *indicator = nil;
+NSInteger majorVersion = -1;
+NSInteger minorVersion = -1;
 
 +(BOOL)isRegistered
 {
@@ -31,6 +33,30 @@ UIActivityIndicatorView *indicator = nil;
 +(void)saveUserInfo:(NSDictionary *)userinfo
 {
     [[NSUserDefaults standardUserDefaults] setObject:userinfo forKey:REGISTERED_USERINFO_KEY];
+}
+
++(NSUInteger)getMajorVersion
+{
+    if (majorVersion < 0) {
+        NSString *verstr = [[UIDevice currentDevice] systemVersion];
+        NSRange r = [verstr rangeOfString:@"."];
+        if (r.location == NSNotFound) {
+            majorVersion = [verstr integerValue];
+            minorVersion = 0;
+        } else {
+            majorVersion = [[verstr substringToIndex:r.location] integerValue];
+            minorVersion = [[verstr substringFromIndex:r.location+1] integerValue];
+        }
+    }
+    return majorVersion;
+}
+
++(NSUInteger)getMinorVersion
+{
+    if (minorVersion < 0) {
+        [Utilities getMajorVersion];
+    }
+    return majorVersion;
 }
 
 +(BOOL)isValidCellnumber:(NSString *)input
