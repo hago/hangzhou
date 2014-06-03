@@ -19,8 +19,6 @@
 		11B0010C1927364500073386 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B0010B1927364500073386 /* XCTest.framework */; };
 		11B0010D1927364500073386 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F21927364500073386 /* Foundation.framework */; };
 		11B0010E1927364500073386 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F61927364500073386 /* UIKit.framework */; };
-		11B001161927364500073386 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 11B001141927364500073386 /* InfoPlist.strings */; };
-		11B001181927364500073386 /* wuyeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B001171927364500073386 /* wuyeTests.m */; };
 		11B001221927394700073386 /* wuye.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B001211927394700073386 /* wuye.storyboard */; };
 		11B0012519273A0600073386 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B0012419273A0600073386 /* RegisterViewController.m */; };
 		11B0012819273AE900073386 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B0012719273AE900073386 /* Utilities.m */; };
@@ -60,9 +58,6 @@
 		11B001041927364500073386 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		11B0010A1927364500073386 /* wuyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wuyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B0010B1927364500073386 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		11B001131927364500073386 /* wuyeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "wuyeTests-Info.plist"; sourceTree = "<group>"; };
-		11B001151927364500073386 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		11B001171927364500073386 /* wuyeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wuyeTests.m; sourceTree = "<group>"; };
 		11B001211927394700073386 /* wuye.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = wuye.storyboard; sourceTree = "<group>"; };
 		11B0012319273A0600073386 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		11B0012419273A0600073386 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
@@ -123,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				11B000F81927364500073386 /* wuye */,
-				11B001111927364500073386 /* wuyeTests */,
 				11B000F11927364500073386 /* Frameworks */,
 				11B000F01927364500073386 /* Products */,
 			);
@@ -186,24 +180,6 @@
 				11B000FB1927364500073386 /* InfoPlist.strings */,
 				11B000FE1927364500073386 /* main.m */,
 				11B001001927364500073386 /* wuye-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		11B001111927364500073386 /* wuyeTests */ = {
-			isa = PBXGroup;
-			children = (
-				11B001171927364500073386 /* wuyeTests.m */,
-				11B001121927364500073386 /* Supporting Files */,
-			);
-			path = wuyeTests;
-			sourceTree = "<group>";
-		};
-		11B001121927364500073386 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				11B001131927364500073386 /* wuyeTests-Info.plist */,
-				11B001141927364500073386 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -312,7 +288,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11B001161927364500073386 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +313,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11B001181927364500073386 /* wuyeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,14 +331,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				11B000FC1927364500073386 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		11B001141927364500073386 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				11B001151927364500073386 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
