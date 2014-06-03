@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YKO-1L-E5y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="YKO-1L-E5y">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -9,15 +9,11 @@
         <scene sceneID="bE2-yG-XZk">
             <objects>
                 <viewController storyboardIdentifier="regwindow" id="YKO-1L-E5y" customClass="RegisterViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Kav-XC-5LW"/>
-                        <viewControllerLayoutGuide type="bottom" id="HHm-1J-uXf"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Lr7-Qx-t6X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号注册" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDI-VJ-4xx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号注册" minimumFontSize="17" id="jDI-VJ-4xx">
                                 <rect key="frame" x="60" y="129" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -26,7 +22,7 @@
                                     <action selector="cellinputDone:" destination="YKO-1L-E5y" eventType="editingDidEndOnExit" id="XyD-t0-C56"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIS-cS-3Ar">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dIS-cS-3Ar">
                                 <rect key="frame" x="108" y="359" width="105" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="下一步">
@@ -36,10 +32,11 @@
                                     <action selector="next:" destination="YKO-1L-E5y" eventType="touchDown" id="nbl-as-Sel"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2e-Ia-aTw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <navigationBar contentMode="scaleToFill" id="F2e-Ia-aTw">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.55399450920000004" green="0.70963329119999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                 <items>
                                     <navigationItem title="注册" id="xbr-46-eTj"/>
                                 </items>
@@ -47,6 +44,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="btnnext" destination="dIS-cS-3Ar" id="qie-di-Zfe"/>
                         <outlet property="txtcell" destination="jDI-VJ-4xx" id="ec9-eC-DaY"/>
@@ -60,15 +58,11 @@
         <scene sceneID="t1n-5B-wAF">
             <objects>
                 <viewController storyboardIdentifier="receipt" id="Htv-LB-9hh" customClass="ReceiptViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="e80-P3-Rrb"/>
-                        <viewControllerLayoutGuide type="bottom" id="kpp-Tj-j15"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rjl-Jd-gBx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="15010191326" borderStyle="roundedRect" placeholder="请输入收件人手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g14-Aq-ozt">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="15010191326" borderStyle="roundedRect" placeholder="请输入收件人手机号" minimumFontSize="17" id="g14-Aq-ozt">
                                 <rect key="frame" x="67" y="99" width="187" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -77,7 +71,7 @@
                                     <action selector="txtInputDone:" destination="Htv-LB-9hh" eventType="editingDidEndOnExit" id="8JE-d4-uf3"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入快递单号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wJq-NS-DHP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入快递单号" minimumFontSize="17" id="wJq-NS-DHP">
                                 <rect key="frame" x="67" y="158" width="187" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -86,7 +80,7 @@
                                     <action selector="txtInputDone:" destination="Htv-LB-9hh" eventType="editingDidEndOnExit" id="POk-DM-WKF"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhz-6D-qdk">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lhz-6D-qdk">
                                 <rect key="frame" x="137" y="348" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="下一步">
@@ -133,10 +127,6 @@
         <scene sceneID="W5c-JE-5dp">
             <objects>
                 <viewController storyboardIdentifier="consume" id="1fR-fi-MIL" customClass="RedeemViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eYm-Xn-Y7a"/>
-                        <viewControllerLayoutGuide type="bottom" id="Dmw-N5-aNi"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gMF-Ot-r8B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
