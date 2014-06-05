@@ -143,7 +143,7 @@ UIView *loadingView;
 {
     CC_MD5_CTX ctx;
     CC_MD5_Init(&ctx);
-    CC_MD5_Update(&ctx, buffer, length);
+    CC_MD5_Update(&ctx, buffer, (unsigned int)length);
     char *md;
     CC_MD5_Final((unsigned char *)md, &ctx);
     NSString *ret;

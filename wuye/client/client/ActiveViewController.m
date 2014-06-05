@@ -126,7 +126,7 @@ id handle;
 {
     //NSLog(@"timer running");
     if (secs > 0) {
-        NSString *txt = [NSString stringWithFormat:@"验证短信已发出，请在%u秒内输入", secs];
+        NSString *txt = [NSString stringWithFormat:@"验证短信已发出，请在%lu秒内输入", secs];
         [lblcountdown setText:txt];
         secs--;
     } else {

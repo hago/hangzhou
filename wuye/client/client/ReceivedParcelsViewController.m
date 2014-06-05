@@ -69,7 +69,7 @@ UIRefreshControl *refreshControl;
     [[ServiceMethods getInstance] signedPacels:cell PageNumber:1 onSuceess:^(NSArray *parcels) {
         NSLog(@"my pacels succeed");
         [refreshControl endRefreshing];
-        NSLog(@"my parcels %d, %@", [parcels count], [parcels description]);
+        NSLog(@"my parcels %lu, %@", (unsigned long)[parcels count], [parcels description]);
         signedparcels = parcels;
         [self.list reloadData];
     } onFail:^(NSError *error) {

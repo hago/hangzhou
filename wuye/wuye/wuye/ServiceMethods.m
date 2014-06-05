@@ -65,7 +65,7 @@ dispatch_queue_t dq;
     [req setAllHTTPHeaderFields:dict];
     [self prepareHeader:req];
     if ([[method uppercaseString] isEqualToString:@"POST"] && (body !=nil)) {
-        NSLog(@"set body: %@ %d", [Utilities __debug_nsdata_as_string:body returnHex:NO], [body length]);
+        NSLog(@"set body: %@ %lu", [Utilities __debug_nsdata_as_string:body returnHex:NO], (unsigned long)[body length]);
         [req setHTTPBody:body];
     }
     dispatch_async(dq, ^{
@@ -75,7 +75,7 @@ dispatch_queue_t dq;
         data = [NSURLConnection sendSynchronousRequest:req returningResponse:&rsp error:&error];
         //error = [NSError errorWithDomain:@"" code:1 userInfo:NULL];
         if (error==nil) {
-            NSLog(@"http success %@ %d", [Utilities __debug_nsdata_as_string:data returnHex:NO], [data length]);
+            NSLog(@"http success %@ %lu", [Utilities __debug_nsdata_as_string:data returnHex:NO], (unsigned long)[data length]);
             dispatch_async(dispatch_get_main_queue(), ^{
                 httpSuccess(data);
             });
@@ -106,14 +106,14 @@ dispatch_queue_t dq;
             return;
         }
         NSInteger code = [jcode integerValue];
-        NSLog(@"clientRegister returned %d", code);
+        NSLog(@"clientRegister returned %ld", (long)code);
         switch (code) {
             case 0:
                 apiSuccess(0);
                 break;
             case -1:
             default:
-                err = [NSError errorWithDomain:@"wuyeRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %d", code], @"description", nil]];
+                err = [NSError errorWithDomain:@"wuyeRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %ld", (long)code], @"description", nil]];
                 apiFail(err);
                 break;
         }
@@ -149,14 +149,14 @@ dispatch_queue_t dq;
             return;
         }
         NSInteger code = [jcode integerValue];
-        NSLog(@"registerDeliveryNo returned %d", code);
+        NSLog(@"registerDeliveryNo returned %ld", (long)code);
         switch (code) {
             case 0:
                 apiSuccess(0);
                 break;
             case -1:
             default:
-                err = [NSError errorWithDomain:@"wuyeRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %d", code], @"description", nil]];
+                err = [NSError errorWithDomain:@"wuyeRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %ld", (long)code], @"description", nil]];
                 apiFail(err);
                 break;
         }

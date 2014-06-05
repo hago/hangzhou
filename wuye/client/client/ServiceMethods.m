@@ -66,7 +66,7 @@ dispatch_queue_t dq;
     [req setAllHTTPHeaderFields:dict];
     [self prepareHeader:req];
     if ([[method uppercaseString] isEqualToString:@"POST"] && (body !=nil)) {
-        NSLog(@"set body: %@ %d", [Utilities __debug_nsdata_as_string:body returnHex:NO], [body length]);
+        NSLog(@"set body: %@ %lu", [Utilities __debug_nsdata_as_string:body returnHex:NO], (unsigned long)[body length]);
         [req setHTTPBody:body];
     }
     dispatch_async(dq, ^{
@@ -76,7 +76,7 @@ dispatch_queue_t dq;
         data = [NSURLConnection sendSynchronousRequest:req returningResponse:&rsp error:&error];
         //error = [NSError errorWithDomain:@"" code:1 userInfo:NULL];
         if (error==nil) {
-            NSLog(@"http success %@ %d", [Utilities __debug_nsdata_as_string:data returnHex:NO], [data length]);
+            NSLog(@"http success %@ %lu", [Utilities __debug_nsdata_as_string:data returnHex:NO], (unsigned long)[data length]);
             dispatch_async(dispatch_get_main_queue(), ^{
                 httpSuccess(data);
             });
@@ -145,7 +145,7 @@ dispatch_queue_t dq;
             return;
         }
         NSInteger code = [jcode integerValue];
-        NSLog(@"clientRegister returned %d", code);
+        NSLog(@"clientRegister returned %ld", (long)code);
         switch (code) {
             case 0:
                 apiSuccess(obj);
@@ -154,7 +154,7 @@ dispatch_queue_t dq;
                 //regSuccess(-1);
                 //break;
             default:
-                err = [NSError errorWithDomain:@"clientRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %d", code], @"description", nil]];
+                err = [NSError errorWithDomain:@"clientRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %ld", (long)code], @"description", nil]];
                 apiFail(err);
                 break;
         }
@@ -173,7 +173,7 @@ dispatch_queue_t dq;
                             cellno, @"mobile",
                             [[UIDevice currentDevice].identifierForVendor UUIDString], @"deviceinfo",
                             @"0", @"type",
-                            [NSNumber numberWithInt:cid], @"customerId",
+                            [NSNumber numberWithUnsignedInteger:cid], @"customerId",
                             @"x", @"username",
                             @"1", @"gender",
                             @"", @"province",
@@ -208,7 +208,7 @@ dispatch_queue_t dq;
             return;
         }
         NSInteger code = [jcode integerValue];
-        NSLog(@"clientRegister returned %d", code);
+        NSLog(@"clientRegister returned %ld", (long)code);
         switch (code) {
             case 0:
                 apiSuccess(reqobj);
@@ -217,7 +217,7 @@ dispatch_queue_t dq;
                 //regSuccess(-1);
                 //break;
             default:
-                err = [NSError errorWithDomain:@"clientRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %d", code], @"description", nil]];
+                err = [NSError errorWithDomain:@"clientRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %ld", (long)code], @"description", nil]];
                 apiFail(err);
                 break;
         }
@@ -228,7 +228,7 @@ dispatch_queue_t dq;
 
 -(void)unsignedPacels:(NSString *)customerId PageNumber:(NSUInteger)pageno onSuceess:(void (^)(NSArray *))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [NSString stringWithFormat:@"%@/pacel/Unsigned/%@/%d", SERVICE_URL, customerId, pageno];
+    NSString *url = [NSString stringWithFormat:@"%@/pacel/Unsigned/%@/%lu", SERVICE_URL, customerId, (unsigned long)pageno];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
         NSLog(@"unsignedPacels success");
         NSError *err = nil;
@@ -246,7 +246,7 @@ dispatch_queue_t dq;
 
 -(void)signedPacels:(NSString *)customerId PageNumber:(NSUInteger)pageno onSuceess:(void (^)(NSArray *))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [NSString stringWithFormat:@"%@/pacel/Signed/%@/%d", SERVICE_URL, customerId, pageno];
+    NSString *url = [NSString stringWithFormat:@"%@/pacel/Signed/%@/%lu", SERVICE_URL, customerId, (unsigned long)pageno];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
         NSLog(@"signedPacels success");
         NSError *err = nil;
