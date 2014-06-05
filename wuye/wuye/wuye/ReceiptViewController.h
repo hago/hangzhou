@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReceiptViewController : UIViewController
+@interface ReceiptViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate> {
+    NSMutableArray *groups;
+}
 
 @property (strong, atomic) IBOutlet UITextField *txtCell;
 @property (strong, atomic) IBOutlet UITextField *deliveryNo;
 @property (strong, atomic) IBOutlet UIButton *btnNext;
+@property (strong, atomic) IBOutlet UIPickerView *picker;
 
 -(IBAction)next:(id)sender;
 -(IBAction)txtInputDone:(id)sender;

@@ -33,6 +33,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    groups = [NSMutableArray array];
+    NSDictionary *userinfo = [Utilities getUserInfo];
+    [[ServiceMethods getInstance] getGroupNames:[userinfo objectForKey:@"wuyemobile"] onSuceess:^(NSArray *groupNames) {
+        NSLog(@"groups loaded");
+        [groups removeAllObjects];
+        [groups addObjectsFromArray:groupNames];
+        [self.picker reloadAllComponents];
+    } onFail:^(NSError *error) {
+        NSLog(@"groups failed");
+        [groups removeAllObjects];
+        [self.picker reloadAllComponents];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,6 +116,7 @@
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
                           customer, @"customer",
                           [userinfo objectForKey:@"wuyemobile"], @"wuyemobile",
+                          @"", @"groupName",
                           pacel, @"pacel",
                           nil];
     [Utilities startLoadingUI:self];
@@ -121,6 +134,22 @@
 -(IBAction)txtInputDone:(id)sender
 {
     [sender resignFirstResponder];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [groups count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    NSLog(@"picker title %d", (int)row);
+    return [groups objectAtIndex:row];
 }
 
 @end

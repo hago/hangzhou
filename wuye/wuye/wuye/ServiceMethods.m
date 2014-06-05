@@ -166,6 +166,23 @@ dispatch_queue_t dq;
     }];
 }
 
+-(void)getGroupNames:(NSString *)cell onSuceess:(void (^)(NSArray *groupNames))apiSuccess onFail:(void (^)(NSError *))apiFail
+{
+    NSString *url = [[[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/CustomerType2/GetGroupNames/"] stringByAppendingString:cell];
+    [self httpGet:url httpCookies:nil requestHeaders:nil timeout:30 onSuceess:^(NSData *response) {
+        NSLog(@"groupname ok %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
+        NSError *err=nil;
+        NSArray *list = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
+        if (err!=nil) {
+            apiFail(err);
+            return;
+        }
+        apiSuccess(list);
+    } onFail:^(NSError *error) {
+        apiFail(error);
+    }];
+}
+
 -(void)prepareHeader:(NSMutableURLRequest *)req
 {
     NSString *basestr = @"zhijian:zhijian";
