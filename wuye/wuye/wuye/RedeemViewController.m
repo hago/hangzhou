@@ -89,13 +89,27 @@
             [Utilities stopLoadingUI];
             NSError *error = nil;
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
-            [readerView start];
+            if (error!=nil) {
+                [[[UIAlertView alloc] initWithTitle:@"" message:@"网络不好，请再试一次" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                return;
+            }
+            NSString *code = [dict objectForKey:@"code"];
+            if (![code isEqualToString:@"0"]) {
+                [[[UIAlertView alloc] initWithTitle:@"" message:@"不是有效的取货二维码" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                return;
+            }
+            [[[UIAlertView alloc] initWithTitle:@"" message:@"验证二维码成功" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         } onFail:^(NSError *error) {
             NSLog(@"qr url fail");
             [Utilities stopLoadingUI];
-            [readerView start];
+            [[[UIAlertView alloc] initWithTitle:@"" message:@"不是有效的取货二维码" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }];
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [readerView start];
 }
 
 @end

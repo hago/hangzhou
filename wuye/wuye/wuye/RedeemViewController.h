@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZBarSDK.h"
 
-@interface RedeemViewController : UIViewController<ZBarReaderViewDelegate> {
+@interface RedeemViewController : UIViewController<ZBarReaderViewDelegate, UIAlertViewDelegate> {
     ZBarReaderView *readerView;
 }
 
