@@ -121,6 +121,7 @@ dispatch_queue_t dq;
                             @"", @"roomNumber",
                             @"", @"communityId",
                             @"", @"validationCode",
+                            @"", @"groupName",
                             [fmtr stringFromDate:[NSDate date]], @"validationCodeTime",
                             nil];
     NSError * err = nil;
@@ -185,6 +186,7 @@ dispatch_queue_t dq;
                             @"", @"unitNumber",
                             @"", @"roomNumber",
                             @"", @"communityId",
+                            @"", @"groupName",
                             code, @"validationCode",
                             [fmtr stringFromDate:[NSDate date]], @"validationCodeTime",
                             nil];
