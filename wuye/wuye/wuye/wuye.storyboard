@@ -17,7 +17,7 @@
                                 <rect key="frame" x="60" y="129" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="cellinputDone:" destination="YKO-1L-E5y" eventType="editingDidEndOnExit" id="XyD-t0-C56"/>
                                 </connections>
@@ -66,7 +66,7 @@
                                 <rect key="frame" x="67" y="99" width="187" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="txtInputDone:" destination="Htv-LB-9hh" eventType="editingDidEndOnExit" id="8JE-d4-uf3"/>
                                 </connections>
@@ -75,7 +75,7 @@
                                 <rect key="frame" x="67" y="158" width="187" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="txtInputDone:" destination="Htv-LB-9hh" eventType="editingDidEndOnExit" id="POk-DM-WKF"/>
                                 </connections>
