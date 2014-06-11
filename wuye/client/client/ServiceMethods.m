@@ -12,7 +12,7 @@
 #import "Utilities.h"
 #import "Base64.h"
 #define  HTTP_TIMEOUT 30
-#define SERVICE_URL @"http://76.74.178.94:81/api"
+#define SERVICE_URL @"http://122.10.117.234:81/api"
 
 @interface ServiceMethods ()
 
