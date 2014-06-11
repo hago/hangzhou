@@ -84,6 +84,11 @@ UIRefreshControl *refreshControl;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [refreshControl endRefreshing];
+}
+
 /*
  #pragma mark - Navigation
  
