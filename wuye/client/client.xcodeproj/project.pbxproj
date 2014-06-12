@@ -30,6 +30,9 @@
 		11B001701928C91E00073386 /* client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B0016D1928C91E00073386 /* client.storyboard */; };
 		11B001711928C91E00073386 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B0016E1928C91E00073386 /* RegisterViewController.m */; };
 		11B0017B19290E7300073386 /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B0017A19290E7300073386 /* ActiveViewController.m */; };
+		11E868681949EE530031002F /* history_packages_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E868651949EE530031002F /* history_packages_selected@2x.png */; };
+		11E868691949EE530031002F /* packages_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E868661949EE530031002F /* packages_selected@2x.png */; };
+		11E8686A1949EE530031002F /* history_packages_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E868671949EE530031002F /* history_packages_selected.png */; };
 		11F566F2192E212600EF6EF1 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566DC192E212600EF6EF1 /* AppIcon.png */; };
 		11F566F3192E212600EF6EF1 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566DD192E212600EF6EF1 /* AppIcon@2x.png */; };
 		11F566F4192E212600EF6EF1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566DE192E212600EF6EF1 /* icon.png */; };
@@ -47,7 +50,6 @@
 		11F56700192E212600EF6EF1 /* loading7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 11F566EB192E212600EF6EF1 /* loading7.gif */; };
 		11F56701192E212600EF6EF1 /* loading8.gif in Resources */ = {isa = PBXBuildFile; fileRef = 11F566EC192E212600EF6EF1 /* loading8.gif */; };
 		11F56702192E212600EF6EF1 /* loading9.gif in Resources */ = {isa = PBXBuildFile; fileRef = 11F566ED192E212600EF6EF1 /* loading9.gif */; };
-		11F56703192E212600EF6EF1 /* packages_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566EE192E212600EF6EF1 /* packages_default.png */; };
 		11F56704192E212600EF6EF1 /* packages_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566EF192E212600EF6EF1 /* packages_selected.png */; };
 		11F56705192E212600EF6EF1 /* spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566F0192E212600EF6EF1 /* spotlight.png */; };
 		11F56706192E212600EF6EF1 /* spotlight7.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566F1192E212600EF6EF1 /* spotlight7.png */; };
@@ -102,6 +104,9 @@
 		11B0016F1928C91E00073386 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		11B0017919290E7300073386 /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
 		11B0017A19290E7300073386 /* ActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveViewController.m; sourceTree = "<group>"; };
+		11E868651949EE530031002F /* history_packages_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history_packages_selected@2x.png"; sourceTree = "<group>"; };
+		11E868661949EE530031002F /* packages_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "packages_selected@2x.png"; sourceTree = "<group>"; };
+		11E868671949EE530031002F /* history_packages_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_packages_selected.png; sourceTree = "<group>"; };
 		11F566DC192E212600EF6EF1 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		11F566DD192E212600EF6EF1 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
 		11F566DE192E212600EF6EF1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -119,7 +124,6 @@
 		11F566EB192E212600EF6EF1 /* loading7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading7.gif; sourceTree = "<group>"; };
 		11F566EC192E212600EF6EF1 /* loading8.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading8.gif; sourceTree = "<group>"; };
 		11F566ED192E212600EF6EF1 /* loading9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading9.gif; sourceTree = "<group>"; };
-		11F566EE192E212600EF6EF1 /* packages_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = packages_default.png; sourceTree = "<group>"; };
 		11F566EF192E212600EF6EF1 /* packages_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = packages_selected.png; sourceTree = "<group>"; };
 		11F566F0192E212600EF6EF1 /* spotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight.png; sourceTree = "<group>"; };
 		11F566F1192E212600EF6EF1 /* spotlight7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight7.png; sourceTree = "<group>"; };
@@ -245,13 +249,15 @@
 		11F566DB192E212600EF6EF1 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				11E868651949EE530031002F /* history_packages_selected@2x.png */,
+				11E868661949EE530031002F /* packages_selected@2x.png */,
+				11E868671949EE530031002F /* history_packages_selected.png */,
 				11F566DC192E212600EF6EF1 /* AppIcon.png */,
 				11F566DD192E212600EF6EF1 /* AppIcon@2x.png */,
 				11F566DE192E212600EF6EF1 /* icon.png */,
 				11F566DF192E212600EF6EF1 /* icon@2x.png */,
 				11F566E0192E212600EF6EF1 /* loading.gif */,
 				11F566E1192E212600EF6EF1 /* loadinggif */,
-				11F566EE192E212600EF6EF1 /* packages_default.png */,
 				11F566EF192E212600EF6EF1 /* packages_selected.png */,
 				11F566F0192E212600EF6EF1 /* spotlight.png */,
 				11F566F1192E212600EF6EF1 /* spotlight7.png */,
@@ -353,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11E8686A1949EE530031002F /* history_packages_selected.png in Resources */,
 				11F56701192E212600EF6EF1 /* loading8.gif in Resources */,
 				110BBCF71937002100BA8924 /* SignedParcelsCell.xib in Resources */,
 				11F566F5192E212600EF6EF1 /* icon@2x.png in Resources */,
@@ -366,12 +373,13 @@
 				11F566F8192E212600EF6EF1 /* loading1.gif in Resources */,
 				11F566F9192E212600EF6EF1 /* loading10.gif in Resources */,
 				11F566FA192E212600EF6EF1 /* loading11.gif in Resources */,
-				11F56703192E212600EF6EF1 /* packages_default.png in Resources */,
+				11E868691949EE530031002F /* packages_selected@2x.png in Resources */,
 				11B001701928C91E00073386 /* client.storyboard in Resources */,
 				11F56706192E212600EF6EF1 /* spotlight7.png in Resources */,
 				11F56704192E212600EF6EF1 /* packages_selected.png in Resources */,
 				11F566F4192E212600EF6EF1 /* icon.png in Resources */,
 				11F566F3192E212600EF6EF1 /* AppIcon@2x.png in Resources */,
+				11E868681949EE530031002F /* history_packages_selected@2x.png in Resources */,
 				11F566FC192E212600EF6EF1 /* loading3.gif in Resources */,
 				11F566F6192E212600EF6EF1 /* loading.gif in Resources */,
 				11B001431928C83700073386 /* InfoPlist.strings in Resources */,
@@ -524,7 +532,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiguo Ma (9QG3K6B9YZ)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhiguo Ma (23HZ52M628)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "client/client-Prefix.pch";
 				INFOPLIST_FILE = "client/client-Info.plist";
@@ -534,7 +542,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "222118DE-D9FD-4B8F-988C-A0DFAE04878C";
+				PROVISIONING_PROFILE = "D3446114-7431-448F-9CC1-2F3CCA51E0A8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -545,7 +553,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiguo Ma (9QG3K6B9YZ)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhiguo Ma (23HZ52M628)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "client/client-Prefix.pch";
 				INFOPLIST_FILE = "client/client-Info.plist";
@@ -555,7 +563,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "222118DE-D9FD-4B8F-988C-A0DFAE04878C";
+				PROVISIONING_PROFILE = "D3446114-7431-448F-9CC1-2F3CCA51E0A8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

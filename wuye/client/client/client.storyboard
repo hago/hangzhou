@@ -142,7 +142,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我的包裹" image="packages_default.png" id="Orp-Pb-bpa"/>
+                    <tabBarItem key="tabBarItem" title="我的包裹" image="packages_selected.png" id="Orp-Pb-bpa"/>
                     <connections>
                         <outlet property="list" destination="GuC-Pe-9eP" id="Wqd-Zn-EOM"/>
                     </connections>
@@ -190,7 +190,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="已收包裹" image="packages_selected.png" id="a2o-SK-dCg"/>
+                    <tabBarItem key="tabBarItem" title="已收包裹" image="history_packages_selected.png" id="a2o-SK-dCg"/>
                     <connections>
                         <outlet property="list" destination="1Vo-Z2-qfd" id="THt-3E-f7E"/>
                     </connections>
@@ -201,8 +201,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="packages_default.png" width="48" height="48"/>
-        <image name="packages_selected.png" width="48" height="48"/>
+        <image name="history_packages_selected.png" width="25" height="25"/>
+        <image name="packages_selected.png" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
