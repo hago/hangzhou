@@ -101,7 +101,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="收件" id="AS3-eU-vxe"/>
+                    <tabBarItem key="tabBarItem" title="收件" image="receive.png" id="AS3-eU-vxe"/>
                     <connections>
                         <outlet property="btnNext" destination="Lhz-6D-qdk" id="ghD-hX-Caf"/>
                         <outlet property="deliveryNo" destination="wJq-NS-DHP" id="gx6-ja-kXA"/>
@@ -141,13 +141,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="消单" id="CJm-jL-JzX"/>
+                    <tabBarItem key="tabBarItem" title="消单" image="redeem.png" id="CJm-jL-JzX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRQ-lm-a66" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1266" y="590"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="receive.png" width="25" height="25"/>
+        <image name="redeem.png" width="25" height="25"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
