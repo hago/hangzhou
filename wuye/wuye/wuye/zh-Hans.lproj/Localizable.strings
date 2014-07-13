@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  wuye
+
+  Created by Chaojun Sun on 14-7-13.
+  Copyright (c) 2014年 Chaojun Sun. All rights reserved.
+*/
+"KeyboardCancel" = "取消";
+"KeyboardDone" = "完成";

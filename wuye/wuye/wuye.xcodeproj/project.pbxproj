@@ -47,6 +47,7 @@
 /* Begin PBXFileReference section */
 		116EC054193A18C0006C0D75 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		116EC055193A18C0006C0D75 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		1189B617197290DF00DD7545 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		118E1BD1193C830700223D10 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = ../libs/ZBarSDK/libzbar.a; sourceTree = "<group>"; };
 		118E1BD3193C851000223D10 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		11B000EF1927364500073386 /* wuye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wuye.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +274,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 11B000E61927364500073386;
 			productRefGroup = 11B000F01927364500073386 /* Products */;
@@ -347,6 +349,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				11B000FC1927364500073386 /* en */,
+				1189B617197290DF00DD7545 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
