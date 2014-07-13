@@ -142,7 +142,9 @@
     [Utilities startLoadingUI:self];
     [[ServiceMethods getInstance] registerDeliveryNo:dict onSuceess:^(NSInteger code) {
         [Utilities stopLoadingUI];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"记录快件成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"通知短信发送成功，快件已记录" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [self.txtCell setText:@""];
+        [self.deliveryNo setText:@""];
         [alert show];
     } onFail:^(NSError *error) {
         [Utilities stopLoadingUI];
