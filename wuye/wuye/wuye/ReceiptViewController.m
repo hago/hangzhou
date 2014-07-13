@@ -35,16 +35,36 @@
     // Do any additional setup after loading the view.
     groups = [NSMutableArray array];
     NSDictionary *userinfo = [Utilities getUserInfo];
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"KeyboardCancel", @"Cancel") style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"KeyboardDone", @"Done") style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    self.txtCell.inputAccessoryView = numberToolbar;
     [[ServiceMethods getInstance] getGroupNames:[userinfo objectForKey:@"wuyemobile"] onSuceess:^(NSArray *groupNames) {
         NSLog(@"groups loaded");
         [groups removeAllObjects];
         [groups addObjectsFromArray:groupNames];
+        //[NSThread sleepForTimeInterval:3];
+        [self.picker setHidden:NO];
         [self.picker reloadAllComponents];
     } onFail:^(NSError *error) {
         NSLog(@"groups failed");
         [groups removeAllObjects];
         [self.picker reloadAllComponents];
     }];
+}
+
+-(void)cancelNumberPad{
+    [self.txtCell resignFirstResponder];
+    self.txtCell.text = @"";
+}
+
+-(void)doneWithNumberPad{
+    [self.txtCell resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
