@@ -15,9 +15,14 @@
 +(BOOL)isRegistered;
 +(NSDictionary *)getUserInfo;
 +(void)saveUserInfo:(NSDictionary *)userinfo;
++(NSArray *)getGroups:(NSString *)cellno;
++(void)saveGroups:(NSString *)cellno GroupInfo:(NSArray *)groups;
+
 +(BOOL)isValidCellnumber:(NSString *)input;
++(void)startLoadingUI;
 +(void)startLoadingUI:(UIViewController *)controller;
 +(void)stopLoadingUI;
++(void)showError:(NSString *)title Message:(NSString *)message;
 
 +(NSUInteger)getMajorVersion;
 +(NSUInteger)getMinorVersion;

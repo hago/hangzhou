@@ -14,6 +14,11 @@
 		1189B61F1972AA1F00DD7545 /* cellphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B61D1972AA1F00DD7545 /* cellphone.png */; };
 		1189B6221972AB6A00DD7545 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6201972AB6900DD7545 /* sms.png */; };
 		1189B6231972AB6A00DD7545 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6211972AB6900DD7545 /* sms@2x.png */; };
+		1189B6261972B18E00DD7545 /* ParcelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189B6251972B18D00DD7545 /* ParcelsViewController.m */; };
+		1189B6281972B77400DD7545 /* parcel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6271972B77400DD7545 /* parcel.xib */; };
+		1189B62B1972B9F500DD7545 /* resms.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6291972B9F500DD7545 /* resms.png */; };
+		1189B62C1972B9F500DD7545 /* resms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B62A1972B9F500DD7545 /* resms@2x.png */; };
+		1189B62E1972CBDA00DD7545 /* groups.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B62D1972CBD900DD7545 /* groups.png */; };
 		118E1BD4193C851000223D10 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 118E1BD3193C851000223D10 /* libiconv.dylib */; };
 		11B000F31927364500073386 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F21927364500073386 /* Foundation.framework */; };
 		11B000F51927364500073386 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F41927364500073386 /* CoreGraphics.framework */; };
@@ -60,6 +65,12 @@
 		1189B61D1972AA1F00DD7545 /* cellphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellphone.png; sourceTree = "<group>"; };
 		1189B6201972AB6900DD7545 /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sms.png; sourceTree = "<group>"; };
 		1189B6211972AB6900DD7545 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
+		1189B6241972B18D00DD7545 /* ParcelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParcelsViewController.h; sourceTree = "<group>"; };
+		1189B6251972B18D00DD7545 /* ParcelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParcelsViewController.m; sourceTree = "<group>"; };
+		1189B6271972B77400DD7545 /* parcel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = parcel.xib; path = ../parcel.xib; sourceTree = "<group>"; };
+		1189B6291972B9F500DD7545 /* resms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resms.png; sourceTree = "<group>"; };
+		1189B62A1972B9F500DD7545 /* resms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resms@2x.png"; sourceTree = "<group>"; };
+		1189B62D1972CBD900DD7545 /* groups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = groups.png; sourceTree = "<group>"; };
 		118E1BD1193C830700223D10 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = ../libs/ZBarSDK/libzbar.a; sourceTree = "<group>"; };
 		118E1BD3193C851000223D10 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		11B000EF1927364500073386 /* wuye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wuye.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +183,7 @@
 		11B000F81927364500073386 /* wuye */ = {
 			isa = PBXGroup;
 			children = (
+				1189B62D1972CBD900DD7545 /* groups.png */,
 				1189B6201972AB6900DD7545 /* sms.png */,
 				1189B6211972AB6900DD7545 /* sms@2x.png */,
 				1189B61C1972AA1F00DD7545 /* delevery.png */,
@@ -190,6 +202,9 @@
 				11B001041927364500073386 /* Images.xcassets */,
 				11B000F91927364500073386 /* Supporting Files */,
 				11B001211927394700073386 /* wuye.storyboard */,
+				1189B6271972B77400DD7545 /* parcel.xib */,
+				1189B6291972B9F500DD7545 /* resms.png */,
+				1189B62A1972B9F500DD7545 /* resms@2x.png */,
 				11B0012319273A0600073386 /* RegisterViewController.h */,
 				11B0012419273A0600073386 /* RegisterViewController.m */,
 				11B0012619273AE900073386 /* Utilities.h */,
@@ -200,6 +215,8 @@
 				11CFEAA8193B690A004C188D /* ReceiptViewController.m */,
 				11CFEAAA193B6929004C188D /* RedeemViewController.h */,
 				11CFEAAB193B6929004C188D /* RedeemViewController.m */,
+				1189B6241972B18D00DD7545 /* ParcelsViewController.h */,
+				1189B6251972B18D00DD7545 /* ParcelsViewController.m */,
 			);
 			path = wuye;
 			sourceTree = "<group>";
@@ -313,6 +330,7 @@
 				11E868701949F0670031002F /* redeem.png in Resources */,
 				1189B6231972AB6A00DD7545 /* sms@2x.png in Resources */,
 				11E868721949F0670031002F /* receive@2x.png in Resources */,
+				1189B62C1972B9F500DD7545 /* resms@2x.png in Resources */,
 				1189B61919729C7E00DD7545 /* next.png in Resources */,
 				11E868711949F0670031002F /* receive.png in Resources */,
 				11E8686F1949F0670031002F /* redeem@2x.png in Resources */,
@@ -321,7 +339,10 @@
 				11B000FD1927364500073386 /* InfoPlist.strings in Resources */,
 				11B001051927364500073386 /* Images.xcassets in Resources */,
 				1189B6221972AB6A00DD7545 /* sms.png in Resources */,
+				1189B62E1972CBDA00DD7545 /* groups.png in Resources */,
 				1189B61F1972AA1F00DD7545 /* cellphone.png in Resources */,
+				1189B6281972B77400DD7545 /* parcel.xib in Resources */,
+				1189B62B1972B9F500DD7545 /* resms.png in Resources */,
 				1189B61E1972AA1F00DD7545 /* delevery.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,6 +368,7 @@
 				11B0012819273AE900073386 /* Utilities.m in Sources */,
 				11B0012B1927508400073386 /* ServiceMethods.m in Sources */,
 				116EC056193A18C0006C0D75 /* Base64.m in Sources */,
+				1189B6261972B18E00DD7545 /* ParcelsViewController.m in Sources */,
 				11B000FF1927364500073386 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

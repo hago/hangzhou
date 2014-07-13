@@ -37,8 +37,8 @@
     [vclist addObject:vc];
     vc =[[UIStoryboard storyboardWithName:@"wuye" bundle:NULL] instantiateViewControllerWithIdentifier:@"consume"];
     [vclist addObject:vc];
-    //vc =[[UIStoryboard storyboardWithName:@"client" bundle:NULL] instantiateViewControllerWithIdentifier:@"myparcels"];
-    //[vclist addObject:vc];
+    vc =[[UIStoryboard storyboardWithName:@"wuye" bundle:NULL] instantiateViewControllerWithIdentifier:@"myparcels"];
+    [vclist addObject:vc];
     [tb setViewControllers:vclist];
     return tb;
 }

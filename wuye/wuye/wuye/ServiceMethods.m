@@ -192,4 +192,39 @@ dispatch_queue_t dq;
     [req setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
 }
 
+-(void)getWuyeParcels:(NSString *)communityId PageNo:(NSUInteger)pageno onSuceess:(void (^)(NSArray *))apiSuccess onFail:(void (^)(NSError *))apiFail
+{
+    NSString *url = [NSString stringWithFormat:@"%@/Pacel/GetUnsignedPacelsByCommunityId/%@/%lu", [NSString stringWithUTF8String:SERVICE_URL], communityId, (unsigned long)pageno];
+    [self httpGet:url httpCookies:nil requestHeaders:nil timeout:30 onSuceess:^(NSData *response) {
+        NSLog(@"getWuyeParcels ok %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
+        NSError *err=nil;
+        NSArray *list = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
+        if (err!=nil) {
+            apiFail(err);
+            return;
+        }
+        apiSuccess(list);
+    } onFail:^(NSError *error) {
+        apiFail(error);
+    }];
+}
+
+-(void)resendSms:(NSString *)parcelId onSuceess:(void (^)(NSInteger))apiSuccess onFail:(void (^)(NSError *))apiFail
+{
+    NSString *url = [NSString stringWithFormat:@"%@/Resend/ReText/%@", [NSString stringWithUTF8String:SERVICE_URL], parcelId];
+    [self httpGet:url httpCookies:nil requestHeaders:nil timeout:30 onSuceess:^(NSData *response) {
+        NSLog(@"getWuyeParcels ok %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
+        NSError *err=nil;
+        NSDictionary *ret = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
+        if (err!=nil) {
+            apiFail(err);
+            return;
+        }
+        NSNumber *n = [ret objectForKey:@"code"];
+        apiSuccess([n integerValue]);
+    } onFail:^(NSError *error) {
+        apiFail(error);
+    }];
+}
+
 @end

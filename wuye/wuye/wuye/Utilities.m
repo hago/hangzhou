@@ -11,6 +11,7 @@
 #define LOADING_GIF_HEIGHT 66
 #define LOADING_GIF_WIDTh 66
 #define REGISTERED_USERINFO_KEY @"REGISTERED_USERINFO_KEY"
+#define GROUPS_INFO_KEY @"GROUPS_INFO_KEY"
 
 @implementation Utilities
 
@@ -33,6 +34,20 @@ NSInteger minorVersion = -1;
 +(void)saveUserInfo:(NSDictionary *)userinfo
 {
     [[NSUserDefaults standardUserDefaults] setObject:userinfo forKey:REGISTERED_USERINFO_KEY];
+}
+
++(NSArray *)getGroups:(NSString *)cellno
+{
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:GROUPS_INFO_KEY];
+    return dict==nil? nil : [dict objectForKey:cellno];
+}
+
++(void)saveGroups:(NSString *)cellno GroupInfo:(NSArray *)groups
+{
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:GROUPS_INFO_KEY];
+    NSMutableDictionary *mdict = dict==nil ? [NSMutableDictionary dictionary] : [NSMutableDictionary dictionaryWithDictionary:dict];
+    [mdict setObject:groups forKey:cellno];
+    [[NSUserDefaults standardUserDefaults] setObject:mdict forKey:GROUPS_INFO_KEY];
 }
 
 +(NSUInteger)getMajorVersion
@@ -73,6 +88,12 @@ NSInteger minorVersion = -1;
     NSUInteger i = [re numberOfMatchesInString:input options:0 range:range];
     //NSLog(@"matches :%u", i);
     return i==1;
+}
+
++(void)startLoadingUI
+{
+    UIViewController *controller = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    return [self startLoadingUI:controller];
 }
 
 +(void)startLoadingUI:(UIViewController *)controller
@@ -136,4 +157,8 @@ NSInteger minorVersion = -1;
     return ret;
 }
 
++(void)showError:(NSString *)title Message:(NSString *)message
+{
+    [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil] show];
+}
 @end

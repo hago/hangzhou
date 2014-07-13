@@ -44,10 +44,12 @@
                            nil];
     [numberToolbar sizeToFit];
     self.txtCell.inputAccessoryView = numberToolbar;
-    [[ServiceMethods getInstance] getGroupNames:[userinfo objectForKey:@"wuyemobile"] onSuceess:^(NSArray *groupNames) {
+    NSString *cellno = [userinfo objectForKey:@"wuyemobile"];
+    [[ServiceMethods getInstance] getGroupNames:cellno onSuceess:^(NSArray *groupNames) {
         NSLog(@"groups loaded");
         [groups removeAllObjects];
         [groups addObjectsFromArray:groupNames];
+        [Utilities saveGroups:cellno GroupInfo:groupNames];
         //[NSThread sleepForTimeInterval:3];
         [self.picker setHidden:NO];
         [self.picker reloadAllComponents];
@@ -96,6 +98,7 @@
     NSString *fmt = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd" options:0 locale:[NSLocale systemLocale]];
     NSDateFormatter *fmtr = [[NSDateFormatter alloc] init];
     [fmtr setDateFormat:fmt];
+    NSString *groupname = [groups objectAtIndex:[self.picker selectedRowInComponent:0]];
     NSDictionary *customer = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithInt:0], @"customerId",
                               cell, @"mobile",
@@ -136,7 +139,7 @@
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
                           customer, @"customer",
                           [userinfo objectForKey:@"wuyemobile"], @"wuyemobile",
-                          @"", @"groupName",
+                          groupname, @"groupName",
                           pacel, @"pacel",
                           nil];
     [Utilities startLoadingUI:self];
