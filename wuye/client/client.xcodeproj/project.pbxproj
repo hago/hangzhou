@@ -13,6 +13,7 @@
 		110BC60B192B063C004D35C5 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 110BC60A192B063C004D35C5 /* Base64.m */; };
 		11174846192C3EF800E99951 /* MyParcelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11174845192C3EF800E99951 /* MyParcelsViewController.m */; };
 		11174849192C4C8400E99951 /* ReceivedParcelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11174848192C4C8400E99951 /* ReceivedParcelsViewController.m */; };
+		1189B60B197285E100DD7545 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1189B60D197285E100DD7545 /* Localizable.strings */; };
 		11B001391928C83700073386 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B001381928C83700073386 /* Foundation.framework */; };
 		11B0013B1928C83700073386 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B0013A1928C83700073386 /* CoreGraphics.framework */; };
 		11B0013D1928C83700073386 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B0013C1928C83700073386 /* UIKit.framework */; };
@@ -79,6 +80,8 @@
 		11174845192C3EF800E99951 /* MyParcelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyParcelsViewController.m; sourceTree = "<group>"; };
 		11174847192C4C8400E99951 /* ReceivedParcelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivedParcelsViewController.h; sourceTree = "<group>"; };
 		11174848192C4C8400E99951 /* ReceivedParcelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivedParcelsViewController.m; sourceTree = "<group>"; };
+		1189B60C197285E100DD7545 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1189B60E1972874500DD7545 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		11B001351928C83700073386 /* client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B001381928C83700073386 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		11B0013A1928C83700073386 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -222,6 +225,7 @@
 			children = (
 				11B001401928C83700073386 /* client-Info.plist */,
 				11B001411928C83700073386 /* InfoPlist.strings */,
+				1189B60D197285E100DD7545 /* Localizable.strings */,
 				11B001441928C83700073386 /* main.m */,
 				11B001461928C83700073386 /* client-Prefix.pch */,
 			);
@@ -342,6 +346,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 11B0012C1928C83600073386;
 			productRefGroup = 11B001361928C83700073386 /* Products */;
@@ -360,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11E8686A1949EE530031002F /* history_packages_selected.png in Resources */,
+				1189B60B197285E100DD7545 /* Localizable.strings in Resources */,
 				11F56701192E212600EF6EF1 /* loading8.gif in Resources */,
 				110BBCF71937002100BA8924 /* SignedParcelsCell.xib in Resources */,
 				11F566F5192E212600EF6EF1 /* icon@2x.png in Resources */,
@@ -437,6 +443,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1189B60D197285E100DD7545 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1189B60C197285E100DD7545 /* en */,
+				1189B60E1972874500DD7545 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		11B001411928C83700073386 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -45,7 +45,26 @@ id handle;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"KeyboardCancel", @"Cancel") style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"KeyboardDone", @"Done") style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    self.txtcode.inputAccessoryView = numberToolbar;
+
     [self startCountDown];
+}
+
+-(void)cancelNumberPad{
+    [self.txtcode resignFirstResponder];
+    self.txtcode.text = @"";
+}
+
+-(void)doneWithNumberPad{
+    [self.txtcode resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
