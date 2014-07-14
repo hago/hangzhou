@@ -36,6 +36,7 @@
 		11B0012B1927508400073386 /* ServiceMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B0012A1927508400073386 /* ServiceMethods.m */; };
 		11C71E0E197440DF00C40A37 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 11C71E10197440DF00C40A37 /* Localizable.strings */; };
 		11C71E141974505800C40A37 /* UnsignedParcelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C71E131974505800C40A37 /* UnsignedParcelCell.m */; };
+		11C71E1619745F4A00C40A37 /* parcel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C71E1519745F4A00C40A37 /* parcel.xib */; };
 		11CFEAA9193B690A004C188D /* ReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CFEAA8193B690A004C188D /* ReceiptViewController.m */; };
 		11CFEAAC193B6929004C188D /* RedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CFEAAB193B6929004C188D /* RedeemViewController.m */; };
 		11DCD5EC193CA29A006A139A /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118E1BD1193C830700223D10 /* libzbar.a */; };
@@ -99,6 +100,7 @@
 		11C71E11197440E800C40A37 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		11C71E121974505800C40A37 /* UnsignedParcelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnsignedParcelCell.h; sourceTree = "<group>"; };
 		11C71E131974505800C40A37 /* UnsignedParcelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnsignedParcelCell.m; sourceTree = "<group>"; };
+		11C71E1519745F4A00C40A37 /* parcel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = parcel.xib; sourceTree = "<group>"; };
 		11CFEAA5193B66AF004C188D /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = ../../../../libs/ZBarSDK/libzbar.a; sourceTree = "<group>"; };
 		11CFEAA7193B690A004C188D /* ReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptViewController.h; sourceTree = "<group>"; };
 		11CFEAA8193B690A004C188D /* ReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptViewController.m; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		11B000F81927364500073386 /* wuye */ = {
 			isa = PBXGroup;
 			children = (
+				11C71E1519745F4A00C40A37 /* parcel.xib */,
 				1189B62D1972CBD900DD7545 /* groups.png */,
 				1189B6201972AB6900DD7545 /* sms.png */,
 				1189B6211972AB6900DD7545 /* sms@2x.png */,
@@ -352,6 +355,7 @@
 				11C71E0E197440DF00C40A37 /* Localizable.strings in Resources */,
 				1189B61F1972AA1F00DD7545 /* cellphone.png in Resources */,
 				1189B6281972B77400DD7545 /* parcel.xib in Resources */,
+				11C71E1619745F4A00C40A37 /* parcel.xib in Resources */,
 				1189B62B1972B9F500DD7545 /* resms.png in Resources */,
 				1189B61E1972AA1F00DD7545 /* delevery.png in Resources */,
 			);
