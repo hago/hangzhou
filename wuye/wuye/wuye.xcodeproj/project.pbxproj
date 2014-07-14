@@ -15,7 +15,6 @@
 		1189B6221972AB6A00DD7545 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6201972AB6900DD7545 /* sms.png */; };
 		1189B6231972AB6A00DD7545 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6211972AB6900DD7545 /* sms@2x.png */; };
 		1189B6261972B18E00DD7545 /* ParcelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189B6251972B18D00DD7545 /* ParcelsViewController.m */; };
-		1189B6281972B77400DD7545 /* parcel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6271972B77400DD7545 /* parcel.xib */; };
 		1189B62B1972B9F500DD7545 /* resms.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6291972B9F500DD7545 /* resms.png */; };
 		1189B62C1972B9F500DD7545 /* resms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B62A1972B9F500DD7545 /* resms@2x.png */; };
 		1189B62E1972CBDA00DD7545 /* groups.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B62D1972CBD900DD7545 /* groups.png */; };
@@ -70,7 +69,6 @@
 		1189B6211972AB6900DD7545 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
 		1189B6241972B18D00DD7545 /* ParcelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParcelsViewController.h; sourceTree = "<group>"; };
 		1189B6251972B18D00DD7545 /* ParcelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParcelsViewController.m; sourceTree = "<group>"; };
-		1189B6271972B77400DD7545 /* parcel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = parcel.xib; path = ../parcel.xib; sourceTree = "<group>"; };
 		1189B6291972B9F500DD7545 /* resms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resms.png; sourceTree = "<group>"; };
 		1189B62A1972B9F500DD7545 /* resms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resms@2x.png"; sourceTree = "<group>"; };
 		1189B62D1972CBD900DD7545 /* groups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = groups.png; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				11B001041927364500073386 /* Images.xcassets */,
 				11B000F91927364500073386 /* Supporting Files */,
 				11B001211927394700073386 /* wuye.storyboard */,
-				1189B6271972B77400DD7545 /* parcel.xib */,
 				1189B6291972B9F500DD7545 /* resms.png */,
 				1189B62A1972B9F500DD7545 /* resms@2x.png */,
 				11B0012319273A0600073386 /* RegisterViewController.h */,
@@ -354,7 +351,6 @@
 				1189B62E1972CBDA00DD7545 /* groups.png in Resources */,
 				11C71E0E197440DF00C40A37 /* Localizable.strings in Resources */,
 				1189B61F1972AA1F00DD7545 /* cellphone.png in Resources */,
-				1189B6281972B77400DD7545 /* parcel.xib in Resources */,
 				11C71E1619745F4A00C40A37 /* parcel.xib in Resources */,
 				1189B62B1972B9F500DD7545 /* resms.png in Resources */,
 				1189B61E1972AA1F00DD7545 /* delevery.png in Resources */,
