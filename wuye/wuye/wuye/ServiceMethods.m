@@ -11,7 +11,7 @@
 #import "Utilities.h"
 #import "Base64.h"
 
-#define SERVICE_URL "http://122.10.117.234:81/api"
+#define SERVICE_URL "http://122.10.117.234:81/api/v1"
 
 @interface ServiceMethods ()
 
@@ -88,7 +88,7 @@ dispatch_queue_t dq;
     });
 }
 
--(void)wuyeRegister:(NSString *)cellno onSuceess:(void (^)(NSInteger code))apiSuccess onFail:(void (^)(NSError *))apiFail
+-(void)wuyeRegister:(NSString *)cellno onSuceess:(void (^)(NSDictionary *userinfo))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
     NSString *url = [[[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/CustomerType2/CheckCustomerType2/"] stringByAppendingString:cellno];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:30 onSuceess:^(NSData *response) {
@@ -109,7 +109,7 @@ dispatch_queue_t dq;
         NSLog(@"clientRegister returned %ld", (long)code);
         switch (code) {
             case 0:
-                apiSuccess(0);
+                apiSuccess(obj);
                 break;
             case -1:
             default:
@@ -192,9 +192,9 @@ dispatch_queue_t dq;
     [req setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
 }
 
--(void)getWuyeParcels:(NSString *)communityId PageNo:(NSUInteger)pageno onSuceess:(void (^)(NSArray *))apiSuccess onFail:(void (^)(NSError *))apiFail
+-(void)getWuyeParcels:(NSString *)customerId PageNo:(NSUInteger)pageno onSuceess:(void (^)(NSArray *))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [NSString stringWithFormat:@"%@/Pacel/GetUnsignedPacelsByCommunityId/%@/%lu", [NSString stringWithUTF8String:SERVICE_URL], communityId, (unsigned long)pageno];
+    NSString *url = [NSString stringWithFormat:@"%@/Pacel/GetUnSignedPacelsByCustomerType2Id/%@/%lu", [NSString stringWithUTF8String:SERVICE_URL], customerId, (unsigned long)pageno];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:30 onSuceess:^(NSData *response) {
         NSLog(@"getWuyeParcels ok %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
         NSError *err=nil;

@@ -81,12 +81,12 @@
     }
     ServiceMethods *sm = [ServiceMethods getInstance];
     [Utilities startLoadingUI:self];
-    [sm wuyeRegister:cellno onSuceess:^(NSInteger code) {
+    [sm wuyeRegister:cellno onSuceess:^(NSDictionary *userinfo) {
         NSLog(@"wuye reg succ");
         [Utilities stopLoadingUI];
-        [Utilities saveUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                 cellno, @"wuyemobile",
-                                 nil]];
+        NSMutableDictionary *info = [NSMutableDictionary dictionaryWithDictionary:userinfo];
+        [info setObject:cellno forKey:@"wuyemobile"];
+        [Utilities saveUserInfo:info];
         AppDelegate *h = (AppDelegate *)[UIApplication sharedApplication].delegate;
         UIViewController *vc = [h createMainController];
         [UIView transitionFromView:self.view toView:vc.view duration:1 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
