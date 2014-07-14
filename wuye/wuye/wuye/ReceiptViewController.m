@@ -45,6 +45,12 @@
     [numberToolbar sizeToFit];
     self.txtCell.inputAccessoryView = numberToolbar;
     NSString *cellno = [userinfo objectForKey:@"wuyemobile"];
+    NSArray *arr = [Utilities getGroups:cellno];
+    if (arr!=nil) {
+        groups = [NSMutableArray arrayWithArray:arr];
+        [self.picker setHidden:NO];
+        [self.picker reloadAllComponents];
+    }
     [[ServiceMethods getInstance] getGroupNames:cellno onSuceess:^(NSArray *groupNames) {
         NSLog(@"groups loaded");
         [groups removeAllObjects];
@@ -55,8 +61,8 @@
         [self.picker reloadAllComponents];
     } onFail:^(NSError *error) {
         NSLog(@"groups failed");
-        [groups removeAllObjects];
-        [self.picker reloadAllComponents];
+        //[groups removeAllObjects];
+        //[self.picker reloadAllComponents];
     }];
 }
 

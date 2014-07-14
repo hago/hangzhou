@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ParcelsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ParcelsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
+    NSArray *myparcels;
+    NSArray *wuyegroups;
+    UIRefreshControl *refreshControl;
+}
 
 @property(atomic, retain) IBOutlet UITableView *parcelsList;
-@property(atomic, retain) IBOutlet UILabel *lblgroup;
-@property(atomic, retain) IBOutlet UIPickerView *pkrgroups;
-
--(IBAction)listGroups:(id)sender;
 
 @end

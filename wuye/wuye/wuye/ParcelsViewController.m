@@ -9,6 +9,7 @@
 #import "ParcelsViewController.h"
 #import "Utilities.h"
 #import "ServiceMethods.h"
+#import "UnsignedParcelCell.h"
 
 #define MY_PARCEL_CELL_REUSE_IDENTIFIER @"MyParcelsCell"
 
@@ -18,13 +19,9 @@
 
 @implementation ParcelsViewController
 
-@synthesize parcelsList;
-@synthesize lblgroup;
-@synthesize pkrgroups;
+CGFloat cellHeight = -1;
 
-NSArray *myparcels;
-NSArray *wuyegroups;
-UIRefreshControl *refreshControl;
+@synthesize parcelsList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,20 +43,7 @@ UIRefreshControl *refreshControl;
     UINib *nib = [UINib nibWithNibName:@"parcel" bundle:nil];
     [self.parcelsList registerNib:nib forCellReuseIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER];
     
-    NSDictionary *userinfo = [Utilities getUserInfo];
-    NSString *cellno = [userinfo objectForKey:@"wuyemobile"];
-    wuyegroups = [Utilities getGroups:cellno];
-    if ((wuyegroups != nil) && ([wuyegroups count]>0)) {
-        NSString *groupname = [wuyegroups objectAtIndex:0];
-        [self.lblgroup setText:groupname];
-    }
-    
     [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(startRefresh) userInfo:nil repeats:NO];
-}
-
--(IBAction)listGroups:(id)sender
-{
-    [self.pkrgroups setHidden:!self.pkrgroups.hidden];
 }
 
 - (void)startRefresh
@@ -78,12 +62,12 @@ UIRefreshControl *refreshControl;
 -(void)loadingParcels
 {
     NSDictionary *user = [Utilities getUserInfo];
-    NSString *cellno = [user objectForKey:@"wuyemobile"];
-    if (cellno == nil) {
+    NSString *cid = [user objectForKey:@"customerId"];
+    if (cid == nil) {
         // relogin
     }
     ServiceMethods *svc = [ServiceMethods getInstance];
-    [svc getWuyeParcels:self.lblgroup.text PageNo:1 onSuceess:^(NSArray *parcels) {
+    [svc getWuyeParcels:cid PageNo:1 onSuceess:^(NSArray *parcels) {
         NSLog(@"my pacels succeed");
         [refreshControl endRefreshing];
         NSLog(@"my parcels %lu, %@", (unsigned long)[parcels count], [parcels description]);
@@ -114,23 +98,45 @@ UIRefreshControl *refreshControl;
 */
 
 // table data source protocol
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return (myparcels==nil) ? 0 : [myparcels count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"未领的包裹";
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"parcel" owner:self options:nil];
+    for (NSUInteger i=0; i<views.count; i++) {
+        UIView *view = [views objectAtIndex:i];
+        if ([view isKindOfClass:[UnsignedParcelCell class]]) {
+            cellHeight = view.frame.size.height;
+            break;
+        }
+    }
+    
+    return cellHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog(@"%@", [[myparcels objectAtIndex:indexPath.row] description]);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
-    /*if (cell == nil) {
-     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER];
-     cell.accessoryType = UITableViewCellAccessoryCheckmark;
-     }*/
+    UnsignedParcelCell *cell = [tableView dequeueReusableCellWithIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
     NSDictionary *dict = [myparcels objectAtIndex:indexPath.row];
-    //NSNumber *pid = [dict objectForKey:@"parcelId"];
+    NSNumber *pid = [dict objectForKey:@"pacelId"];
     NSString *datestr = [dict objectForKey:@"arrivedDate"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@送达的快递", [datestr substringToIndex:10]];
+    //cell.textLabel.text = [NSString stringWithFormat:@"%@送达的快递", [datestr substringToIndex:10]];
+    [cell.lbltitle setText:[NSString stringWithFormat:@"%@ 送达的快递", [datestr substringToIndex:10]]];
+    [cell.lblsubtitle setText:[dict objectForKey:@"groupName"]];
+    [cell setParcelId:[pid integerValue]];
     [cell sizeToFit];
     return cell;
 }
@@ -155,27 +161,4 @@ UIRefreshControl *refreshControl;
 
 // end of table delegate
 
-// picker datasource
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    return wuyegroups != nil ? [wuyegroups count] : 0;
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    NSLog(@"picker title %d", (int)row);
-    return [wuyegroups objectAtIndex:row];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    [self.pkrgroups setHidden:YES];
-    [self.lblgroup setText:[wuyegroups objectAtIndex:row]];
-}
-// end of picker datasource
 @end
