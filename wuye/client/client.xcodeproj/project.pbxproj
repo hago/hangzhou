@@ -563,7 +563,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhiguo Ma (23HZ52M628)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiguo Ma (9QG3K6B9YZ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "client/client-Prefix.pch";
 				INFOPLIST_FILE = "client/client-Info.plist";
@@ -573,7 +573,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D3446114-7431-448F-9CC1-2F3CCA51E0A8";
+				PROVISIONING_PROFILE = "222118DE-D9FD-4B8F-988C-A0DFAE04878C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -584,7 +584,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhiguo Ma (23HZ52M628)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiguo Ma (9QG3K6B9YZ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "client/client-Prefix.pch";
 				INFOPLIST_FILE = "client/client-Info.plist";
@@ -594,7 +594,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D3446114-7431-448F-9CC1-2F3CCA51E0A8";
+				PROVISIONING_PROFILE = "222118DE-D9FD-4B8F-988C-A0DFAE04878C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
