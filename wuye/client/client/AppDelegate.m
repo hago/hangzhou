@@ -16,8 +16,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    //self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    if ([Utilities getVersion] >= 7) {
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.1 green:0.55 blue:1 alpha:1]];
+    }
     UIViewController *vc;
     if (![Utilities isRegistered]) {
         vc = [[UIStoryboard storyboardWithName:@"client" bundle:NULL] instantiateViewControllerWithIdentifier:@"regwindow"];

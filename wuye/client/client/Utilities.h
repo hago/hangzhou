@@ -19,6 +19,7 @@
 +(id)startLoadingUI:(UIViewController *)controller;
 +(void)stopLoadingUI;
 +(void)stopLoadingUI:(id)handle;
++(float)getVersion;
 
 +(NSString *)md5:(NSString *)str UsingEncoding:(NSStringEncoding)encoding;
 +(NSString *)md5Data:(const void *)buffer DataLength:(NSUInteger)length;
