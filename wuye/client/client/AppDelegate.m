@@ -19,7 +19,7 @@
     //self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     if ([Utilities getVersion] >= 7) {
-        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.1 green:0.55 blue:1 alpha:1]];
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0 green:149.0/255.9 blue:204.0/255.0 alpha:1]];
     }
     UIViewController *vc;
     if (![Utilities isRegistered]) {

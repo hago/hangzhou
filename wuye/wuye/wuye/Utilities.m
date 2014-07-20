@@ -166,4 +166,18 @@ NSInteger minorVersion = -1;
 {
     [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil] show];
 }
+
++(float)getVersion
+{
+    NSString *ver = [[UIDevice currentDevice] systemVersion];
+    NSArray *arr = [ver componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"."]];
+    float x = 0 ;
+    for (NSUInteger i=0;i<arr.count;i++) {
+        NSString *part = [arr objectAtIndex:i];
+        NSUInteger d = [part integerValue];
+        x += d * (1 / pow(10, i));
+    }
+    return x;
+}
+
 @end

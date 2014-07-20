@@ -24,6 +24,7 @@
 +(void)stopLoadingUI;
 +(void)showError:(NSString *)title Message:(NSString *)message;
 
++(float)getVersion;
 +(NSUInteger)getMajorVersion;
 +(NSUInteger)getMinorVersion;
 
