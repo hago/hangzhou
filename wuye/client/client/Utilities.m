@@ -164,4 +164,9 @@ UIView *loadingView;
     return x;
 }
 
++(void)showError:(NSString *)title Message:(NSString *)message
+{
+    [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil] show];
+}
+
 @end

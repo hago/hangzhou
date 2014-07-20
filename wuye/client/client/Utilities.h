@@ -20,6 +20,7 @@
 +(void)stopLoadingUI;
 +(void)stopLoadingUI:(id)handle;
 +(float)getVersion;
++(void)showError:(NSString *)title Message:(NSString *)message;
 
 +(NSString *)md5:(NSString *)str UsingEncoding:(NSStringEncoding)encoding;
 +(NSString *)md5Data:(const void *)buffer DataLength:(NSUInteger)length;

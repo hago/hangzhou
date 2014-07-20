@@ -13,6 +13,7 @@
 #import "Base64.h"
 #define  HTTP_TIMEOUT 30
 #define SERVICE_URL @"http://122.10.117.234:81/api"
+#define CLIENT_VERSION 100
 
 @interface ServiceMethods ()
 
@@ -277,6 +278,37 @@ dispatch_queue_t dq;
         apiSuccess(parcel);
     } onFail:^(NSError *error) {
         NSLog(@"unsignedPacels fail %@", [error description]);
+    }];
+}
+
+-(void)checkUpgrade:(void (^)())upgradeRequired UpgradeAvailable:(void (^)())upGradeAvailable NoUpgrade:(void (^)())noUpgrade
+{
+    NSString *url = [NSString stringWithFormat:@"%@/Upgrade/IsUpgradeIOS/%d", SERVICE_URL, CLIENT_VERSION];
+    [self httpGet:url httpCookies:nil requestHeaders:nil timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
+        NSLog(@"upgrade call ok");
+        NSError *err = nil;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
+        if (err!=nil) {
+            NSLog(@"upgrade parse fail %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
+            noUpgrade();
+        }
+        NSNumber *num = [dict objectForKey:@"code"];
+        NSInteger code = [num integerValue];
+        code=0;
+        if (code==0) {
+            num = [dict objectForKey:@"forceUpgrade"];
+            NSInteger forceup = [num integerValue];
+            if (forceup==0) {
+                upgradeRequired();
+            } else {
+                upGradeAvailable();
+            }
+        } else {
+            noUpgrade();
+        }
+    } onFail:^(NSError *error) {
+        NSLog(@"upgrade call fail %@", [error localizedDescription]);
+        noUpgrade();
     }];
 }
 
