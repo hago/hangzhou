@@ -11,6 +11,8 @@
 #define LOADING_GIF_HEIGHT 66
 #define LOADING_GIF_WIDTh 66
 #define REGISTERED_USERINFO_KEY @"REGISTERED_USERINFO_KEY"
+#define REGISTERED_USERINFO_DATE @"REGISTERED_USERINFO_DATE"
+#define EXPIRE_DAYS 60
 
 @implementation Utilities
 
@@ -25,12 +27,15 @@ UIView *loadingView;
 +(NSDictionary *)getUserInfo
 {
     NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:REGISTERED_USERINFO_KEY];
-    return dict;
+    NSDate *last = [[NSUserDefaults standardUserDefaults] objectForKey:REGISTERED_USERINFO_DATE];
+    NSTimeInterval ti = last != nil ? [[NSDate date] timeIntervalSinceDate:last] : [[NSDate date] timeIntervalSince1970];
+    return ti >= 24 * 3600 * EXPIRE_DAYS ? nil : dict;
 }
 
 +(void)saveUserInfo:(NSDictionary *)userinfo
 {
     [[NSUserDefaults standardUserDefaults] setObject:userinfo forKey:REGISTERED_USERINFO_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:REGISTERED_USERINFO_DATE];
 }
 
 +(BOOL)isValidCellnumber:(NSString *)input
