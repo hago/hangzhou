@@ -38,6 +38,7 @@
 		11E868681949EE530031002F /* history_packages_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E868651949EE530031002F /* history_packages_selected@2x.png */; };
 		11E868691949EE530031002F /* packages_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E868661949EE530031002F /* packages_selected@2x.png */; };
 		11E8686A1949EE530031002F /* history_packages_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E868671949EE530031002F /* history_packages_selected.png */; };
+		11F27DC2197BFAC300F091DD /* UpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F27DC1197BFAC300F091DD /* UpgradeViewController.m */; };
 		11F566F2192E212600EF6EF1 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566DC192E212600EF6EF1 /* AppIcon.png */; };
 		11F566F3192E212600EF6EF1 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566DD192E212600EF6EF1 /* AppIcon@2x.png */; };
 		11F566F4192E212600EF6EF1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566DE192E212600EF6EF1 /* icon.png */; };
@@ -118,6 +119,8 @@
 		11E868651949EE530031002F /* history_packages_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history_packages_selected@2x.png"; sourceTree = "<group>"; };
 		11E868661949EE530031002F /* packages_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "packages_selected@2x.png"; sourceTree = "<group>"; };
 		11E868671949EE530031002F /* history_packages_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_packages_selected.png; sourceTree = "<group>"; };
+		11F27DC0197BFAC300F091DD /* UpgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeViewController.h; sourceTree = "<group>"; };
+		11F27DC1197BFAC300F091DD /* UpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeViewController.m; sourceTree = "<group>"; };
 		11F566DC192E212600EF6EF1 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		11F566DD192E212600EF6EF1 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
 		11F566DE192E212600EF6EF1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 				110BBCF81937091A00BA8924 /* UITouchableImageView.h */,
 				110BBCF91937091A00BA8924 /* UITouchableImageView.m */,
 				110BBCFB19370AAA00BA8924 /* UITouchableImageViewProtocol.h */,
+				11F27DC0197BFAC300F091DD /* UpgradeViewController.h */,
+				11F27DC1197BFAC300F091DD /* UpgradeViewController.m */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 				11B001711928C91E00073386 /* RegisterViewController.m in Sources */,
 				11174849192C4C8400E99951 /* ReceivedParcelsViewController.m in Sources */,
 				110BBCFA1937091A00BA8924 /* UITouchableImageView.m in Sources */,
+				11F27DC2197BFAC300F091DD /* UpgradeViewController.m in Sources */,
 				11B0016B1928C8A500073386 /* ServiceMethods.m in Sources */,
 				11B001491928C83700073386 /* AppDelegate.m in Sources */,
 				11B0016C1928C8A500073386 /* Utilities.m in Sources */,
@@ -563,7 +569,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiguo Ma (9QG3K6B9YZ)";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "client/client-Prefix.pch";
 				INFOPLIST_FILE = "client/client-Info.plist";
@@ -584,7 +590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhiguo Ma (9QG3K6B9YZ)";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "client/client-Prefix.pch";
 				INFOPLIST_FILE = "client/client-Info.plist";
