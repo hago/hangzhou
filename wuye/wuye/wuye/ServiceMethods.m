@@ -156,7 +156,7 @@ dispatch_queue_t dq;
                 break;
             case -1:
             default:
-                err = [NSError errorWithDomain:@"wuyeRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"server return %ld", (long)code], @"description", nil]];
+                err = [NSError errorWithDomain:@"wuyeRegister" code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[obj objectForKey:@"message"], @"description", nil]];
                 apiFail(err);
                 break;
         }
@@ -221,7 +221,12 @@ dispatch_queue_t dq;
             return;
         }
         NSNumber *n = [ret objectForKey:@"code"];
-        apiSuccess([n integerValue]);
+        NSInteger code = [n integerValue];
+        if (code==0) {
+            apiSuccess([n integerValue]);
+        } else {
+            apiFail([NSError errorWithDomain:@"" code:code userInfo:nil]);
+        }
     } onFail:^(NSError *error) {
         apiFail(error);
     }];

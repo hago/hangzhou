@@ -95,9 +95,8 @@
 -(IBAction)next:(id)sender
 {
     NSString *cell = [self.txtCell.text stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \t\r\n"]];
-    if ([cell isEqualToString:@""]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请输入收件人手机号" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+    if (![Utilities isValidCellnumber:cell]) {
+        [Utilities showError:@"" Message:@"请输入正确收件人手机号"];
         return;
     }
     NSDictionary *userinfo = [Utilities getUserInfo];
@@ -139,7 +138,7 @@
                           @"", @"roomNumber",
                           @"", @"type",
                           @"", @"communityId",
-                          @"356789944", @"logisticsId",
+                          deliveryNo.text, @"logisticsId",
                           @"", @"twoDCode",
                           nil];
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -151,14 +150,12 @@
     [Utilities startLoadingUI:self];
     [[ServiceMethods getInstance] registerDeliveryNo:dict onSuceess:^(NSInteger code) {
         [Utilities stopLoadingUI];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"通知短信发送成功，快件已记录" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [self.txtCell setText:@""];
         [self.deliveryNo setText:@""];
-        [alert show];
+        [Utilities showError:@"" Message:@"通知短信发送成功，快件已记录"];
     } onFail:^(NSError *error) {
         [Utilities stopLoadingUI];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"出错了" message:[error description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        [Utilities showError:@"出错了" Message:[error description]];
     }];
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "UnsignedParcelCell.h"
+#import "ServiceMethods.h"
+#import "Utilities.h"
 
 @implementation UnsignedParcelCell
 
@@ -38,7 +40,12 @@
 
 -(IBAction)btnSmsclick:(id)sender
 {
-    NSLog(@"parcel id: %lu", (unsigned long)self.parcelId);
+    [[ServiceMethods getInstance] resendSms:[NSString stringWithFormat:@"%lu", (unsigned long)self.parcelId] onSuceess:^(NSInteger code) {
+        NSLog(@"resend ok");
+        [Utilities showError:@"" Message:@"发送成功"];
+    } onFail:^(NSError *error) {
+        [Utilities showError:@"" Message:@"发送失败"];
+    }];
 }
 
 @end
