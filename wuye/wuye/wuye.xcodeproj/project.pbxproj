@@ -45,6 +45,7 @@
 		11E868701949F0670031002F /* redeem.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8686C1949F0670031002F /* redeem.png */; };
 		11E868711949F0670031002F /* receive.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8686D1949F0670031002F /* receive.png */; };
 		11E868721949F0670031002F /* receive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8686E1949F0670031002F /* receive@2x.png */; };
+		11F27DC5197C0A4200F091DD /* UpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F27DC4197C0A4200F091DD /* UpgradeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,8 @@
 		11E8686C1949F0670031002F /* redeem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redeem.png; sourceTree = "<group>"; };
 		11E8686D1949F0670031002F /* receive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = receive.png; sourceTree = "<group>"; };
 		11E8686E1949F0670031002F /* receive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "receive@2x.png"; sourceTree = "<group>"; };
+		11F27DC3197C0A4200F091DD /* UpgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeViewController.h; sourceTree = "<group>"; };
+		11F27DC4197C0A4200F091DD /* UpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,8 @@
 				1189B6251972B18D00DD7545 /* ParcelsViewController.m */,
 				11C71E121974505800C40A37 /* UnsignedParcelCell.h */,
 				11C71E131974505800C40A37 /* UnsignedParcelCell.m */,
+				11F27DC3197C0A4200F091DD /* UpgradeViewController.h */,
+				11F27DC4197C0A4200F091DD /* UpgradeViewController.m */,
 			);
 			path = wuye;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				11CFEAAC193B6929004C188D /* RedeemViewController.m in Sources */,
 				11C71E141974505800C40A37 /* UnsignedParcelCell.m in Sources */,
 				11B0012519273A0600073386 /* RegisterViewController.m in Sources */,
+				11F27DC5197C0A4200F091DD /* UpgradeViewController.m in Sources */,
 				11B0012819273AE900073386 /* Utilities.m in Sources */,
 				11B0012B1927508400073386 /* ServiceMethods.m in Sources */,
 				116EC056193A18C0006C0D75 /* Base64.m in Sources */,
@@ -499,7 +505,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhiguo Ma (23HZ52M628)";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wuye/wuye-Prefix.pch";
 				INFOPLIST_FILE = "wuye/wuye-Info.plist";
@@ -509,7 +515,7 @@
 					"$(SRCROOT)/../libs/ZBarSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2EA9DC3C-343F-459A-88CF-FE29C6351AE8";
+				PROVISIONING_PROFILE = "C3FE035C-E498-4EBF-934B-AF69EE9F7478";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -521,7 +527,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhiguo Ma (23HZ52M628)";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wuye/wuye-Prefix.pch";
 				INFOPLIST_FILE = "wuye/wuye-Info.plist";
@@ -531,7 +537,7 @@
 					"$(SRCROOT)/../libs/ZBarSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2EA9DC3C-343F-459A-88CF-FE29C6351AE8";
+				PROVISIONING_PROFILE = "C3FE035C-E498-4EBF-934B-AF69EE9F7478";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};

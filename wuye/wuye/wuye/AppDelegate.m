@@ -9,6 +9,13 @@
 #import "AppDelegate.h"
 #import "Utilities.h"
 #import "RegisterViewController.h"
+#import "ServiceMethods.h"
+
+@interface AppDelegate ()
+
+-(void)gotoDownload;
+
+@end
 
 @implementation AppDelegate
 
@@ -28,7 +35,40 @@
         vc = [self createMainController];
     }
     self.window.rootViewController = vc;
+    [[ServiceMethods getInstance] checkUpgrade:^(){
+        [self gotoDownload];
+    } UpgradeAvailable:^(){
+        [[[UIAlertView alloc] initWithTitle:@"" message:@"现有一个新版本可以升级了" delegate:self cancelButtonTitle:@"现在不用" otherButtonTitles:@"立刻升级", nil] show];
+    } NoUpgrade:^(){
+        // do nothing
+    }];
     return YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            break;
+        case 1:
+        {
+            [self gotoDownload];
+            break;
+        }
+    }
+}
+
+-(void)gotoDownload
+{
+    UIViewController *vc = [[UIStoryboard storyboardWithName:@"wuye" bundle:NULL] instantiateViewControllerWithIdentifier:@"upgrade"];
+    UIViewController *current = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    if (current==nil) {
+        [[[UIApplication sharedApplication] keyWindow] setRootViewController:vc];
+    } else {
+        [UIView transitionFromView:current.view toView:vc.view duration:1 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
+            [[[UIApplication sharedApplication] keyWindow] setRootViewController:vc];
+        }];
+    }
 }
 
 -(UITabBarController *)createMainController

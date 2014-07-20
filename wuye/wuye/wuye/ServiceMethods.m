@@ -10,8 +10,10 @@
 #import "dispatch/queue.h"
 #import "Utilities.h"
 #import "Base64.h"
+#define CLIENT_VERSION 100
+#define  HTTP_TIMEOUT 30
 
-#define SERVICE_URL "http://122.10.117.234:81/api/v1"
+#define SERVICE_URL @"http://122.10.117.234:81/api/v1"
 
 @interface ServiceMethods ()
 
@@ -90,7 +92,7 @@ dispatch_queue_t dq;
 
 -(void)wuyeRegister:(NSString *)cellno onSuceess:(void (^)(NSDictionary *userinfo))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [[[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/CustomerType2/CheckCustomerType2/"] stringByAppendingString:cellno];
+    NSString *url = [[SERVICE_URL stringByAppendingString:@"/CustomerType2/CheckCustomerType2/"] stringByAppendingString:cellno];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:30 onSuceess:^(NSData *response) {
         NSLog(@"reg success");
         NSError *err = nil;
@@ -125,7 +127,7 @@ dispatch_queue_t dq;
 
 -(void)registerDeliveryNo:(NSDictionary *)req onSuceess:(void (^)(NSInteger code))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/CustomerType2/CreatePacelCustomer"];
+    NSString *url = [SERVICE_URL stringByAppendingString:@"/CustomerType2/CreatePacelCustomer"];
     NSError *error = nil;
     NSData *body = [NSJSONSerialization dataWithJSONObject:req options:0 error:&error];
     if (error!=nil) {
@@ -168,7 +170,7 @@ dispatch_queue_t dq;
 
 -(void)getGroupNames:(NSString *)cell onSuceess:(void (^)(NSArray *groupNames))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [[[NSString stringWithUTF8String:SERVICE_URL] stringByAppendingString:@"/CustomerType2/GetGroupNames/"] stringByAppendingString:cell];
+    NSString *url = [[SERVICE_URL stringByAppendingString:@"/CustomerType2/GetGroupNames/"] stringByAppendingString:cell];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:30 onSuceess:^(NSData *response) {
         NSLog(@"groupname ok %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
         NSError *err=nil;
@@ -194,7 +196,7 @@ dispatch_queue_t dq;
 
 -(void)getWuyeParcels:(NSString *)customerId PageNo:(NSUInteger)pageno onSuceess:(void (^)(NSArray *))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [NSString stringWithFormat:@"%@/Pacel/GetUnSignedPacelsByCustomerType2Id/%@/%lu", [NSString stringWithUTF8String:SERVICE_URL], customerId, (unsigned long)pageno];
+    NSString *url = [NSString stringWithFormat:@"%@/Pacel/GetUnSignedPacelsByCustomerType2Id/%@/%lu", SERVICE_URL, customerId, (unsigned long)pageno];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:30 onSuceess:^(NSData *response) {
         NSLog(@"getWuyeParcels ok %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
         NSError *err=nil;
@@ -211,7 +213,7 @@ dispatch_queue_t dq;
 
 -(void)resendSms:(NSString *)parcelId onSuceess:(void (^)(NSInteger))apiSuccess onFail:(void (^)(NSError *))apiFail
 {
-    NSString *url = [NSString stringWithFormat:@"%@/Resend/ReText/%@", [NSString stringWithUTF8String:SERVICE_URL], parcelId];
+    NSString *url = [NSString stringWithFormat:@"%@/Resend/ReText/%@", SERVICE_URL, parcelId];
     [self httpGet:url httpCookies:nil requestHeaders:nil timeout:30 onSuceess:^(NSData *response) {
         NSLog(@"getWuyeParcels ok %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
         NSError *err=nil;
@@ -229,6 +231,36 @@ dispatch_queue_t dq;
         }
     } onFail:^(NSError *error) {
         apiFail(error);
+    }];
+}
+
+-(void)checkUpgrade:(void (^)())upgradeRequired UpgradeAvailable:(void (^)())upGradeAvailable NoUpgrade:(void (^)())noUpgrade
+{
+    NSString *url = [NSString stringWithFormat:@"%@/Upgrade/IsUpgradeIOSForWuye/%d", SERVICE_URL, CLIENT_VERSION];
+    [self httpGet:url httpCookies:nil requestHeaders:nil timeout:HTTP_TIMEOUT onSuceess:^(NSData *response) {
+        NSLog(@"upgrade call ok");
+        NSError *err = nil;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:0 error:&err];
+        if (err!=nil) {
+            NSLog(@"upgrade parse fail %@", [Utilities __debug_nsdata_as_string:response returnHex:NO]);
+            noUpgrade();
+        }
+        NSNumber *num = [dict objectForKey:@"code"];
+        NSInteger code = [num integerValue];
+        if (code==0) {
+            num = [dict objectForKey:@"forceUpgrade"];
+            NSInteger forceup = [num integerValue];
+            if (forceup==0) {
+                upgradeRequired();
+            } else {
+                upGradeAvailable();
+            }
+        } else {
+            noUpgrade();
+        }
+    } onFail:^(NSError *error) {
+        NSLog(@"upgrade call fail %@", [error localizedDescription]);
+        noUpgrade();
     }];
 }
 
