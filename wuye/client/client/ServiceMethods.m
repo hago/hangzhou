@@ -294,7 +294,6 @@ dispatch_queue_t dq;
         }
         NSNumber *num = [dict objectForKey:@"code"];
         NSInteger code = [num integerValue];
-        code=0;
         if (code==0) {
             num = [dict objectForKey:@"forceUpgrade"];
             NSInteger forceup = [num integerValue];
