@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114F7DC6197D709800D16D26 /* cellphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DB9197D709800D16D26 /* cellphone.png */; };
+		114F7DC7197D709800D16D26 /* delevery.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DBA197D709800D16D26 /* delevery.png */; };
+		114F7DC8197D709800D16D26 /* groups.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DBB197D709800D16D26 /* groups.png */; };
+		114F7DC9197D709800D16D26 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DBC197D709800D16D26 /* next.png */; };
+		114F7DCA197D709800D16D26 /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DBD197D709800D16D26 /* next@2x.png */; };
+		114F7DCB197D709800D16D26 /* receive.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DBE197D709800D16D26 /* receive.png */; };
+		114F7DCC197D709800D16D26 /* receive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DBF197D709800D16D26 /* receive@2x.png */; };
+		114F7DCD197D709800D16D26 /* redeem.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DC0197D709800D16D26 /* redeem.png */; };
+		114F7DCE197D709800D16D26 /* redeem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DC1197D709800D16D26 /* redeem@2x.png */; };
+		114F7DCF197D709800D16D26 /* resms.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DC2197D709800D16D26 /* resms.png */; };
+		114F7DD0197D709800D16D26 /* resms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DC3197D709800D16D26 /* resms@2x.png */; };
+		114F7DD1197D709800D16D26 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DC4197D709800D16D26 /* sms.png */; };
+		114F7DD2197D709800D16D26 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DC5197D709800D16D26 /* sms@2x.png */; };
+		114F7DD4197D754500D16D26 /* zhijian.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DD3197D754500D16D26 /* zhijian.png */; };
 		116EC056193A18C0006C0D75 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 116EC055193A18C0006C0D75 /* Base64.m */; };
-		1189B61919729C7E00DD7545 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B61819729C7E00DD7545 /* next.png */; };
-		1189B61B19729DBC00DD7545 /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B61A19729DBC00DD7545 /* next@2x.png */; };
-		1189B61E1972AA1F00DD7545 /* delevery.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B61C1972AA1F00DD7545 /* delevery.png */; };
-		1189B61F1972AA1F00DD7545 /* cellphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B61D1972AA1F00DD7545 /* cellphone.png */; };
-		1189B6221972AB6A00DD7545 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6201972AB6900DD7545 /* sms.png */; };
-		1189B6231972AB6A00DD7545 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6211972AB6900DD7545 /* sms@2x.png */; };
 		1189B6261972B18E00DD7545 /* ParcelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189B6251972B18D00DD7545 /* ParcelsViewController.m */; };
-		1189B62B1972B9F500DD7545 /* resms.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B6291972B9F500DD7545 /* resms.png */; };
-		1189B62C1972B9F500DD7545 /* resms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B62A1972B9F500DD7545 /* resms@2x.png */; };
-		1189B62E1972CBDA00DD7545 /* groups.png in Resources */ = {isa = PBXBuildFile; fileRef = 1189B62D1972CBD900DD7545 /* groups.png */; };
 		118E1BD4193C851000223D10 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 118E1BD3193C851000223D10 /* libiconv.dylib */; };
 		11B000F31927364500073386 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F21927364500073386 /* Foundation.framework */; };
 		11B000F51927364500073386 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B000F41927364500073386 /* CoreGraphics.framework */; };
@@ -41,10 +46,6 @@
 		11DCD5EC193CA29A006A139A /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118E1BD1193C830700223D10 /* libzbar.a */; };
 		11DCD5FB193CA6AC006A139A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DCD5FA193CA6AC006A139A /* CoreMedia.framework */; };
 		11DCD5FD193CA6D6006A139A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DCD5FC193CA6D6006A139A /* AVFoundation.framework */; };
-		11E8686F1949F0670031002F /* redeem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8686B1949F0670031002F /* redeem@2x.png */; };
-		11E868701949F0670031002F /* redeem.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8686C1949F0670031002F /* redeem.png */; };
-		11E868711949F0670031002F /* receive.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8686D1949F0670031002F /* receive.png */; };
-		11E868721949F0670031002F /* receive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E8686E1949F0670031002F /* receive@2x.png */; };
 		11F27DC5197C0A4200F091DD /* UpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F27DC4197C0A4200F091DD /* UpgradeViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -59,20 +60,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		114F7DB9197D709800D16D26 /* cellphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellphone.png; sourceTree = "<group>"; };
+		114F7DBA197D709800D16D26 /* delevery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delevery.png; sourceTree = "<group>"; };
+		114F7DBB197D709800D16D26 /* groups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = groups.png; sourceTree = "<group>"; };
+		114F7DBC197D709800D16D26 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
+		114F7DBD197D709800D16D26 /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@2x.png"; sourceTree = "<group>"; };
+		114F7DBE197D709800D16D26 /* receive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = receive.png; sourceTree = "<group>"; };
+		114F7DBF197D709800D16D26 /* receive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "receive@2x.png"; sourceTree = "<group>"; };
+		114F7DC0197D709800D16D26 /* redeem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redeem.png; sourceTree = "<group>"; };
+		114F7DC1197D709800D16D26 /* redeem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redeem@2x.png"; sourceTree = "<group>"; };
+		114F7DC2197D709800D16D26 /* resms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resms.png; sourceTree = "<group>"; };
+		114F7DC3197D709800D16D26 /* resms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resms@2x.png"; sourceTree = "<group>"; };
+		114F7DC4197D709800D16D26 /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sms.png; sourceTree = "<group>"; };
+		114F7DC5197D709800D16D26 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
+		114F7DD3197D754500D16D26 /* zhijian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhijian.png; sourceTree = "<group>"; };
 		116EC054193A18C0006C0D75 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		116EC055193A18C0006C0D75 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		1189B617197290DF00DD7545 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		1189B61819729C7E00DD7545 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
-		1189B61A19729DBC00DD7545 /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@2x.png"; sourceTree = "<group>"; };
-		1189B61C1972AA1F00DD7545 /* delevery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delevery.png; sourceTree = "<group>"; };
-		1189B61D1972AA1F00DD7545 /* cellphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellphone.png; sourceTree = "<group>"; };
-		1189B6201972AB6900DD7545 /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sms.png; sourceTree = "<group>"; };
-		1189B6211972AB6900DD7545 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
 		1189B6241972B18D00DD7545 /* ParcelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParcelsViewController.h; sourceTree = "<group>"; };
 		1189B6251972B18D00DD7545 /* ParcelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParcelsViewController.m; sourceTree = "<group>"; };
-		1189B6291972B9F500DD7545 /* resms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resms.png; sourceTree = "<group>"; };
-		1189B62A1972B9F500DD7545 /* resms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resms@2x.png"; sourceTree = "<group>"; };
-		1189B62D1972CBD900DD7545 /* groups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = groups.png; sourceTree = "<group>"; };
 		118E1BD1193C830700223D10 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbar.a; path = ../libs/ZBarSDK/libzbar.a; sourceTree = "<group>"; };
 		118E1BD3193C851000223D10 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		11B000EF1927364500073386 /* wuye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wuye.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,10 +125,6 @@
 		11DCD5F9193CA61D006A139A /* ZBarCVImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCVImage.h; sourceTree = "<group>"; };
 		11DCD5FA193CA6AC006A139A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		11DCD5FC193CA6D6006A139A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		11E8686B1949F0670031002F /* redeem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redeem@2x.png"; sourceTree = "<group>"; };
-		11E8686C1949F0670031002F /* redeem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redeem.png; sourceTree = "<group>"; };
-		11E8686D1949F0670031002F /* receive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = receive.png; sourceTree = "<group>"; };
-		11E8686E1949F0670031002F /* receive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "receive@2x.png"; sourceTree = "<group>"; };
 		11F27DC3197C0A4200F091DD /* UpgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeViewController.h; sourceTree = "<group>"; };
 		11F27DC4197C0A4200F091DD /* UpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +157,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		114F7DB8197D709800D16D26 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				114F7DD3197D754500D16D26 /* zhijian.png */,
+				114F7DB9197D709800D16D26 /* cellphone.png */,
+				114F7DBA197D709800D16D26 /* delevery.png */,
+				114F7DBB197D709800D16D26 /* groups.png */,
+				114F7DBC197D709800D16D26 /* next.png */,
+				114F7DBD197D709800D16D26 /* next@2x.png */,
+				114F7DBE197D709800D16D26 /* receive.png */,
+				114F7DBF197D709800D16D26 /* receive@2x.png */,
+				114F7DC0197D709800D16D26 /* redeem.png */,
+				114F7DC1197D709800D16D26 /* redeem@2x.png */,
+				114F7DC2197D709800D16D26 /* resms.png */,
+				114F7DC3197D709800D16D26 /* resms@2x.png */,
+				114F7DC4197D709800D16D26 /* sms.png */,
+				114F7DC5197D709800D16D26 /* sms@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		11B000E61927364500073386 = {
 			isa = PBXGroup;
 			children = (
@@ -192,18 +215,8 @@
 		11B000F81927364500073386 /* wuye */ = {
 			isa = PBXGroup;
 			children = (
+				114F7DB8197D709800D16D26 /* resources */,
 				11C71E1519745F4A00C40A37 /* parcel.xib */,
-				1189B62D1972CBD900DD7545 /* groups.png */,
-				1189B6201972AB6900DD7545 /* sms.png */,
-				1189B6211972AB6900DD7545 /* sms@2x.png */,
-				1189B61C1972AA1F00DD7545 /* delevery.png */,
-				1189B61D1972AA1F00DD7545 /* cellphone.png */,
-				1189B61A19729DBC00DD7545 /* next@2x.png */,
-				1189B61819729C7E00DD7545 /* next.png */,
-				11E8686B1949F0670031002F /* redeem@2x.png */,
-				11E8686C1949F0670031002F /* redeem.png */,
-				11E8686D1949F0670031002F /* receive.png */,
-				11E8686E1949F0670031002F /* receive@2x.png */,
 				11DCD5ED193CA57B006A139A /* ZBarSDK */,
 				116EC054193A18C0006C0D75 /* Base64.h */,
 				116EC055193A18C0006C0D75 /* Base64.m */,
@@ -212,8 +225,6 @@
 				11B001041927364500073386 /* Images.xcassets */,
 				11B000F91927364500073386 /* Supporting Files */,
 				11B001211927394700073386 /* wuye.storyboard */,
-				1189B6291972B9F500DD7545 /* resms.png */,
-				1189B62A1972B9F500DD7545 /* resms@2x.png */,
 				11B0012319273A0600073386 /* RegisterViewController.h */,
 				11B0012419273A0600073386 /* RegisterViewController.m */,
 				11B0012619273AE900073386 /* Utilities.h */,
@@ -341,24 +352,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11E868701949F0670031002F /* redeem.png in Resources */,
-				1189B6231972AB6A00DD7545 /* sms@2x.png in Resources */,
-				11E868721949F0670031002F /* receive@2x.png in Resources */,
-				1189B62C1972B9F500DD7545 /* resms@2x.png in Resources */,
-				1189B61919729C7E00DD7545 /* next.png in Resources */,
-				11E868711949F0670031002F /* receive.png in Resources */,
-				11E8686F1949F0670031002F /* redeem@2x.png in Resources */,
-				1189B61B19729DBC00DD7545 /* next@2x.png in Resources */,
+				114F7DCD197D709800D16D26 /* redeem.png in Resources */,
+				114F7DC6197D709800D16D26 /* cellphone.png in Resources */,
+				114F7DD2197D709800D16D26 /* sms@2x.png in Resources */,
+				114F7DCB197D709800D16D26 /* receive.png in Resources */,
+				114F7DD0197D709800D16D26 /* resms@2x.png in Resources */,
+				114F7DCC197D709800D16D26 /* receive@2x.png in Resources */,
+				114F7DD4197D754500D16D26 /* zhijian.png in Resources */,
 				11B001221927394700073386 /* wuye.storyboard in Resources */,
+				114F7DC9197D709800D16D26 /* next.png in Resources */,
+				114F7DCE197D709800D16D26 /* redeem@2x.png in Resources */,
+				114F7DCA197D709800D16D26 /* next@2x.png in Resources */,
 				11B000FD1927364500073386 /* InfoPlist.strings in Resources */,
 				11B001051927364500073386 /* Images.xcassets in Resources */,
-				1189B6221972AB6A00DD7545 /* sms.png in Resources */,
-				1189B62E1972CBDA00DD7545 /* groups.png in Resources */,
+				114F7DD1197D709800D16D26 /* sms.png in Resources */,
 				11C71E0E197440DF00C40A37 /* Localizable.strings in Resources */,
-				1189B61F1972AA1F00DD7545 /* cellphone.png in Resources */,
+				114F7DC8197D709800D16D26 /* groups.png in Resources */,
+				114F7DC7197D709800D16D26 /* delevery.png in Resources */,
+				114F7DCF197D709800D16D26 /* resms.png in Resources */,
 				11C71E1619745F4A00C40A37 /* parcel.xib in Resources */,
-				1189B62B1972B9F500DD7545 /* resms.png in Resources */,
-				1189B61E1972AA1F00DD7545 /* delevery.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
