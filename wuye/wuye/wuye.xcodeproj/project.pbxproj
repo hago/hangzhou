@@ -21,6 +21,8 @@
 		114F7DD1197D709800D16D26 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DC4197D709800D16D26 /* sms.png */; };
 		114F7DD2197D709800D16D26 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DC5197D709800D16D26 /* sms@2x.png */; };
 		114F7DD4197D754500D16D26 /* zhijian.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DD3197D754500D16D26 /* zhijian.png */; };
+		114F7DD8197D7DA400D16D26 /* GroupCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114F7DD6197D7DA400D16D26 /* GroupCellTableViewCell.m */; };
+		114F7DD9197D7DA400D16D26 /* GroupCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DD7197D7DA400D16D26 /* GroupCellTableViewCell.xib */; };
 		116EC056193A18C0006C0D75 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 116EC055193A18C0006C0D75 /* Base64.m */; };
 		1189B6261972B18E00DD7545 /* ParcelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1189B6251972B18D00DD7545 /* ParcelsViewController.m */; };
 		118E1BD4193C851000223D10 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 118E1BD3193C851000223D10 /* libiconv.dylib */; };
@@ -74,6 +76,9 @@
 		114F7DC4197D709800D16D26 /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sms.png; sourceTree = "<group>"; };
 		114F7DC5197D709800D16D26 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
 		114F7DD3197D754500D16D26 /* zhijian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhijian.png; sourceTree = "<group>"; };
+		114F7DD5197D7DA400D16D26 /* GroupCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupCellTableViewCell.h; sourceTree = "<group>"; };
+		114F7DD6197D7DA400D16D26 /* GroupCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupCellTableViewCell.m; sourceTree = "<group>"; };
+		114F7DD7197D7DA400D16D26 /* GroupCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCellTableViewCell.xib; sourceTree = "<group>"; };
 		116EC054193A18C0006C0D75 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		116EC055193A18C0006C0D75 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		1189B617197290DF00DD7545 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -241,6 +246,9 @@
 				11C71E131974505800C40A37 /* UnsignedParcelCell.m */,
 				11F27DC3197C0A4200F091DD /* UpgradeViewController.h */,
 				11F27DC4197C0A4200F091DD /* UpgradeViewController.m */,
+				114F7DD5197D7DA400D16D26 /* GroupCellTableViewCell.h */,
+				114F7DD6197D7DA400D16D26 /* GroupCellTableViewCell.m */,
+				114F7DD7197D7DA400D16D26 /* GroupCellTableViewCell.xib */,
 			);
 			path = wuye;
 			sourceTree = "<group>";
@@ -363,6 +371,7 @@
 				114F7DC9197D709800D16D26 /* next.png in Resources */,
 				114F7DCE197D709800D16D26 /* redeem@2x.png in Resources */,
 				114F7DCA197D709800D16D26 /* next@2x.png in Resources */,
+				114F7DD9197D7DA400D16D26 /* GroupCellTableViewCell.xib in Resources */,
 				11B000FD1927364500073386 /* InfoPlist.strings in Resources */,
 				11B001051927364500073386 /* Images.xcassets in Resources */,
 				114F7DD1197D709800D16D26 /* sms.png in Resources */,
@@ -395,6 +404,7 @@
 				11B0012519273A0600073386 /* RegisterViewController.m in Sources */,
 				11F27DC5197C0A4200F091DD /* UpgradeViewController.m in Sources */,
 				11B0012819273AE900073386 /* Utilities.m in Sources */,
+				114F7DD8197D7DA400D16D26 /* GroupCellTableViewCell.m in Sources */,
 				11B0012B1927508400073386 /* ServiceMethods.m in Sources */,
 				116EC056193A18C0006C0D75 /* Base64.m in Sources */,
 				1189B6261972B18E00DD7545 /* ParcelsViewController.m in Sources */,

@@ -9,6 +9,9 @@
 #import "ReceiptViewController.h"
 #import "ServiceMethods.h"
 #import "Utilities.h"
+#import "GroupCellTableViewCell.h"
+
+#define GROUP_CELL_REUSE_IDENTIFIER @"GROUP_CELL_REUSE_IDENTIFIER"
 
 @interface ReceiptViewController ()
 
@@ -19,6 +22,8 @@
 @synthesize btnNext;
 @synthesize txtCell;
 @synthesize deliveryNo;
+@synthesize groupselector;
+@synthesize lblgroup;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,12 +49,17 @@
                            nil];
     [numberToolbar sizeToFit];
     self.txtCell.inputAccessoryView = numberToolbar;
+    UINib *nib = [UINib nibWithNibName:@"GroupCellTableViewCell" bundle:nil];
+    [self.groupselector registerNib:nib forCellReuseIdentifier:GROUP_CELL_REUSE_IDENTIFIER];
     NSString *cellno = [userinfo objectForKey:@"wuyemobile"];
     NSArray *arr = [Utilities getGroups:cellno];
     if (arr!=nil) {
         groups = [NSMutableArray arrayWithArray:arr];
-        [self.picker setHidden:NO];
-        [self.picker reloadAllComponents];
+        if ((groups!=nil) && ([groups count]>0)) {
+            [self.lblgroup setText:[groups objectAtIndex:0]];
+            [self.groupselector reloadData];
+            [self.groupselector selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+        }
     }
     [[ServiceMethods getInstance] getGroupNames:cellno onSuceess:^(NSArray *groupNames) {
         NSLog(@"groups loaded");
@@ -57,13 +67,22 @@
         [groups addObjectsFromArray:groupNames];
         [Utilities saveGroups:cellno GroupInfo:groupNames];
         //[NSThread sleepForTimeInterval:3];
-        [self.picker setHidden:NO];
-        [self.picker reloadAllComponents];
+        [self.groupselector reloadData];
     } onFail:^(NSError *error) {
         NSLog(@"groups failed");
         //[groups removeAllObjects];
         //[self.picker reloadAllComponents];
     }];
+}
+
+-(IBAction)selectGroup:(id)sender
+{
+    [UIView transitionWithView:self.groupselector
+                      duration:0.6
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:NULL
+                    completion:NULL];
+    [self.groupselector setHidden:![self.groupselector isHidden]];
 }
 
 -(void)cancelNumberPad{
@@ -103,7 +122,7 @@
     NSString *fmt = [NSDateFormatter dateFormatFromTemplate:@"yyyy-MM-dd" options:0 locale:[NSLocale systemLocale]];
     NSDateFormatter *fmtr = [[NSDateFormatter alloc] init];
     [fmtr setDateFormat:fmt];
-    NSString *groupname = [groups objectAtIndex:[self.picker selectedRowInComponent:0]];
+    NSString *groupname = [self.lblgroup text];
     NSDictionary *customer = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithInt:0], @"customerId",
                               cell, @"mobile",
@@ -179,5 +198,29 @@
     NSLog(@"picker title %d", (int)row);
     return [groups objectAtIndex:row];
 }
+
+//table data source
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [groups count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GroupCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:GROUP_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
+    NSString *groupname = [groups objectAtIndex:indexPath.row];
+    [cell.lblgroup setText:groupname];
+    return cell;
+}
+//end of table data source
+
+// table delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *group = [groups objectAtIndex:indexPath.row];
+    [self.lblgroup setText:group];
+    //[self selectGroup:nil];
+}
+// end of table delegate
 
 @end

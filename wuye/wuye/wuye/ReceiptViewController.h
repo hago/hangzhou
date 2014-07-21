@@ -8,16 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReceiptViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate> {
+@interface ReceiptViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
     NSMutableArray *groups;
 }
 
 @property (strong, atomic) IBOutlet UITextField *txtCell;
 @property (strong, atomic) IBOutlet UITextField *deliveryNo;
 @property (strong, atomic) IBOutlet UIButton *btnNext;
-@property (strong, atomic) IBOutlet UIPickerView *picker;
+@property (strong, atomic) IBOutlet UITableView *groupselector;
+@property (strong, atomic) IBOutlet UILabel *lblgroup;
 
 -(IBAction)next:(id)sender;
 -(IBAction)txtInputDone:(id)sender;
+-(IBAction)selectGroup:(id)sender;
 
 @end
