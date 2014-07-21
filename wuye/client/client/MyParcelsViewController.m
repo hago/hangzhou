@@ -10,12 +10,14 @@
 #import "ServiceMethods.h"
 #import "Utilities.h"
 #import "UITouchableImageView.h"
+#import "MyParcelsCell.h"
 
 #define MY_PARCEL_CELL_REUSE_IDENTIFIER @"MyParcelsCell"
 
 @interface MyParcelsViewController ()
 
 -(void)loadingParcels;
+-(void)resizeTableView;
 
 @end
 
@@ -75,10 +77,27 @@ UIRefreshControl *refreshControl;
         NSLog(@"my parcels %lu, %@", (unsigned long)[parcels count], [parcels description]);
         myparcels = parcels;
         [self.list reloadData];
+        [self resizeTableView];
     } onFail:^(NSError *error) {
         NSLog(@"my pacels failed");
         [refreshControl endRefreshing];
     }];
+}
+
+-(void)resizeTableView
+{
+    //NSLog(@"%f, %f", self.list.contentSize.height, self.list.frame.size.height);
+    CGSize cs = self.list.contentSize;
+    CGRect current = self.list.frame;
+    if (cs.height < current.size.height) {
+        CGRect r = CGRectMake(current.origin.x, current.origin.y, current.size.width, cs.height);
+        [self.list setFrame:r];
+    } else if (cs.height > current.size.height) {
+        CGFloat maxh = [[UIScreen mainScreen] bounds].size.height - 49 - 44 - 20;
+        CGFloat h = cs.height > maxh ? maxh : cs.height;
+        CGRect r = CGRectMake(current.origin.x, current.origin.y, current.size.width, h);
+        [self.list setFrame:r];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,16 +132,12 @@ UIRefreshControl *refreshControl;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //NSLog(@"%@", [[myparcels objectAtIndex:indexPath.row] description]);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
-    /*if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER];
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }*/
+    MyParcelsCell *cell = [tableView dequeueReusableCellWithIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
     NSDictionary *dict = [myparcels objectAtIndex:indexPath.row];
     //NSNumber *pid = [dict objectForKey:@"parcelId"];
     NSString *datestr = [dict objectForKey:@"arrivedDate"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@送达的快递", [datestr substringToIndex:10]];
-    [cell sizeToFit];
+    [cell.lbltitle setText:[NSString stringWithFormat:@"快递 %@", [dict objectForKey:@"logisticsId"]]];
+    [cell.lblsubtitle setText:[NSString stringWithFormat:@"到达时间：%@", [datestr substringToIndex:10]]];
     return cell;
 }
 // end of table data source protocol

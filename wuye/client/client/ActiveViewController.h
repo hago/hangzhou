@@ -13,7 +13,7 @@
 @property (retain, atomic) IBOutlet UIButton *btnnext;
 @property (retain, atomic) IBOutlet UIButton *btnresend;
 @property (retain, atomic) IBOutlet UITextField *txtcode;
-@property (retain, atomic) IBOutlet UILabel *lblcountdown;
+@property (retain, atomic) IBOutlet UITextField *txtcountdown;
 
 -(IBAction)next:(id)sender;
 -(IBAction)cellinputDone:(id)sender;

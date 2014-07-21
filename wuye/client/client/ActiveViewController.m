@@ -23,7 +23,7 @@
 
 @synthesize btnnext;
 @synthesize txtcode;
-@synthesize lblcountdown;
+@synthesize txtcountdown;
 
 NSString *cellno;
 NSUInteger customerid;
@@ -145,12 +145,13 @@ id handle;
 {
     //NSLog(@"timer running");
     if (secs > 0) {
-        NSString *txt = [NSString stringWithFormat:@"验证短信已发出，请在%lu秒内输入", (unsigned long)secs];
-        [lblcountdown setText:txt];
+        NSString *txt = [NSString stringWithFormat:@"重新发送%lu秒", (unsigned long)secs];
+        [self.txtcountdown setText:txt];
         secs--;
     } else {
         [timer invalidate];
-        [lblcountdown setText:@""];
+        [self.txtcountdown setText:@""];
+        [self.txtcountdown setHidden:YES];
         [self.btnresend setHidden:NO];
     }
 }
