@@ -219,7 +219,7 @@
 {
     NSString *group = [groups objectAtIndex:indexPath.row];
     [self.lblgroup setText:group];
-    //[self selectGroup:nil];
+    [self selectGroup:nil];
 }
 // end of table delegate
 
