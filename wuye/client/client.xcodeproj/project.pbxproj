@@ -17,6 +17,9 @@
 		114E582B1976BB3F0085BFAC /* resms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 114E58271976BB3F0085BFAC /* resms@2x.png */; };
 		114E582C1976BB3F0085BFAC /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 114E58281976BB3F0085BFAC /* next.png */; };
 		114E582D1976BB3F0085BFAC /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 114E58291976BB3F0085BFAC /* next@2x.png */; };
+		114F7DDC197D8CFB00D16D26 /* zhijianshequ.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DDA197D8CFB00D16D26 /* zhijianshequ.png */; };
+		114F7DDD197D8CFB00D16D26 /* cellphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 114F7DDB197D8CFB00D16D26 /* cellphone.png */; };
+		114F7DE0197D97C300D16D26 /* MyParcelsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114F7DDF197D97C300D16D26 /* MyParcelsCell.m */; };
 		1189B60B197285E100DD7545 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1189B60D197285E100DD7545 /* Localizable.strings */; };
 		11B001391928C83700073386 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B001381928C83700073386 /* Foundation.framework */; };
 		11B0013B1928C83700073386 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B0013A1928C83700073386 /* CoreGraphics.framework */; };
@@ -89,6 +92,10 @@
 		114E58271976BB3F0085BFAC /* resms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resms@2x.png"; sourceTree = "<group>"; };
 		114E58281976BB3F0085BFAC /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		114E58291976BB3F0085BFAC /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@2x.png"; sourceTree = "<group>"; };
+		114F7DDA197D8CFB00D16D26 /* zhijianshequ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhijianshequ.png; sourceTree = "<group>"; };
+		114F7DDB197D8CFB00D16D26 /* cellphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellphone.png; sourceTree = "<group>"; };
+		114F7DDE197D97C300D16D26 /* MyParcelsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyParcelsCell.h; sourceTree = "<group>"; };
+		114F7DDF197D97C300D16D26 /* MyParcelsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyParcelsCell.m; sourceTree = "<group>"; };
 		1189B60C197285E100DD7545 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1189B60E1972874500DD7545 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		11B001351928C83700073386 /* client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = client.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +236,8 @@
 				110BBCFB19370AAA00BA8924 /* UITouchableImageViewProtocol.h */,
 				11F27DC0197BFAC300F091DD /* UpgradeViewController.h */,
 				11F27DC1197BFAC300F091DD /* UpgradeViewController.m */,
+				114F7DDE197D97C300D16D26 /* MyParcelsCell.h */,
+				114F7DDF197D97C300D16D26 /* MyParcelsCell.m */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -266,6 +275,8 @@
 		11F566DB192E212600EF6EF1 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				114F7DDA197D8CFB00D16D26 /* zhijianshequ.png */,
+				114F7DDB197D8CFB00D16D26 /* cellphone.png */,
 				114E58261976BB3F0085BFAC /* resms.png */,
 				114E58271976BB3F0085BFAC /* resms@2x.png */,
 				114E58281976BB3F0085BFAC /* next.png */,
@@ -385,6 +396,7 @@
 				1189B60B197285E100DD7545 /* Localizable.strings in Resources */,
 				11F56701192E212600EF6EF1 /* loading8.gif in Resources */,
 				110BBCF71937002100BA8924 /* SignedParcelsCell.xib in Resources */,
+				114F7DDC197D8CFB00D16D26 /* zhijianshequ.png in Resources */,
 				11F566F5192E212600EF6EF1 /* icon@2x.png in Resources */,
 				11F56700192E212600EF6EF1 /* loading7.gif in Resources */,
 				11F56702192E212600EF6EF1 /* loading9.gif in Resources */,
@@ -403,6 +415,7 @@
 				114E582B1976BB3F0085BFAC /* resms@2x.png in Resources */,
 				11F566F4192E212600EF6EF1 /* icon.png in Resources */,
 				11F566F3192E212600EF6EF1 /* AppIcon@2x.png in Resources */,
+				114F7DDD197D8CFB00D16D26 /* cellphone.png in Resources */,
 				11E868681949EE530031002F /* history_packages_selected@2x.png in Resources */,
 				11F566FC192E212600EF6EF1 /* loading3.gif in Resources */,
 				11F566F6192E212600EF6EF1 /* loading.gif in Resources */,
@@ -438,6 +451,7 @@
 				11174849192C4C8400E99951 /* ReceivedParcelsViewController.m in Sources */,
 				110BBCFA1937091A00BA8924 /* UITouchableImageView.m in Sources */,
 				11F27DC2197BFAC300F091DD /* UpgradeViewController.m in Sources */,
+				114F7DE0197D97C300D16D26 /* MyParcelsCell.m in Sources */,
 				11B0016B1928C8A500073386 /* ServiceMethods.m in Sources */,
 				11B001491928C83700073386 /* AppDelegate.m in Sources */,
 				11B0016C1928C8A500073386 /* Utilities.m in Sources */,
