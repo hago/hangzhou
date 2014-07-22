@@ -38,8 +38,6 @@
 		11B001701928C91E00073386 /* client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B0016D1928C91E00073386 /* client.storyboard */; };
 		11B001711928C91E00073386 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B0016E1928C91E00073386 /* RegisterViewController.m */; };
 		11B0017B19290E7300073386 /* ActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B0017A19290E7300073386 /* ActiveViewController.m */; };
-		11E868681949EE530031002F /* history_packages_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E868651949EE530031002F /* history_packages_selected@2x.png */; };
-		11E868691949EE530031002F /* packages_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E868661949EE530031002F /* packages_selected@2x.png */; };
 		11E8686A1949EE530031002F /* history_packages_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E868671949EE530031002F /* history_packages_selected.png */; };
 		11F27DC2197BFAC300F091DD /* UpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F27DC1197BFAC300F091DD /* UpgradeViewController.m */; };
 		11F566F2192E212600EF6EF1 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566DC192E212600EF6EF1 /* AppIcon.png */; };
@@ -62,6 +60,11 @@
 		11F56704192E212600EF6EF1 /* packages_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566EF192E212600EF6EF1 /* packages_selected.png */; };
 		11F56705192E212600EF6EF1 /* spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566F0192E212600EF6EF1 /* spotlight.png */; };
 		11F56706192E212600EF6EF1 /* spotlight7.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F566F1192E212600EF6EF1 /* spotlight7.png */; };
+		11FAEB24197ED4A60049E975 /* packages_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FAEB23197ED4A50049E975 /* packages_selected@2x.png */; };
+		11FAEB26197ED5000049E975 /* history_packages_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FAEB25197ED5000049E975 /* history_packages_selected@2x.png */; };
+		11FAEB29197EDBCF0049E975 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FAEB28197EDBCF0049E975 /* QRCodeViewController.m */; };
+		11FAEB2E197EECDD0049E975 /* goback.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FAEB2C197EECDD0049E975 /* goback.png */; };
+		11FAEB2F197EECDD0049E975 /* goback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FAEB2D197EECDD0049E975 /* goback@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,8 +126,6 @@
 		11B0016F1928C91E00073386 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		11B0017919290E7300073386 /* ActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveViewController.h; sourceTree = "<group>"; };
 		11B0017A19290E7300073386 /* ActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveViewController.m; sourceTree = "<group>"; };
-		11E868651949EE530031002F /* history_packages_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history_packages_selected@2x.png"; sourceTree = "<group>"; };
-		11E868661949EE530031002F /* packages_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "packages_selected@2x.png"; sourceTree = "<group>"; };
 		11E868671949EE530031002F /* history_packages_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_packages_selected.png; sourceTree = "<group>"; };
 		11F27DC0197BFAC300F091DD /* UpgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeViewController.h; sourceTree = "<group>"; };
 		11F27DC1197BFAC300F091DD /* UpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeViewController.m; sourceTree = "<group>"; };
@@ -148,6 +149,12 @@
 		11F566EF192E212600EF6EF1 /* packages_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = packages_selected.png; sourceTree = "<group>"; };
 		11F566F0192E212600EF6EF1 /* spotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight.png; sourceTree = "<group>"; };
 		11F566F1192E212600EF6EF1 /* spotlight7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight7.png; sourceTree = "<group>"; };
+		11FAEB23197ED4A50049E975 /* packages_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "packages_selected@2x.png"; sourceTree = "<group>"; };
+		11FAEB25197ED5000049E975 /* history_packages_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history_packages_selected@2x.png"; sourceTree = "<group>"; };
+		11FAEB27197EDBCF0049E975 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
+		11FAEB28197EDBCF0049E975 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		11FAEB2C197EECDD0049E975 /* goback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goback.png; sourceTree = "<group>"; };
+		11FAEB2D197EECDD0049E975 /* goback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goback@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +245,8 @@
 				11F27DC1197BFAC300F091DD /* UpgradeViewController.m */,
 				114F7DDE197D97C300D16D26 /* MyParcelsCell.h */,
 				114F7DDF197D97C300D16D26 /* MyParcelsCell.m */,
+				11FAEB27197EDBCF0049E975 /* QRCodeViewController.h */,
+				11FAEB28197EDBCF0049E975 /* QRCodeViewController.m */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -275,14 +284,16 @@
 		11F566DB192E212600EF6EF1 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				11FAEB2C197EECDD0049E975 /* goback.png */,
+				11FAEB2D197EECDD0049E975 /* goback@2x.png */,
+				11FAEB25197ED5000049E975 /* history_packages_selected@2x.png */,
+				11FAEB23197ED4A50049E975 /* packages_selected@2x.png */,
 				114F7DDA197D8CFB00D16D26 /* zhijianshequ.png */,
 				114F7DDB197D8CFB00D16D26 /* cellphone.png */,
 				114E58261976BB3F0085BFAC /* resms.png */,
 				114E58271976BB3F0085BFAC /* resms@2x.png */,
 				114E58281976BB3F0085BFAC /* next.png */,
 				114E58291976BB3F0085BFAC /* next@2x.png */,
-				11E868651949EE530031002F /* history_packages_selected@2x.png */,
-				11E868661949EE530031002F /* packages_selected@2x.png */,
 				11E868671949EE530031002F /* history_packages_selected.png */,
 				11F566DC192E212600EF6EF1 /* AppIcon.png */,
 				11F566DD192E212600EF6EF1 /* AppIcon@2x.png */,
@@ -392,12 +403,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11FAEB24197ED4A60049E975 /* packages_selected@2x.png in Resources */,
 				11E8686A1949EE530031002F /* history_packages_selected.png in Resources */,
+				11FAEB2F197EECDD0049E975 /* goback@2x.png in Resources */,
 				1189B60B197285E100DD7545 /* Localizable.strings in Resources */,
 				11F56701192E212600EF6EF1 /* loading8.gif in Resources */,
 				110BBCF71937002100BA8924 /* SignedParcelsCell.xib in Resources */,
 				114F7DDC197D8CFB00D16D26 /* zhijianshequ.png in Resources */,
 				11F566F5192E212600EF6EF1 /* icon@2x.png in Resources */,
+				11FAEB26197ED5000049E975 /* history_packages_selected@2x.png in Resources */,
 				11F56700192E212600EF6EF1 /* loading7.gif in Resources */,
 				11F56702192E212600EF6EF1 /* loading9.gif in Resources */,
 				11F566F7192E212600EF6EF1 /* loading0.gif in Resources */,
@@ -408,15 +422,14 @@
 				11F566F8192E212600EF6EF1 /* loading1.gif in Resources */,
 				11F566F9192E212600EF6EF1 /* loading10.gif in Resources */,
 				11F566FA192E212600EF6EF1 /* loading11.gif in Resources */,
-				11E868691949EE530031002F /* packages_selected@2x.png in Resources */,
 				11B001701928C91E00073386 /* client.storyboard in Resources */,
 				11F56706192E212600EF6EF1 /* spotlight7.png in Resources */,
+				11FAEB2E197EECDD0049E975 /* goback.png in Resources */,
 				11F56704192E212600EF6EF1 /* packages_selected.png in Resources */,
 				114E582B1976BB3F0085BFAC /* resms@2x.png in Resources */,
 				11F566F4192E212600EF6EF1 /* icon.png in Resources */,
 				11F566F3192E212600EF6EF1 /* AppIcon@2x.png in Resources */,
 				114F7DDD197D8CFB00D16D26 /* cellphone.png in Resources */,
-				11E868681949EE530031002F /* history_packages_selected@2x.png in Resources */,
 				11F566FC192E212600EF6EF1 /* loading3.gif in Resources */,
 				11F566F6192E212600EF6EF1 /* loading.gif in Resources */,
 				11B001431928C83700073386 /* InfoPlist.strings in Resources */,
@@ -453,6 +466,7 @@
 				11F27DC2197BFAC300F091DD /* UpgradeViewController.m in Sources */,
 				114F7DE0197D97C300D16D26 /* MyParcelsCell.m in Sources */,
 				11B0016B1928C8A500073386 /* ServiceMethods.m in Sources */,
+				11FAEB29197EDBCF0049E975 /* QRCodeViewController.m in Sources */,
 				11B001491928C83700073386 /* AppDelegate.m in Sources */,
 				11B0016C1928C8A500073386 /* Utilities.m in Sources */,
 				11B001451928C83700073386 /* main.m in Sources */,

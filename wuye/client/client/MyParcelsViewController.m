@@ -11,6 +11,7 @@
 #import "Utilities.h"
 #import "UITouchableImageView.h"
 #import "MyParcelsCell.h"
+#import "QRCodeViewController.h"
 
 #define MY_PARCEL_CELL_REUSE_IDENTIFIER @"MyParcelsCell"
 
@@ -90,7 +91,9 @@ UIRefreshControl *refreshControl;
     CGSize cs = self.list.contentSize;
     CGRect current = self.list.frame;
     if (cs.height < current.size.height) {
-        CGRect r = CGRectMake(current.origin.x, current.origin.y, current.size.width, cs.height);
+        CGFloat minh = ([[UIScreen mainScreen] bounds].size.height - 49 - 44 - 20) / 2;
+        CGFloat h = cs.height < minh ? minh : cs.height;
+        CGRect r = CGRectMake(current.origin.x, current.origin.y, current.size.width, h);
         [self.list setFrame:r];
     } else if (cs.height > current.size.height) {
         CGFloat maxh = [[UIScreen mainScreen] bounds].size.height - 49 - 44 - 20;
@@ -143,10 +146,18 @@ UIRefreshControl *refreshControl;
 // end of table data source protocol
 
 // table delegate
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    NSLog(@"tap");
+    return 0.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     NSDictionary *dict = [myparcels objectAtIndex:indexPath.row];
     NSString *qrcodeurl = [dict objectForKey:@"twoDCode"];
     [Utilities startLoadingUI];
@@ -154,15 +165,16 @@ UIRefreshControl *refreshControl;
         NSLog(@"qrcode image success");
         [Utilities stopLoadingUI];
         UIImage *img = [UIImage imageWithData:response];
-        UITouchableImageView *imgview = [[UITouchableImageView alloc] initWithImage:img];
-        [imgview setClickDelegate:self];
-        [imgview setUserInteractionEnabled:YES];
-        float top = (self.view.frame.size.height - 280) / 2;
-        [imgview setFrame:CGRectMake(20, top, 280, 280)];
-        [self.view addSubview:imgview];
+        QRCodeViewController *qc = [[UIStoryboard storyboardWithName:@"client" bundle:NULL] instantiateViewControllerWithIdentifier:@"qrwindow"];
+        [qc setQrImage:img];
+        [qc setParcel:dict];
+        [self presentViewController:qc animated:YES completion:^{
+            ;
+        }];
     } onFail:^(NSError *error) {
         NSLog(@"qrcode image failed");
         [Utilities stopLoadingUI];
+        [Utilities showError:@"" Message:@"网络不给力"];
     }];
 }
 
