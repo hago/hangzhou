@@ -62,7 +62,7 @@
             </objects>
             <point key="canvasLocation" x="391" y="-70"/>
         </scene>
-        <!--Receipt View Controller - 收件-->
+        <!--Receipt View Controller-->
         <scene sceneID="t1n-5B-wAF">
             <objects>
                 <viewController storyboardIdentifier="receipt" id="Htv-LB-9hh" customClass="ReceiptViewController" sceneMemberID="viewController">
@@ -171,7 +171,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="收件" image="receive.png" id="AS3-eU-vxe"/>
+                    <tabBarItem key="tabBarItem" title="" image="receive.png" id="AS3-eU-vxe"/>
                     <connections>
                         <outlet property="btnNext" destination="Lhz-6D-qdk" id="ghD-hX-Caf"/>
                         <outlet property="deliveryNo" destination="wJq-NS-DHP" id="gx6-ja-kXA"/>
@@ -273,7 +273,7 @@
             </objects>
             <point key="canvasLocation" x="835" y="589"/>
         </scene>
-        <!--Redeem View Controller - 消单-->
+        <!--Redeem View Controller-->
         <scene sceneID="W5c-JE-5dp">
             <objects>
                 <viewController storyboardIdentifier="consume" id="1fR-fi-MIL" customClass="RedeemViewController" sceneMemberID="viewController">
@@ -282,7 +282,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="消单" image="redeem.png" id="CJm-jL-JzX"/>
+                    <tabBarItem key="tabBarItem" title="" image="redeem.png" id="CJm-jL-JzX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRQ-lm-a66" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -294,8 +294,8 @@
         <image name="delevery.png" width="42" height="42"/>
         <image name="groups.png" width="42" height="42"/>
         <image name="next.png" width="271" height="64"/>
-        <image name="receive.png" width="25" height="25"/>
-        <image name="redeem.png" width="25" height="25"/>
+        <image name="receive.png" width="114" height="81"/>
+        <image name="redeem.png" width="114" height="81"/>
         <image name="sms.png" width="271" height="64"/>
         <image name="zhijian.png" width="250" height="74"/>
     </resources>
