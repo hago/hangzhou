@@ -67,7 +67,10 @@
         [groups addObjectsFromArray:groupNames];
         [Utilities saveGroups:cellno GroupInfo:groupNames];
         //[NSThread sleepForTimeInterval:3];
-        [self.groupselector reloadData];
+        if ((groups!=nil)&&(groups.count>0)) {
+            [self.lblgroup setText:[groups objectAtIndex:0]];
+            [self.groupselector reloadData];
+        }
     } onFail:^(NSError *error) {
         NSLog(@"groups failed");
         //[groups removeAllObjects];
@@ -174,7 +177,11 @@
         [Utilities showError:@"" Message:@"通知短信发送成功，快件已记录"];
     } onFail:^(NSError *error) {
         [Utilities stopLoadingUI];
-        [Utilities showError:@"出错了" Message:[error description]];
+        if (error.code==-2) {
+            [Utilities showError:@"" Message:[error.userInfo objectForKey:@"description"]];
+        } else {
+            [Utilities showError:@"出错了" Message:[error description]];
+        }
     }];
 }
 
