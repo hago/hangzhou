@@ -78,7 +78,7 @@ UIRefreshControl *refreshControl;
         NSLog(@"my parcels %lu, %@", (unsigned long)[parcels count], [parcels description]);
         myparcels = parcels;
         [self.list reloadData];
-        [self resizeTableView];
+        //[self resizeTableView];
     } onFail:^(NSError *error) {
         NSLog(@"my pacels failed");
         [refreshControl endRefreshing];
@@ -148,12 +148,12 @@ UIRefreshControl *refreshControl;
 // table delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0.0;
+    return 5.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 0.0;
+    return 5.0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -124,12 +124,12 @@ UIRefreshControl *refreshControl;
 // table delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0.0;
+    return 5.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 0.0;
+    return 5.0;
 }
 
 // end of table delegate
