@@ -40,6 +40,8 @@
     UINib *nib = [UINib nibWithNibName:@"MyParcelsCell" bundle:nil];
     [self.list registerNib:nib forCellReuseIdentifier:SIGNED_PARCEL_CELL_REUSE_IDENTIFIER];
     
+    [self.list setFrame:CGRectMake(0, self.list.frame.origin.y, self.list.frame.size.width, [UIScreen mainScreen].bounds.size.height - self.tabBarController.tabBar.frame.size.height - self.navigationController.view.frame.size.height)];
+
     [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(startRefresh) userInfo:nil repeats:NO];
     //[self loadingParcels];
 }
