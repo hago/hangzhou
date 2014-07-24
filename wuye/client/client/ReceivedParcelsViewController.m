@@ -89,6 +89,7 @@ UIRefreshControl *refreshControl;
 - (void)viewWillDisappear:(BOOL)animated
 {
     [refreshControl endRefreshing];
+    [self.list setContentOffset:CGPointMake(0, 0) animated:YES];
 }
 
 /*

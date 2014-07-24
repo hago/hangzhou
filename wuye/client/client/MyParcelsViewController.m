@@ -113,6 +113,7 @@ UIRefreshControl *refreshControl;
 {
     NSLog(@"viewWillDisappear");
     [refreshControl endRefreshing];
+    [self.list setContentOffset:CGPointMake(0, 0) animated:YES];
 }
 
 /*
