@@ -174,4 +174,14 @@ UIView *loadingView;
     [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil] show];
 }
 
++(NSString *)datestringFromDotnetDateString:(NSString *)input
+{
+    NSString *datestr = [input substringToIndex:10];
+    NSRange range;
+    range.location = 12;
+    range.length = 8;
+    NSString *timestr = [input substringWithRange:range];
+    return [NSString stringWithFormat:@"%@ %@", datestr, timestr];
+}
+
 @end

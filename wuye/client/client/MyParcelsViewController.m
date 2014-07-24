@@ -71,7 +71,7 @@
     if (cell == nil) {
         //
     }
-    [[ServiceMethods getInstance] unsignedPacels:cell PageNumber:1 onSuceess:^(NSArray *parcels) {
+    [[ServiceMethods getInstance] unsignedPacels:@"7" PageNumber:1 onSuceess:^(NSArray *parcels) {
         NSLog(@"my pacels succeed");
         [refreshControl endRefreshing];
         NSLog(@"my parcels %lu, %@", (unsigned long)[parcels count], [parcels description]);
@@ -137,9 +137,9 @@
     MyParcelsCell *cell = [tableView dequeueReusableCellWithIdentifier:MY_PARCEL_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
     NSDictionary *dict = [myparcels objectAtIndex:indexPath.row];
     //NSNumber *pid = [dict objectForKey:@"parcelId"];
-    NSString *datestr = [dict objectForKey:@"arrivedDate"];
+    NSString *datestr = [Utilities datestringFromDotnetDateString:[dict objectForKey:@"arrivedDate"]];
     [cell.lbltitle setText:[NSString stringWithFormat:@"快递 %@", [dict objectForKey:@"logisticsId"]]];
-    [cell.lblsubtitle setText:[NSString stringWithFormat:@"到达时间：%@", [datestr substringToIndex:10]]];
+    [cell.lblsubtitle setText:[NSString stringWithFormat:@"到达时间：%@", datestr]];
     return cell;
 }
 // end of table data source protocol

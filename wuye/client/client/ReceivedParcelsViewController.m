@@ -114,9 +114,9 @@
     MyParcelsCell *cell = [tableView dequeueReusableCellWithIdentifier:SIGNED_PARCEL_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
     NSDictionary *dict = [signedparcels objectAtIndex:indexPath.row];
     //NSNumber *pid = [dict objectForKey:@"parcelId"];
-    NSString *datestr = [dict objectForKey:@"arrivedDate"];
+    NSString *datestr = [Utilities datestringFromDotnetDateString:[dict objectForKey:@"arrivedDate"]];
     [cell.lbltitle setText:[NSString stringWithFormat:@"快递 %@", [dict objectForKey:@"logisticsId"]]];
-    [cell.lblsubtitle setText:[NSString stringWithFormat:@"到达时间：%@", [datestr substringToIndex:10]]];
+    [cell.lblsubtitle setText:[NSString stringWithFormat:@"到达时间：%@", datestr]];
     return cell;
 }
 // end of table data source protocol

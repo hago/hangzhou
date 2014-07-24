@@ -7,6 +7,7 @@
 //
 
 #import "QRCodeViewController.h"
+#import "Utilities.h"
 
 @interface QRCodeViewController ()
 
@@ -33,7 +34,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.imvqr setImage:self.qrImage];
-    [self.lblgroup setText:[self.parcel objectForKey:@"groupName"]];
+    //[self.lblgroup setText:[self.parcel objectForKey:@"groupName"]];
+    [self.lblgroup setText:[Utilities datestringFromDotnetDateString:[self.parcel objectForKey:@"arrivedDate"]]];
 }
 
 -(IBAction)clickExit:(id)sender
