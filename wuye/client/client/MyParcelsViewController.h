@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "UITouchableImageViewProtocol.h"
 
-@interface MyParcelsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITouchableImageViewProtocol>
+@interface MyParcelsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITouchableImageViewProtocol> {
+    UIRefreshControl *refreshControl;
+    NSArray *myparcels;
+}
 
 @property (strong, atomic) IBOutlet UITableView *list;
 

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReceivedParcelsViewController : UIViewController<UITableViewDataSource>
+@interface ReceivedParcelsViewController : UIViewController<UITableViewDataSource> {
+    NSArray *signedparcels;
+    UIRefreshControl *refreshControl;
+}
 
 @property (strong, atomic) IBOutlet UITableView *list;
 

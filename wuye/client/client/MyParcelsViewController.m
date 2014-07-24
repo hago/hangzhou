@@ -26,9 +26,6 @@
 
 @synthesize list;
 
-NSArray *myparcels;
-UIRefreshControl *refreshControl;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -111,7 +108,6 @@ UIRefreshControl *refreshControl;
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    NSLog(@"viewWillDisappear");
     [refreshControl endRefreshing];
     [self.list setContentOffset:CGPointMake(0, 0) animated:YES];
 }

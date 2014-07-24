@@ -21,9 +21,6 @@
 
 @implementation ReceivedParcelsViewController
 
-NSArray *signedparcels;
-UIRefreshControl *refreshControl;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
