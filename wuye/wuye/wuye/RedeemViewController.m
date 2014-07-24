@@ -93,7 +93,14 @@
                 [[[UIAlertView alloc] initWithTitle:@"" message:@"网络不好，请再试一次" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
                 return;
             }
-            NSString *code = [dict objectForKey:@"code"];
+            id x = [dict objectForKey:@"code"];
+            NSString *code;
+            if ([x isKindOfClass:[NSNumber class]]) {
+                NSNumber *n = (NSNumber *)x;
+                code = [NSString stringWithFormat:@"%ld", [n longValue]];
+            } else {
+                code = (NSString *)x;
+            }
             if (![code isEqualToString:@"0"]) {
                 [[[UIAlertView alloc] initWithTitle:@"" message:@"不是有效的取货二维码" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
                 return;
