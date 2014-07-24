@@ -105,7 +105,7 @@
                 [[[UIAlertView alloc] initWithTitle:@"" message:@"不是有效的取货二维码" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
                 return;
             }
-            [[[UIAlertView alloc] initWithTitle:@"" message:@"验证二维码成功" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"" message:@"签收包裹成功" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         } onFail:^(NSError *error) {
             NSLog(@"qr url fail");
             [Utilities stopLoadingUI];
