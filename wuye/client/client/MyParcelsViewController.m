@@ -71,7 +71,7 @@
     if (cell == nil) {
         //
     }
-    [[ServiceMethods getInstance] unsignedPacels:@"7" PageNumber:1 onSuceess:^(NSArray *parcels) {
+    [[ServiceMethods getInstance] unsignedPacels:cell PageNumber:1 onSuceess:^(NSArray *parcels) {
         NSLog(@"my pacels succeed");
         [refreshControl endRefreshing];
         NSLog(@"my parcels %lu, %@", (unsigned long)[parcels count], [parcels description]);
