@@ -256,7 +256,7 @@
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                 <color key="tintColor" red="0.0" green="0.58431372550000005" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Title" id="uov-QX-GLt">
+                                    <navigationItem title="签收" id="uov-QX-GLt">
                                         <barButtonItem key="leftBarButtonItem" id="ZWv-3G-a0c">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FxK-Jz-Il4">
                                                 <rect key="frame" x="16" y="7" width="30" height="30"/>
